@@ -59,41 +59,33 @@
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       min-width: 0;
     }
 
-    .mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 2px solid var(--orange);
-      border-radius: 8px;
-      color: var(--orange);
-      font-weight: 950;
-      line-height: 1;
-      flex: 0 0 auto;
+    .logo {
+      display: block;
+      width: min(158px, 48vw);
+      height: auto;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .16);
     }
 
-    .brand strong {
+    .brand-caption {
       display: block;
-      font-size: 1rem;
+      color: rgba(255, 255, 255, .78);
+      font-size: .82rem;
+      font-weight: 850;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .brand span,
     .hero p {
       color: rgba(255, 255, 255, .74);
-    }
-
-    .brand span {
-      display: block;
-      margin-top: 2px;
-      font-size: .78rem;
     }
 
     .badge {
@@ -420,11 +412,8 @@
   <div class="app">
     <header class="topbar">
       <div class="brand">
-        <div class="mark">T</div>
-        <div>
-          <strong>Tover Cantiere</strong>
-          <span>Calcolo per posatori</span>
-        </div>
+        <img class="logo" src="assets/tover-logo.png" alt="Tover">
+        <span class="brand-caption">Calcolo per posatori</span>
       </div>
       <div class="badge">Prezzo libero</div>
     </header>
