@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calcolatore Costo-Cantiere Tover</title>
+  <meta name="theme-color" content="#24272b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tover Cantiere">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/tover-icon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: light;
+      --tover-orange: #F37021;
+      --anthracite: #24272b;
+      --anthracite-2: #34383d;
+      --ink: #16181b;
+      --muted: #6d737a;
+      --line: #d9dde1;
+      --paper: #f4f5f6;
+      --panel: #ffffff;
+      --success: #1f7a4d;
+      --danger: #b83232;
+      --shadow: 0 14px 34px rgba(22, 24, 27, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, var(--anthracite) 0 430px, var(--paper) 430px 100%);
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .app {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 18px 14px 28px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 52px;
+      color: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--tover-orange);
+      border-radius: 8px;
+      color: var(--tover-orange);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-text span {
+      display: block;
+      color: rgba(255, 255, 255, .72);
+      font-size: .78rem;
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 8px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, .9);
+      font-size: .74rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .install-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--tover-orange);
+      font-size: .82rem;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .install-btn.is-visible {
+      display: inline-flex;
+    }
+
+    .hero {
+      color: #fff;
+      padding: 20px 0 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 11vw, 3.75rem);
+      line-height: .98;
+      letter-spacing: 0;
+      max-width: 9.5ch;
+    }
+
+    .hero p {
+      margin: 12px 0 0;
+      max-width: 100%;
+      color: rgba(255, 255, 255, .78);
+      line-height: 1.45;
+      font-size: .98rem;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .form {
+      display: grid;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--anthracite);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 56px;
+      border: 2px solid #cfd4d9;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 14px;
+      font-size: 1.06rem;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--tover-orange);
+      box-shadow: 0 0 0 4px rgba(243, 112, 33, .16);
+    }
+
+    select {
+      appearance: none;
+      padding-right: 42px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--anthracite) 50%),
+        linear-gradient(135deg, var(--anthracite) 50%, transparent 50%);
+      background-position:
+        calc(100% - 22px) 24px,
+        calc(100% - 15px) 24px;
+      background-size: 7px 7px;
+      background-repeat: no-repeat;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .detail {
+      min-height: 72px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8f9fa;
+    }
+
+    .detail span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .detail strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--anthracite);
+      font-size: .96rem;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 56px;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .calculate,
+    .reset {
+      min-height: 58px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .calculate {
+      color: #fff;
+      background: var(--tover-orange);
+      box-shadow: 0 10px 22px rgba(243, 112, 33, .28);
+    }
+
+    .calculate:active,
+    .reset:active {
+      transform: translateY(1px);
+    }
+
+    .reset {
+      display: grid;
+      place-items: center;
+      color: var(--anthracite);
+      background: #eceff1;
+    }
+
+    .reset svg {
+      width: 23px;
+      height: 23px;
+      stroke-width: 2.5;
+    }
+
+    .notice {
+      display: none;
+      margin: 0;
+      padding: 12px;
+      border: 1px solid rgba(184, 50, 50, .24);
+      border-radius: 8px;
+      color: var(--danger);
+      background: rgba(184, 50, 50, .08);
+      font-size: .92rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .notice.is-visible {
+      display: block;
+    }
+
+    .results {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .result-box {
+      min-height: 122px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(22, 24, 27, .09);
+    }
+
+    .result-box.primary {
+      color: #fff;
+      background: var(--anthracite);
+      border-color: var(--anthracite);
+    }
+
+    .result-box.accent {
+      border-color: rgba(243, 112, 33, .46);
+      background: #fff6f0;
+    }
+
+    .result-box span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .result-box.primary span {
+      color: rgba(255, 255, 255, .68);
+    }
+
+    .result-box strong {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.32rem, 7vw, 2.15rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .result-box p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: .9rem;
+    }
+
+    .result-box.primary p {
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .summary {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--anthracite-2);
+    }
+
+    .summary dl {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 9px 14px;
+      margin: 0;
+    }
+
+    .summary dt {
+      color: rgba(255, 255, 255, .7);
+      font-size: .86rem;
+    }
+
+    .summary dd {
+      margin: 0;
+      font-weight: 850;
+      text-align: right;
+    }
+
+    .source {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    @media (min-width: 920px) {
+      body {
+        background:
+          linear-gradient(90deg, var(--anthracite) 0 38%, var(--paper) 38% 100%);
+      }
+
+      .app {
+        width: min(100%, 1100px);
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+        gap: 22px;
+        align-content: start;
+        padding: 26px;
+      }
+
+      .topbar,
+      .hero {
+        grid-column: 1;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .install-btn.is-visible {
+        display: inline-flex;
+      }
+
+      .panel,
+      .results,
+      .summary,
+      .source {
+        grid-column: 2;
+      }
+
+      .panel {
+        grid-row: 1 / span 2;
+        align-self: start;
+        margin-top: 0;
+      }
+
+      .results {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 0;
+      }
+
+      .result-box {
+        min-height: 178px;
+      }
+
+      .summary,
+      .source {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar" aria-label="Intestazione">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div class="brand-text">
+          <strong>Tover Cantiere</strong>
+          <span>Listino prezzi 2026</span>
+        </div>
+      </div>
+      <div class="badge">IVA esclusa</div>
+      <button class="install-btn" id="installBtn" type="button">Installa</button>
+    </header>
+
+    <section class="hero">
+      <h1>Calcolo costo materiale</h1>
+      <p>Inserisci i metri quadri, scegli prodotto e formato, poi calcola confezioni e costo da listino.</p>
+    </section>
+
+    <main class="panel">
+      <form class="form" id="calculator" novalidate>
+        <label for="sqm">
+          Metri quadri del cantiere
+          <input id="sqm" name="sqm" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Es. 85" autocomplete="off">
+        </label>
+
+        <label for="product">
+          Prodotto e formato
+          <select id="product" name="product"></select>
+        </label>
+
+        <div class="details" aria-live="polite">
+          <div class="detail">
+            <span>Prezzo</span>
+            <strong id="unitPrice">-</strong>
+          </div>
+          <div class="detail">
+            <span>Resa</span>
+            <strong id="yield">-</strong>
+          </div>
+          <div class="detail">
+            <span>Formato</span>
+            <strong id="packSize">-</strong>
+          </div>
+        </div>
+
+        <p class="notice" id="notice">Inserisci i metri quadri del cantiere e seleziona un prodotto.</p>
+
+        <div class="button-row">
+          <button class="calculate" type="submit">Calcola</button>
+          <button class="reset" type="button" id="resetBtn" aria-label="Azzera">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+              <path d="M3 3v6h6"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <section class="results" aria-live="polite">
+      <article class="result-box primary">
+        <span>Costo al m²</span>
+        <strong id="costPerSqm">-</strong>
+        <p id="costSentence">Il costo del materiale è di 0,00 EUR al metro quadro.</p>
+      </article>
+
+      <article class="result-box accent">
+        <span>Confezioni</span>
+        <strong id="packs">-</strong>
+        <p id="packsSentence">Per questo cantiere ti servono 0 confezioni.</p>
+      </article>
+
+      <article class="result-box">
+        <span>Totale listino</span>
+        <strong id="totalCost">-</strong>
+        <p id="totalSentence">Costo totale da listino: 0,00 EUR (IVA esclusa).</p>
+      </article>
+    </section>
+
+    <aside class="summary">
+      <dl>
+        <dt>Quantità necessaria</dt>
+        <dd id="totalQuantity">-</dd>
+        <dt>Materiale acquistato</dt>
+        <dd id="boughtQuantity">-</dd>
+        <dt>Prodotto selezionato</dt>
+        <dd id="selectedProduct">-</dd>
+      </dl>
+    </aside>
+
+    <p class="source">Prezzi unitari tratti da “TOVER listino prezzi 2026-rev MAG 26.pdf”. Rese inserite nel JSON interno come parametri operativi per il calcolo cantiere.</p>
+  </div>
+
+  <script>
+    const PRODUCTS = [
+      { category: "Primer e sottofondi", name: "Primer PU100", format: "12 kg", priceUnit: 20.46, unit: "kg", yieldPerSqm: 0.15, packSize: 12 },
+      { category: "Primer e sottofondi", name: "Primer PU100", format: "6 kg", priceUnit: 21.09, unit: "kg", yieldPerSqm: 0.15, packSize: 6 },
+      { category: "Primer e sottofondi", name: "Primer MS", format: "5 kg", priceUnit: 31.39, unit: "kg", yieldPerSqm: 0.15, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Adeblok T19", format: "Kit 7,5 L", priceUnit: 27.89, unit: "L", yieldPerSqm: 0.12, packSize: 7.5 },
+      { category: "Primer e sottofondi", name: "Nano-Fix", format: "10 L", priceUnit: 10.53, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Primer e sottofondi", name: "Nano-Fix", format: "5 L", priceUnit: 11.18, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Idroblok Mono", format: "5 L", priceUnit: 14.70, unit: "L", yieldPerSqm: 0.12, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Idroblok 2K", format: "Kit 10 L", priceUnit: 20.82, unit: "L", yieldPerSqm: 0.12, packSize: 10 },
+      { category: "Primer e sottofondi", name: "Idroblok C3", format: "5 kg", priceUnit: 18.69, unit: "kg", yieldPerSqm: 0.15, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Primer TS", format: "12 L", priceUnit: 5.30, unit: "L", yieldPerSqm: 0.10, packSize: 12 },
+      { category: "Primer e sottofondi", name: "Primer C1", format: "10 L", priceUnit: 8.39, unit: "L", yieldPerSqm: 0.12, packSize: 10 },
+      { category: "Primer e sottofondi", name: "Primer C1", format: "5 L", priceUnit: 9.08, unit: "L", yieldPerSqm: 0.12, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Toverfix", format: "10 L", priceUnit: 18.36, unit: "L", yieldPerSqm: 0.12, packSize: 10 },
+      { category: "Primer e sottofondi", name: "Toverfix", format: "5 L", priceUnit: 18.99, unit: "L", yieldPerSqm: 0.12, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Primer PU-Fix 60", format: "5 L", priceUnit: 23.09, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Primer e sottofondi", name: "P.EP.P.", format: "5 L", priceUnit: 10.84, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Primer e sottofondi", name: "P.EP.P.", format: "1 L", priceUnit: 13.40, unit: "L", yieldPerSqm: 0.10, packSize: 1 },
+      { category: "Primer e sottofondi", name: "Primer C4", format: "5 L", priceUnit: 11.23, unit: "L", yieldPerSqm: 0.12, packSize: 5 },
+      { category: "Primer e sottofondi", name: "Rockfloor F10", format: "25 kg", priceUnit: 2.68, unit: "kg", yieldPerSqm: 1.60, packSize: 25 },
+      { category: "Primer e sottofondi", name: "Quarzo Puro", format: "25 kg", priceUnit: 1.51, unit: "kg", yieldPerSqm: 0.30, packSize: 25 },
+      { category: "Primer e sottofondi", name: "LVT Leveller", format: "5 kg", priceUnit: 5.10, unit: "kg", yieldPerSqm: 1.60, packSize: 5 },
+      { category: "Primer e sottofondi", name: "LVT Leveller Rimovibile", format: "5 kg", priceUnit: 5.10, unit: "kg", yieldPerSqm: 1.60, packSize: 5 },
+
+      { category: "Adesivi per parquet", name: "Tovcol TP2C", format: "Kit 11 kg", priceUnit: 6.22, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+      { category: "Adesivi per parquet", name: "Tovcol TA", format: "Kit 11 kg", priceUnit: 5.85, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+      { category: "Adesivi per parquet", name: "Tovcol PU2C", format: "Kit 11 kg", priceUnit: 7.08, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+      { category: "Adesivi per parquet", name: "Tovcol PU2C", format: "Kit 5 kg", priceUnit: 7.59, unit: "kg", yieldPerSqm: 1.10, packSize: 5 },
+      { category: "Adesivi per parquet", name: "Tovcol MS", format: "15 kg", priceUnit: 9.85, unit: "kg", yieldPerSqm: 1.00, packSize: 15 },
+      { category: "Adesivi per parquet", name: "Tovcol MS in sacchetti", format: "15 kg", priceUnit: 10.34, unit: "kg", yieldPerSqm: 1.00, packSize: 15 },
+      { category: "Adesivi per parquet", name: "Tovcol MS Start", format: "15 kg", priceUnit: 9.34, unit: "kg", yieldPerSqm: 1.00, packSize: 15 },
+      { category: "Adesivi per parquet", name: "Tovcol MS Start in sacchetti", format: "15 kg", priceUnit: 9.82, unit: "kg", yieldPerSqm: 1.00, packSize: 15 },
+      { category: "Adesivi per parquet", name: "Tovcol S/E", format: "5 kg", priceUnit: 11.25, unit: "kg", yieldPerSqm: 1.10, packSize: 5 },
+      { category: "Adesivi per parquet", name: "Restauro", format: "3 kg", priceUnit: 34.74, unit: "kg", yieldPerSqm: 0.20, packSize: 3 },
+
+      { category: "Adesivi per resilienti", name: "Tovcol LVT Fibre+", format: "12 kg", priceUnit: 8.81, unit: "kg", yieldPerSqm: 0.30, packSize: 12 },
+      { category: "Adesivi per resilienti", name: "Tovcol LVT Fibre+", format: "5 kg", priceUnit: 9.30, unit: "kg", yieldPerSqm: 0.30, packSize: 5 },
+      { category: "Adesivi per resilienti", name: "Tovcol MS LVT", format: "5 kg", priceUnit: 19.39, unit: "kg", yieldPerSqm: 0.35, packSize: 5 },
+      { category: "Adesivi per resilienti", name: "Tovcol MS LVT Wall", format: "5 kg", priceUnit: 21.43, unit: "kg", yieldPerSqm: 0.35, packSize: 5 },
+      { category: "Adesivi per resilienti", name: "Tovcol RP", format: "15 kg", priceUnit: 14.07, unit: "kg", yieldPerSqm: 0.35, packSize: 15 },
+      { category: "Adesivi per resilienti", name: "Tovcol RP", format: "7 kg", priceUnit: 13.02, unit: "kg", yieldPerSqm: 0.35, packSize: 7 },
+      { category: "Adesivi per resilienti", name: "Tovcol MPL", format: "15 kg", priceUnit: 7.62, unit: "kg", yieldPerSqm: 0.35, packSize: 15 },
+      { category: "Adesivi per resilienti", name: "Tovcol TST", format: "6 kg", priceUnit: 9.20, unit: "kg", yieldPerSqm: 0.35, packSize: 6 },
+      { category: "Adesivi per resilienti", name: "Tovcol Wet&Dry", format: "12 kg", priceUnit: 8.21, unit: "kg", yieldPerSqm: 0.25, packSize: 12 },
+      { category: "Adesivi per resilienti", name: "Tovcol T91", format: "Kit 11 kg", priceUnit: 10.16, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+      { category: "Adesivi per resilienti", name: "Tovcol PU2K", format: "Kit 11 kg", priceUnit: 6.80, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+
+      { category: "Erba sintetica", name: "Tovcol PU2K Green", format: "Kit 11 kg", priceUnit: 7.05, unit: "kg", yieldPerSqm: 1.10, packSize: 11 },
+      { category: "Erba sintetica", name: "Tovcol MS Green", format: "5 kg", priceUnit: 13.77, unit: "kg", yieldPerSqm: 1.00, packSize: 5 },
+      { category: "Erba sintetica", name: "Line Maker", format: "15 kg", priceUnit: 7.14, unit: "kg", yieldPerSqm: 0.20, packSize: 15 },
+      { category: "Erba sintetica", name: "Line Maker", format: "7,5 kg", priceUnit: 7.35, unit: "kg", yieldPerSqm: 0.20, packSize: 7.5 },
+      { category: "Erba sintetica", name: "Giardino Pulito", format: "5 L", priceUnit: 11.79, unit: "L", yieldPerSqm: 0.05, packSize: 5 },
+      { category: "Erba sintetica", name: "Giardino Pulito", format: "1 L", priceUnit: 13.41, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+
+      { category: "Stucchi e fondi all'acqua", name: "Idrostucco RS/30", format: "5 L", priceUnit: 12.37, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Prontostucco RS/40", format: "5 kg", priceUnit: 6.27, unit: "kg", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Prontostucco RS/40", format: "1 kg", priceUnit: 7.79, unit: "kg", yieldPerSqm: 0.10, packSize: 1 },
+      { category: "Stucchi e fondi all'acqua", name: "Idrofondo H20", format: "5 L", priceUnit: 14.68, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Fast&Full", format: "5 L", priceUnit: 21.65, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Bravo", format: "5 L", priceUnit: 19.11, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Idrofondo Mito", format: "Kit 5,5 L", priceUnit: 21.53, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Stucchi e fondi all'acqua", name: "Super Gold", format: "Kit 6 L", priceUnit: 25.41, unit: "L", yieldPerSqm: 0.10, packSize: 6 },
+      { category: "Stucchi e fondi all'acqua", name: "Base Gold", format: "Kit 6 L", priceUnit: 23.52, unit: "L", yieldPerSqm: 0.10, packSize: 6 },
+      { category: "Stucchi e fondi all'acqua", name: "Tone Up", format: "5 L", priceUnit: 18.57, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Fondo Antitannino", format: "5 L", priceUnit: 21.57, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Stucchi e fondi all'acqua", name: "Fondo Antitannino", format: "1 L", priceUnit: 24.23, unit: "L", yieldPerSqm: 0.10, packSize: 1 },
+
+      { category: "Vernici all'acqua", name: "Maxima", format: "Kit 5,5 L", priceUnit: 32.34, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Maxima Extra-matt", format: "Kit 5,5 L", priceUnit: 34.23, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Essenza", format: "Kit 5,5 L", priceUnit: 42.17, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Lympha", format: "Kit 5,5 L", priceUnit: 41.05, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Idrolak DR97", format: "Kit 5,5 L", priceUnit: 29.93, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Idrolak DR97 Extra-matt", format: "Kit 5,5 L", priceUnit: 32.03, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Bella", format: "Kit 5,5 L", priceUnit: 34.23, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Bella Extra-matt", format: "Kit 5,5 L", priceUnit: 35.96, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Bella Natur", format: "Kit 5,5 L", priceUnit: 42.57, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Vernici all'acqua", name: "Uniqua SQ", format: "5 L", priceUnit: 30.05, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Uniqua SQ Extra-matt", format: "5 L", priceUnit: 31.08, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Uniqua Natur", format: "5 L", priceUnit: 37.79, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Uniqua Antislip", format: "5 L", priceUnit: 37.79, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Home Maxi", format: "5 L", priceUnit: 22.84, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Home Maxi Extra-matt", format: "5 L", priceUnit: 26.06, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Smart", format: "5 L", priceUnit: 20.98, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Vernici all'acqua", name: "Natural Wood", format: "2,5 L", priceUnit: 37.89, unit: "L", yieldPerSqm: 0.10, packSize: 2.5 },
+      { category: "Vernici all'acqua", name: "Natural Wood", format: "1 L", priceUnit: 40.44, unit: "L", yieldPerSqm: 0.10, packSize: 1 },
+
+      { category: "Finiture e stucchi al solvente", name: "Clean&Go", format: "5 L", priceUnit: 10.60, unit: "L", yieldPerSqm: 0.08, packSize: 5 },
+      { category: "Finiture e stucchi al solvente", name: "Clean&Go", format: "1 L", priceUnit: 11.68, unit: "L", yieldPerSqm: 0.08, packSize: 1 },
+      { category: "Finiture e stucchi al solvente", name: "Grip&Go", format: "Kit 5 L", priceUnit: 25.74, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Finiture e stucchi al solvente", name: "Lega Stucco RS/A", format: "10 L", priceUnit: 11.24, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Finiture e stucchi al solvente", name: "Lega Stucco RS/A", format: "5 L", priceUnit: 11.87, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Finiture e stucchi al solvente", name: "Lega Stucco RS/20", format: "10 L", priceUnit: 14.60, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Finiture e stucchi al solvente", name: "Lega Stucco RS/20", format: "5 L", priceUnit: 15.23, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Finiture e stucchi al solvente", name: "Fondo Isolante AL", format: "5 L", priceUnit: 13.23, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Finiture e stucchi al solvente", name: "Gran Fondo", format: "Kit 20 L", priceUnit: 20.48, unit: "L", yieldPerSqm: 0.10, packSize: 20 },
+      { category: "Finiture e stucchi al solvente", name: "Gran Fondo", format: "Kit 10 L", priceUnit: 21.95, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Finiture e stucchi al solvente", name: "Durolak DD 60 Semilucida", format: "Kit 10 L", priceUnit: 25.70, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+
+      { category: "Oli, cere e coloranti", name: "L'Olio 100% Neutro", format: "2,5 L", priceUnit: 74.57, unit: "L", yieldPerSqm: 0.05, packSize: 2.5 },
+      { category: "Oli, cere e coloranti", name: "L'Olio 100% Neutro", format: "1 L", priceUnit: 43.81, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "L'Olio 100% Colorato standard", format: "1 L", priceUnit: 46.38, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "L'Olio 100% Colorato exclusive", format: "1 L", priceUnit: 74.57, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Crema d'Olio", format: "2,5 L", priceUnit: 46.32, unit: "L", yieldPerSqm: 0.06, packSize: 2.5 },
+      { category: "Oli, cere e coloranti", name: "Tintoretto Design Neutro", format: "1 L", priceUnit: 33.37, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Tintoretto Design Colorato standard", format: "1 L", priceUnit: 36.46, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Tintoretto Design Colorato exclusive", format: "1 L", priceUnit: 50.52, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Oil Pro", format: "2,5 L", priceUnit: 49.08, unit: "L", yieldPerSqm: 0.06, packSize: 2.5 },
+      { category: "Oli, cere e coloranti", name: "Oil Pro", format: "1 L", priceUnit: 51.73, unit: "L", yieldPerSqm: 0.06, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Maxi Oil", format: "2,5 L", priceUnit: 62.34, unit: "L", yieldPerSqm: 0.06, packSize: 2.5 },
+      { category: "Oli, cere e coloranti", name: "Maxi Oil", format: "1 L", priceUnit: 65.00, unit: "L", yieldPerSqm: 0.06, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Maxi Oil Extra-matt", format: "2,5 L", priceUnit: 30.79, unit: "L", yieldPerSqm: 0.06, packSize: 2.5 },
+      { category: "Oli, cere e coloranti", name: "Antique", format: "5 L", priceUnit: 8.18, unit: "L", yieldPerSqm: 0.05, packSize: 5 },
+      { category: "Oli, cere e coloranti", name: "Bosch Vej", format: "5 L", priceUnit: 10.56, unit: "L", yieldPerSqm: 0.05, packSize: 5 },
+      { category: "Oli, cere e coloranti", name: "Bosch Vej", format: "1 L", priceUnit: 13.22, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+      { category: "Oli, cere e coloranti", name: "Bosch Ciair", format: "5 L", priceUnit: 11.15, unit: "L", yieldPerSqm: 0.05, packSize: 5 },
+      { category: "Oli, cere e coloranti", name: "Bosch Ciair", format: "1 L", priceUnit: 13.88, unit: "L", yieldPerSqm: 0.05, packSize: 1 },
+
+      { category: "Sportivi e resilienti", name: "Sportfloor Skate", format: "Kit 6 L", priceUnit: 38.60, unit: "L", yieldPerSqm: 0.10, packSize: 6 },
+      { category: "Sportivi e resilienti", name: "Sportfloor Finish", format: "Kit 5,5 L", priceUnit: 33.50, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Sportivi e resilienti", name: "Sportfloor Grip", format: "Kit 5,5 L", priceUnit: 32.54, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Sportivi e resilienti", name: "Sportfloor Base 1K", format: "5 L", priceUnit: 17.06, unit: "L", yieldPerSqm: 0.10, packSize: 5 },
+      { category: "Sportivi e resilienti", name: "Maxima Flex", format: "Kit 5,5 L", priceUnit: 32.34, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Sportivi e resilienti", name: "Maxima Flex", format: "Kit 1,1 L", priceUnit: 34.34, unit: "L", yieldPerSqm: 0.10, packSize: 1.1 },
+      { category: "Sportivi e resilienti", name: "Flex Protect", format: "Kit 5,5 L", priceUnit: 40.72, unit: "L", yieldPerSqm: 0.10, packSize: 5.5 },
+      { category: "Sportivi e resilienti", name: "Flex Color", format: "Kit 2,75 L", priceUnit: 64.40, unit: "L", yieldPerSqm: 0.10, packSize: 2.75 },
+
+      { category: "Legno in esterno", name: "Pro-Deck Neutro", format: "10 L", priceUnit: 22.50, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Legno in esterno", name: "Pro-Deck Neutro", format: "2,5 L", priceUnit: 24.53, unit: "L", yieldPerSqm: 0.10, packSize: 2.5 },
+      { category: "Legno in esterno", name: "Pro-Deck Neutro", format: "1 L", priceUnit: 27.30, unit: "L", yieldPerSqm: 0.10, packSize: 1 },
+      { category: "Legno in esterno", name: "Pro-Deck Colorato", format: "10 L", priceUnit: 28.90, unit: "L", yieldPerSqm: 0.10, packSize: 10 },
+      { category: "Legno in esterno", name: "Pro-Deck Colorato", format: "2,5 L", priceUnit: 30.98, unit: "L", yieldPerSqm: 0.10, packSize: 2.5 },
+      { category: "Legno in esterno", name: "Pro-Deck Colorato", format: "1 L", priceUnit: 32.98, unit: "L", yieldPerSqm: 0.10, packSize: 1 },
+      { category: "Legno in esterno", name: "Oil4Sun Neutro", format: "2,5 L", priceUnit: 25.09, unit: "L", yieldPerSqm: 0.08, packSize: 2.5 },
+      { category: "Legno in esterno", name: "Oil4Sun Neutro", format: "1 L", priceUnit: 27.59, unit: "L", yieldPerSqm: 0.08, packSize: 1 },
+      { category: "Legno in esterno", name: "Oil4Sun Colorato", format: "2,5 L", priceUnit: 30.98, unit: "L", yieldPerSqm: 0.08, packSize: 2.5 },
+      { category: "Legno in esterno", name: "Oil4Sun Colorato", format: "1 L", priceUnit: 32.98, unit: "L", yieldPerSqm: 0.08, packSize: 1 },
+      { category: "Legno in esterno", name: "Re-Wood", format: "1 L", priceUnit: 13.71, unit: "L", yieldPerSqm: 0.06, packSize: 1 },
+      { category: "Legno in esterno", name: "Grey Free", format: "5 L", priceUnit: 27.90, unit: "L", yieldPerSqm: 0.08, packSize: 5 },
+      { category: "Legno in esterno", name: "Grey Free", format: "1 L", priceUnit: 28.78, unit: "L", yieldPerSqm: 0.08, packSize: 1 },
+      { category: "Legno in esterno", name: "WPC Cover", format: "5 L", priceUnit: 32.74, unit: "L", yieldPerSqm: 0.08, packSize: 5 },
+      { category: "Legno in esterno", name: "WPC Cover", format: "1 L", priceUnit: 33.98, unit: "L", yieldPerSqm: 0.08, packSize: 1 },
+
+      { category: "Detergenza e manutenzione", name: "Pulito Parquet", format: "1 L", priceUnit: 9.95, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Pulito Parquet Ready", format: "1 L", priceUnit: 5.89, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Deteroil", format: "1 L", priceUnit: 13.24, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Deteroil Bianco", format: "1 L", priceUnit: 13.83, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "MyFloor Cleaner", format: "1 L", priceUnit: 9.95, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Nettardue", format: "1 L", priceUnit: 10.51, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Sanifloor", format: "1 L", priceUnit: 10.45, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Saniparquet", format: "1 L", priceUnit: 10.45, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Lux", format: "1 L", priceUnit: 13.31, unit: "L", yieldPerSqm: 0.04, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Lux Matt", format: "1 L", priceUnit: 13.77, unit: "L", yieldPerSqm: 0.04, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Lux Bianca", format: "1 L", priceUnit: 17.58, unit: "L", yieldPerSqm: 0.04, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Sani Pro", format: "1 L", priceUnit: 25.26, unit: "L", yieldPerSqm: 0.03, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "I.R.O.", format: "1 L", priceUnit: 14.93, unit: "L", yieldPerSqm: 0.04, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Resinal Wax", format: "1 L", priceUnit: 16.20, unit: "L", yieldPerSqm: 0.04, packSize: 1 },
+      { category: "Detergenza e manutenzione", name: "Rinovoil", format: "1 L", priceUnit: 25.48, unit: "L", yieldPerSqm: 0.04, packSize: 1 }
+    ];
+
+    const formatter = new Intl.NumberFormat("it-IT", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    const numberFormatter = new Intl.NumberFormat("it-IT", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    const integerFormatter = new Intl.NumberFormat("it-IT", {
+      maximumFractionDigits: 0
+    });
+
+    const productSelect = document.querySelector("#product");
+    const sqmInput = document.querySelector("#sqm");
+    const form = document.querySelector("#calculator");
+    const resetBtn = document.querySelector("#resetBtn");
+    const notice = document.querySelector("#notice");
+    let hasCalculated = false;
+
+    function productId(product, index) {
+      return `${product.name}-${product.format}-${index}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    }
+
+    function populateProducts() {
+      const categories = [...new Set(PRODUCTS.map(product => product.category))];
+      productSelect.innerHTML = "";
+
+      categories.forEach(category => {
+        const group = document.createElement("optgroup");
+        group.label = category;
+        PRODUCTS.forEach((product, index) => {
+          if (product.category !== category) return;
+          const option = document.createElement("option");
+          option.value = productId(product, index);
+          option.textContent = `${product.name} - ${product.format} - ${formatter.format(product.priceUnit)}/${product.unit}`;
+          group.appendChild(option);
+        });
+        productSelect.appendChild(group);
+      });
+    }
+
+    function getSelectedProduct() {
+      const selectedId = productSelect.value;
+      return PRODUCTS.find((product, index) => productId(product, index) === selectedId) || PRODUCTS[0];
+    }
+
+    function formatAmount(value, unit) {
+      return `${numberFormatter.format(value)} ${unit}`;
+    }
+
+    function updateProductDetails() {
+      const product = getSelectedProduct();
+      document.querySelector("#unitPrice").textContent = `${formatter.format(product.priceUnit)}/${product.unit}`;
+      document.querySelector("#yield").textContent = `${numberFormatter.format(product.yieldPerSqm)} ${product.unit}/m²`;
+      document.querySelector("#packSize").textContent = formatAmount(product.packSize, product.unit);
+      document.querySelector("#selectedProduct").textContent = `${product.name} ${product.format}`;
+    }
+
+    function setEmptyResults() {
+      document.querySelector("#costPerSqm").textContent = "-";
+      document.querySelector("#packs").textContent = "-";
+      document.querySelector("#totalCost").textContent = "-";
+      document.querySelector("#costSentence").textContent = "Il costo del materiale è di 0,00 EUR al metro quadro.";
+      document.querySelector("#packsSentence").textContent = "Per questo cantiere ti servono 0 confezioni.";
+      document.querySelector("#totalSentence").textContent = "Costo totale da listino: 0,00 EUR (IVA esclusa).";
+      document.querySelector("#totalQuantity").textContent = "-";
+      document.querySelector("#boughtQuantity").textContent = "-";
+    }
+
+    function calculate() {
+      const product = getSelectedProduct();
+      const sqm = Number(String(sqmInput.value).replace(",", "."));
+
+      updateProductDetails();
+
+      if (!sqm || sqm <= 0) {
+        notice.classList.add("is-visible");
+        setEmptyResults();
+        return;
+      }
+
+      notice.classList.remove("is-visible");
+
+      const costPerSqm = product.priceUnit * product.yieldPerSqm;
+      const totalQuantity = product.yieldPerSqm * sqm;
+      const packs = Math.ceil(totalQuantity / product.packSize);
+      const boughtQuantity = packs * product.packSize;
+      const totalCost = packs * product.packSize * product.priceUnit;
+
+      document.querySelector("#costPerSqm").textContent = `${formatter.format(costPerSqm)}/m²`;
+      document.querySelector("#packs").textContent = integerFormatter.format(packs);
+      document.querySelector("#totalCost").textContent = formatter.format(totalCost);
+      document.querySelector("#costSentence").textContent = `Il costo del materiale è di ${formatter.format(costPerSqm)} al metro quadro.`;
+      document.querySelector("#packsSentence").textContent = `Per questo cantiere ti servono ${integerFormatter.format(packs)} confezioni.`;
+      document.querySelector("#totalSentence").textContent = `Costo totale da listino: ${formatter.format(totalCost)} (IVA esclusa).`;
+      document.querySelector("#totalQuantity").textContent = formatAmount(totalQuantity, product.unit);
+      document.querySelector("#boughtQuantity").textContent = formatAmount(boughtQuantity, product.unit);
+    }
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      hasCalculated = true;
+      calculate();
+    });
+
+    productSelect.addEventListener("change", () => {
+      updateProductDetails();
+      if (hasCalculated) calculate();
+    });
+
+    sqmInput.addEventListener("input", () => {
+      if (hasCalculated) calculate();
+    });
+
+    resetBtn.addEventListener("click", () => {
+      hasCalculated = false;
+      form.reset();
+      productSelect.selectedIndex = 0;
+      notice.classList.remove("is-visible");
+      updateProductDetails();
+      setEmptyResults();
+      sqmInput.focus();
+    });
+
+    populateProducts();
+    updateProductDetails();
+    setEmptyResults();
+
+    let deferredInstallPrompt = null;
+    const installBtn = document.querySelector("#installBtn");
+
+    window.addEventListener("beforeinstallprompt", event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+      installBtn.classList.add("is-visible");
+    });
+
+    installBtn.addEventListener("click", async () => {
+      if (!deferredInstallPrompt) return;
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      installBtn.classList.remove("is-visible");
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js");
+      });
+    }
+  </script>
+</body>
+</html>

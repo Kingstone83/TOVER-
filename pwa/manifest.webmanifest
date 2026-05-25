@@ -1,0 +1,19 @@
+{
+  "name": "Calcolatore Costo-Cantiere Tover",
+  "short_name": "Tover Cantiere",
+  "description": "Calcolatore costi, confezioni e materiale Tover da listino 2026.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f4f5f6",
+  "theme_color": "#24272b",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/tover-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

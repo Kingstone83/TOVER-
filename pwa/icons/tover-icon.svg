@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tover Cantiere">
+  <rect width="512" height="512" rx="96" fill="#24272b"/>
+  <rect x="92" y="92" width="328" height="328" rx="44" fill="none" stroke="#F37021" stroke-width="28"/>
+  <path fill="#F37021" d="M166 156h180v58h-60v154h-60V214h-60z"/>
+  <circle cx="346" cy="346" r="30" fill="#F37021"/>
+</svg>
