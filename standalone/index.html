@@ -971,6 +971,7 @@
     const downloadPdfBtn = document.querySelector("#downloadPdfBtn");
     const notice = document.querySelector("#notice");
     let hasCalculated = false;
+    let latestCalculation = null;
 
     function parseUserNumber(value) {
       return Number(String(value).replace(",", "."));
@@ -996,19 +997,207 @@
       }).format(new Date());
     }
 
-    function waitForPdfAssets(element) {
-      const images = [...element.querySelectorAll("img")];
-      const imagePromises = images.map(image => {
-        if (image.complete && image.naturalWidth > 0) return Promise.resolve();
-        return new Promise(resolve => {
-          image.addEventListener("load", resolve, { once: true });
-          image.addEventListener("error", resolve, { once: true });
-        });
+    function pdfNumber(value) {
+      return Number(value).toFixed(2);
+    }
+
+    function pdfMm(value) {
+      return value * 72 / 25.4;
+    }
+
+    function pdfColor(hex) {
+      const value = hex.replace("#", "");
+      return [
+        parseInt(value.slice(0, 2), 16) / 255,
+        parseInt(value.slice(2, 4), 16) / 255,
+        parseInt(value.slice(4, 6), 16) / 255
+      ].map(component => pdfNumber(component)).join(" ");
+    }
+
+    function pdfEscape(text) {
+      const charMap = {
+        "€": 128,
+        "–": 45,
+        "—": 45,
+        "’": 39,
+        "“": 34,
+        "”": 34
+      };
+
+      return String(text).split("").map(char => {
+        const code = charMap[char] || char.charCodeAt(0);
+        if (code === 40 || code === 41 || code === 92) return `\\${String.fromCharCode(code)}`;
+        if (code < 32 || code > 126) return `\\${code.toString(8).padStart(3, "0")}`;
+        return String.fromCharCode(code);
+      }).join("");
+    }
+
+    function pdfTextWidth(text, size) {
+      return String(text).length * size * 0.48;
+    }
+
+    function wrapPdfText(text, maxChars) {
+      const words = String(text).split(/\s+/);
+      const lines = [];
+      let line = "";
+
+      words.forEach(word => {
+        const nextLine = line ? `${line} ${word}` : word;
+        if (nextLine.length > maxChars && line) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = nextLine;
+        }
       });
 
-      return Promise.all(imagePromises).then(() => new Promise(resolve => {
-        requestAnimationFrame(() => requestAnimationFrame(resolve));
-      }));
+      if (line) lines.push(line);
+      return lines;
+    }
+
+    function createCalculationPdfBlob(data) {
+      const pageHeight = 841.89;
+      const stream = [];
+
+      function rect(x, y, width, height, color, mode = "f") {
+        stream.push(`${pdfColor(color)} ${mode === "S" ? "RG" : "rg"}`);
+        stream.push(`${pdfNumber(pdfMm(x))} ${pdfNumber(pageHeight - pdfMm(y + height))} ${pdfNumber(pdfMm(width))} ${pdfNumber(pdfMm(height))} re ${mode}`);
+      }
+
+      function line(x1, y1, x2, y2, color = "#d7dce0", width = 0.7) {
+        stream.push(`${pdfNumber(width)} w ${pdfColor(color)} RG`);
+        stream.push(`${pdfNumber(pdfMm(x1))} ${pdfNumber(pageHeight - pdfMm(y1))} m ${pdfNumber(pdfMm(x2))} ${pdfNumber(pageHeight - pdfMm(y2))} l S`);
+      }
+
+      function text(value, x, y, size = 10, color = "#24272b", bold = false) {
+        stream.push(`BT /${bold ? "F2" : "F1"} ${pdfNumber(size)} Tf ${pdfColor(color)} rg ${pdfNumber(pdfMm(x))} ${pdfNumber(pageHeight - pdfMm(y))} Td (${pdfEscape(value)}) Tj ET`);
+      }
+
+      function textRight(value, xRight, y, size = 10, color = "#24272b", bold = false) {
+        const x = pdfMm(xRight) - pdfTextWidth(value, size);
+        stream.push(`BT /${bold ? "F2" : "F1"} ${pdfNumber(size)} Tf ${pdfColor(color)} rg ${pdfNumber(x)} ${pdfNumber(pageHeight - pdfMm(y))} Td (${pdfEscape(value)}) Tj ET`);
+      }
+
+      function multiline(value, x, y, maxChars, size = 10, color = "#24272b", bold = false, lineHeight = 5) {
+        wrapPdfText(value, maxChars).slice(0, 3).forEach((lineText, index) => {
+          text(lineText, x, y + (index * lineHeight), size, color, bold);
+        });
+      }
+
+      function tableRow(label, value, y, shaded = false) {
+        if (shaded) rect(16, y - 5, 178, 10, "#f8f9fa");
+        text(label, 20, y + 1, 9, "#65707a", true);
+        textRight(value, 190, y + 1, 10, "#24272b", true);
+      }
+
+      rect(0, 0, 210, 44, "#f7f8f9");
+      rect(0, 42, 210, 2.5, "#F37021");
+      text("TOVER", 16, 21, 24, "#111111", true);
+      line(16, 28, 67, 28, "#F37021", 2.8);
+      text("Calcolo materiale", 134, 18, 21, "#24272b", true);
+      text("Data calcolo: " + formattedDate(), 148, 27, 9, "#65707a", true);
+
+      text("DATI CANTIERE", 16, 58, 9, "#65707a", true);
+      rect(16, 64, 110, 42, "#fafbfc");
+      line(16, 64, 126, 64);
+      line(16, 106, 126, 106);
+      line(16, 64, 16, 106);
+      line(126, 64, 126, 106);
+      rect(132, 64, 62, 42, "#24272b");
+
+      text("PRODOTTO SELEZIONATO", 22, 76, 8, "#65707a", true);
+      multiline(`${data.product.name} ${data.product.format}`, 22, 84, 38, 12, "#24272b", true, 5.5);
+      multiline(`${data.product.category} - Formato ${formatAmount(data.product.dim_confezione, data.product.unit)}`, 22, 99, 45, 9, "#65707a", false, 4.5);
+      text("COSTO TOTALE DEL MATERIALE", 138, 76, 8, "#c8ced4", true);
+      text(euro.format(data.costoTotale), 138, 92, 22, "#ffffff", true);
+
+      text("RISULTATI PRINCIPALI", 16, 122, 9, "#65707a", true);
+      const metrics = [
+        ["METRI QUADRI", `${number.format(data.sqm)} m²`, 16, "#ffffff"],
+        ["CONFEZIONI INTERE", integer.format(data.confezioni), 77, "#fff6f0"],
+        ["COSTO AL m²", `${euro.format(data.costoMq)}/m²`, 138, "#ffffff"]
+      ];
+
+      metrics.forEach(([label, value, x, color]) => {
+        rect(x, 128, 56, 32, color);
+        line(x, 128, x + 56, 128);
+        line(x, 160, x + 56, 160);
+        line(x, 128, x, 160);
+        line(x + 56, 128, x + 56, 160);
+        text(label, x + 5, 139, 8, "#65707a", true);
+        text(value, x + 5, 152, 17, "#24272b", true);
+      });
+
+      text("DETTAGLIO CALCOLO", 16, 178, 9, "#65707a", true);
+      line(16, 184, 194, 184);
+      line(16, 258, 194, 258);
+      line(16, 184, 16, 258);
+      line(194, 184, 194, 258);
+
+      [
+        ["Prezzo singola confezione", euro.format(data.packPrice)],
+        ["Dimensione confezione", formatAmount(data.product.dim_confezione, data.product.unit)],
+        ["Prezzo per singola unità", `${euro.format(data.prezzoUnita)}/${data.product.unit}`],
+        ["Resa usata nel calcolo", `${number.format(data.product.resa_mq)} ${data.product.unit}/m²`],
+        ["Quantità totale necessaria", formatAmount(data.quantitaTotale, data.product.unit)],
+        ["Materiale acquistato", formatAmount(data.materialeAcquistato, data.product.unit)]
+      ].forEach((row, index) => {
+        tableRow(row[0], row[1], 194 + (index * 10), index % 2 === 0);
+      });
+
+      multiline(
+        "Calcolo generato dal prezzo della singola confezione inserito manualmente. Le confezioni sono arrotondate sempre all'intero superiore.",
+        16,
+        272,
+        110,
+        8,
+        "#697179",
+        false,
+        4
+      );
+
+      const content = stream.join("\n");
+      const objects = [
+        "<< /Type /Catalog /Pages 2 0 R >>",
+        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>",
+        `<< /Length ${content.length} >>\nstream\n${content}\nendstream`,
+        "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>",
+        "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>"
+      ];
+
+      let pdf = "%PDF-1.4\n";
+      const offsets = [0];
+      objects.forEach((object, index) => {
+        offsets.push(pdf.length);
+        pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+      });
+
+      const xrefOffset = pdf.length;
+      pdf += `xref\n0 ${objects.length + 1}\n`;
+      pdf += "0000000000 65535 f \n";
+      offsets.slice(1).forEach(offset => {
+        pdf += `${String(offset).padStart(10, "0")} 00000 n \n`;
+      });
+      pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+
+      return new Blob([pdf], { type: "application/pdf" });
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    async function downloadCalculationPdf() {
+      if (!latestCalculation) return;
+      downloadBlob(createCalculationPdfBlob(latestCalculation), "Calcolo_Materiale_Tover.pdf");
     }
 
     function populateProducts() {
@@ -1072,6 +1261,7 @@
       setText("#pdfYield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
       setText("#pdfTotalQuantity", "-");
       setText("#pdfBoughtQuantity", "-");
+      latestCalculation = null;
       downloadPdfBtn.disabled = true;
     }
 
@@ -1096,6 +1286,17 @@
       const confezioni = Math.ceil(quantitaTotale / product.dim_confezione);
       const materialeAcquistato = confezioni * product.dim_confezione;
       const costoTotale = confezioni * packPrice;
+      latestCalculation = {
+        product,
+        sqm,
+        packPrice,
+        prezzoUnita,
+        costoMq,
+        quantitaTotale,
+        confezioni,
+        materialeAcquistato,
+        costoTotale
+      };
 
       setText("#costPerSqm", `${euro.format(costoMq)}/m²`);
       setText("#packs", integer.format(confezioni));
@@ -1155,57 +1356,7 @@
 
     downloadPdfBtn.addEventListener("click", async () => {
       if (downloadPdfBtn.disabled) return;
-
-      if (typeof html2pdf === "undefined") {
-        notice.textContent = "La libreria PDF non è ancora pronta. Ricarica la pagina e riprova.";
-        notice.classList.add("is-visible");
-        return;
-      }
-
-      const sourceArea = document.querySelector("#pdfReportArea");
-      const resultArea = sourceArea.cloneNode(true);
-      resultArea.id = "pdfReportAreaRender";
-      resultArea.removeAttribute("aria-hidden");
-      resultArea.classList.add("pdf-render-copy");
-      resultArea.style.cssText = [
-        "position:absolute",
-        `top:${Math.max(window.scrollY, 0)}px`,
-        "left:0",
-        "z-index:9999",
-        "display:block",
-        "visibility:visible",
-        "opacity:1",
-        "width:760px",
-        "height:auto",
-        "padding:34px",
-        "margin:0",
-        "color:#1b1d20",
-        "background:#ffffff",
-        "pointer-events:none",
-        "transform:none",
-        "box-shadow:none"
-      ].join(";");
-      document.body.appendChild(resultArea);
-
-      await waitForPdfAssets(resultArea);
-
-      html2pdf()
-        .set({
-          margin: 8,
-          filename: "Calcolo_Materiale_Tover.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-        })
-        .from(resultArea)
-        .save()
-        .then(() => {
-          resultArea.remove();
-        })
-        .catch(error => {
-          resultArea.remove();
-          throw error;
-        });
+      await downloadCalculationPdf();
     });
 
     populateProducts();
