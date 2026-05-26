@@ -391,7 +391,7 @@
     }
 
     .pdf-render-copy {
-      position: fixed;
+      position: absolute;
       left: 0;
       top: 0;
       z-index: 9999;
@@ -996,6 +996,21 @@
       }).format(new Date());
     }
 
+    function waitForPdfAssets(element) {
+      const images = [...element.querySelectorAll("img")];
+      const imagePromises = images.map(image => {
+        if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+        return new Promise(resolve => {
+          image.addEventListener("load", resolve, { once: true });
+          image.addEventListener("error", resolve, { once: true });
+        });
+      });
+
+      return Promise.all(imagePromises).then(() => new Promise(resolve => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+      }));
+    }
+
     function populateProducts() {
       const categories = [...new Set(PRODUCTS.map(product => product.category))];
       productSelect.innerHTML = "";
@@ -1138,7 +1153,7 @@
       sqmInput.focus();
     });
 
-    downloadPdfBtn.addEventListener("click", () => {
+    downloadPdfBtn.addEventListener("click", async () => {
       if (downloadPdfBtn.disabled) return;
 
       if (typeof html2pdf === "undefined") {
@@ -1152,7 +1167,27 @@
       resultArea.id = "pdfReportAreaRender";
       resultArea.removeAttribute("aria-hidden");
       resultArea.classList.add("pdf-render-copy");
+      resultArea.style.cssText = [
+        "position:absolute",
+        `top:${Math.max(window.scrollY, 0)}px`,
+        "left:0",
+        "z-index:9999",
+        "display:block",
+        "visibility:visible",
+        "opacity:1",
+        "width:760px",
+        "height:auto",
+        "padding:34px",
+        "margin:0",
+        "color:#1b1d20",
+        "background:#ffffff",
+        "pointer-events:none",
+        "transform:none",
+        "box-shadow:none"
+      ].join(";");
       document.body.appendChild(resultArea);
+
+      await waitForPdfAssets(resultArea);
 
       html2pdf()
         .set({
