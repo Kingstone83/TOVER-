@@ -379,6 +379,221 @@
       box-shadow: none;
     }
 
+    .pdf-report {
+      position: fixed;
+      left: -10000px;
+      top: 0;
+      width: 760px;
+      padding: 34px;
+      color: #1b1d20;
+      background: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .pdf-card {
+      border: 1px solid #d9dde1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .pdf-header {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 22px;
+      align-items: center;
+      padding: 24px 26px;
+      border-bottom: 6px solid var(--orange);
+      background: #f7f8f9;
+    }
+
+    .pdf-logo {
+      display: block;
+      width: 168px;
+      height: auto;
+      background: #fff;
+    }
+
+    .pdf-title {
+      text-align: right;
+    }
+
+    .pdf-title h2 {
+      margin: 0;
+      color: var(--anthracite);
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .pdf-title p {
+      margin: 8px 0 0;
+      color: #65707a;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .pdf-body {
+      padding: 26px;
+    }
+
+    .pdf-section-label {
+      margin: 0 0 12px;
+      color: #65707a;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pdf-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .pdf-info-panel,
+    .pdf-total-panel {
+      min-height: 138px;
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .pdf-info-panel {
+      border: 1px solid #d9dde1;
+      background: #fafbfc;
+    }
+
+    .pdf-total-panel {
+      color: #fff;
+      background: var(--anthracite);
+    }
+
+    .pdf-info-panel span,
+    .pdf-total-panel span,
+    .pdf-metric span {
+      display: block;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .pdf-info-panel span {
+      color: #65707a;
+    }
+
+    .pdf-total-panel span {
+      color: rgba(255, 255, 255, .7);
+    }
+
+    .pdf-info-panel strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--anthracite);
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .pdf-info-panel p {
+      margin: 8px 0 0;
+      color: #65707a;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .pdf-total-panel strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .pdf-total-panel p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, .75);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .pdf-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .pdf-metric {
+      min-height: 112px;
+      border: 1px solid #d9dde1;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .pdf-metric.accent {
+      border-color: rgba(243, 112, 33, .45);
+      background: #fff6f0;
+    }
+
+    .pdf-metric span {
+      color: #65707a;
+    }
+
+    .pdf-metric strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--anthracite);
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .pdf-detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid #d9dde1;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .pdf-detail-table tr:nth-child(odd) {
+      background: #f8f9fa;
+    }
+
+    .pdf-detail-table th,
+    .pdf-detail-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #e5e8eb;
+      vertical-align: top;
+    }
+
+    .pdf-detail-table tr:last-child th,
+    .pdf-detail-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .pdf-detail-table th {
+      width: 43%;
+      color: #65707a;
+      font-weight: 850;
+      text-align: left;
+    }
+
+    .pdf-detail-table td {
+      color: var(--anthracite);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .pdf-note {
+      margin: 16px 0 0;
+      color: #697179;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
     @media (min-width: 920px) {
       body {
         background:
@@ -541,6 +756,82 @@
     <p class="source">Database interno con resa_mq e dim_confezione. Il prezzo della confezione viene inserito manualmente dal posatore.</p>
   </div>
 
+  <div class="pdf-report" id="pdfReportArea" aria-hidden="true">
+    <div class="pdf-card">
+      <header class="pdf-header">
+        <img class="pdf-logo" src="assets/tover-logo.png" alt="Tover">
+        <div class="pdf-title">
+          <h2>Calcolo materiale</h2>
+          <p id="pdfDate">-</p>
+        </div>
+      </header>
+
+      <div class="pdf-body">
+        <p class="pdf-section-label">Dati cantiere</p>
+        <section class="pdf-hero-grid">
+          <div class="pdf-info-panel">
+            <span>Prodotto selezionato</span>
+            <strong id="pdfProduct">-</strong>
+            <p id="pdfProductMeta">-</p>
+          </div>
+          <div class="pdf-total-panel">
+            <span>Costo totale del materiale</span>
+            <strong id="pdfTotalCost">-</strong>
+            <p id="pdfTotalSentence">-</p>
+          </div>
+        </section>
+
+        <p class="pdf-section-label">Risultati principali</p>
+        <section class="pdf-metrics">
+          <div class="pdf-metric">
+            <span>Metri quadri</span>
+            <strong id="pdfSqm">-</strong>
+          </div>
+          <div class="pdf-metric accent">
+            <span>Confezioni intere</span>
+            <strong id="pdfPacks">-</strong>
+          </div>
+          <div class="pdf-metric">
+            <span>Costo al m²</span>
+            <strong id="pdfCostPerSqm">-</strong>
+          </div>
+        </section>
+
+        <p class="pdf-section-label">Dettaglio calcolo</p>
+        <table class="pdf-detail-table">
+          <tbody>
+            <tr>
+              <th>Prezzo singola confezione</th>
+              <td id="pdfPackPrice">-</td>
+            </tr>
+            <tr>
+              <th>Dimensione confezione</th>
+              <td id="pdfPackSize">-</td>
+            </tr>
+            <tr>
+              <th>Prezzo per singola unità</th>
+              <td id="pdfUnitPrice">-</td>
+            </tr>
+            <tr>
+              <th>Resa usata nel calcolo</th>
+              <td id="pdfYield">-</td>
+            </tr>
+            <tr>
+              <th>Quantità totale necessaria</th>
+              <td id="pdfTotalQuantity">-</td>
+            </tr>
+            <tr>
+              <th>Materiale acquistato</th>
+              <td id="pdfBoughtQuantity">-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="pdf-note">Calcolo generato dal valore inserito come prezzo della singola confezione. Le confezioni sono arrotondate sempre all'intero superiore.</p>
+      </div>
+    </div>
+  </div>
+
   <script>
     const PRODUCTS = [
       { category: "Primer e sottofondi", name: "Primer PU100", format: "12 kg", unit: "kg", resa_mq: 0.15, dim_confezione: 12 },
@@ -681,6 +972,18 @@
       return `${number.format(value)} ${unit}`;
     }
 
+    function setText(selector, value) {
+      document.querySelector(selector).textContent = value;
+    }
+
+    function formattedDate() {
+      return new Intl.DateTimeFormat("it-IT", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      }).format(new Date());
+    }
+
     function populateProducts() {
       const categories = [...new Set(PRODUCTS.map(product => product.category))];
       productSelect.innerHTML = "";
@@ -711,22 +1014,37 @@
       const packPrice = parseUserNumber(packPriceInput.value);
       const unitPrice = packPrice > 0 ? packPrice / product.dim_confezione : 0;
 
-      document.querySelector("#yield").textContent = `${number.format(product.resa_mq)} ${product.unit}/m²`;
-      document.querySelector("#packSize").textContent = formatAmount(product.dim_confezione, product.unit);
-      document.querySelector("#unitPrice").textContent = unitPrice > 0 ? `${euro.format(unitPrice)}/${product.unit}` : "-";
-      document.querySelector("#selectedProduct").textContent = `${product.name} ${product.format}`;
+      setText("#yield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#packSize", formatAmount(product.dim_confezione, product.unit));
+      setText("#unitPrice", unitPrice > 0 ? `${euro.format(unitPrice)}/${product.unit}` : "-");
+      setText("#selectedProduct", `${product.name} ${product.format}`);
     }
 
     function setEmptyResults() {
-      document.querySelector("#costPerSqm").textContent = "-";
-      document.querySelector("#packs").textContent = "-";
-      document.querySelector("#totalCost").textContent = "-";
-      document.querySelector("#costSentence").textContent = "Il costo del materiale è di 0,00 € al metro quadro.";
-      document.querySelector("#packsSentence").textContent = "Per questo cantiere ti servono 0 confezioni intere.";
-      document.querySelector("#totalSentence").textContent = "Costo totale del materiale: 0,00 €.";
-      document.querySelector("#summarySqm").textContent = "-";
-      document.querySelector("#totalQuantity").textContent = "-";
-      document.querySelector("#boughtQuantity").textContent = "-";
+      const product = getSelectedProduct();
+      setText("#costPerSqm", "-");
+      setText("#packs", "-");
+      setText("#totalCost", "-");
+      setText("#costSentence", "Il costo del materiale è di 0,00 € al metro quadro.");
+      setText("#packsSentence", "Per questo cantiere ti servono 0 confezioni intere.");
+      setText("#totalSentence", "Costo totale del materiale: 0,00 €.");
+      setText("#summarySqm", "-");
+      setText("#totalQuantity", "-");
+      setText("#boughtQuantity", "-");
+      setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
+      setText("#pdfProduct", `${product.name} ${product.format}`);
+      setText("#pdfProductMeta", `${product.category} · Formato ${formatAmount(product.dim_confezione, product.unit)}`);
+      setText("#pdfTotalCost", "-");
+      setText("#pdfTotalSentence", "-");
+      setText("#pdfSqm", "-");
+      setText("#pdfPacks", "-");
+      setText("#pdfCostPerSqm", "-");
+      setText("#pdfPackPrice", "-");
+      setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
+      setText("#pdfUnitPrice", "-");
+      setText("#pdfYield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfTotalQuantity", "-");
+      setText("#pdfBoughtQuantity", "-");
       downloadPdfBtn.disabled = true;
     }
 
@@ -752,15 +1070,29 @@
       const materialeAcquistato = confezioni * product.dim_confezione;
       const costoTotale = confezioni * packPrice;
 
-      document.querySelector("#costPerSqm").textContent = `${euro.format(costoMq)}/m²`;
-      document.querySelector("#packs").textContent = integer.format(confezioni);
-      document.querySelector("#totalCost").textContent = euro.format(costoTotale);
-      document.querySelector("#costSentence").textContent = `Il costo del materiale è di ${euro.format(costoMq)} al metro quadro.`;
-      document.querySelector("#packsSentence").textContent = `Per questo cantiere ti servono ${integer.format(confezioni)} confezioni intere.`;
-      document.querySelector("#totalSentence").textContent = `Costo totale del materiale: ${euro.format(costoTotale)}.`;
-      document.querySelector("#summarySqm").textContent = `${number.format(sqm)} m²`;
-      document.querySelector("#totalQuantity").textContent = formatAmount(quantitaTotale, product.unit);
-      document.querySelector("#boughtQuantity").textContent = formatAmount(materialeAcquistato, product.unit);
+      setText("#costPerSqm", `${euro.format(costoMq)}/m²`);
+      setText("#packs", integer.format(confezioni));
+      setText("#totalCost", euro.format(costoTotale));
+      setText("#costSentence", `Il costo del materiale è di ${euro.format(costoMq)} al metro quadro.`);
+      setText("#packsSentence", `Per questo cantiere ti servono ${integer.format(confezioni)} confezioni intere.`);
+      setText("#totalSentence", `Costo totale del materiale: ${euro.format(costoTotale)}.`);
+      setText("#summarySqm", `${number.format(sqm)} m²`);
+      setText("#totalQuantity", formatAmount(quantitaTotale, product.unit));
+      setText("#boughtQuantity", formatAmount(materialeAcquistato, product.unit));
+      setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
+      setText("#pdfProduct", `${product.name} ${product.format}`);
+      setText("#pdfProductMeta", `${product.category} · Formato ${formatAmount(product.dim_confezione, product.unit)}`);
+      setText("#pdfTotalCost", euro.format(costoTotale));
+      setText("#pdfTotalSentence", `Costo totale del materiale: ${euro.format(costoTotale)}.`);
+      setText("#pdfSqm", `${number.format(sqm)} m²`);
+      setText("#pdfPacks", integer.format(confezioni));
+      setText("#pdfCostPerSqm", `${euro.format(costoMq)}/m²`);
+      setText("#pdfPackPrice", euro.format(packPrice));
+      setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
+      setText("#pdfUnitPrice", `${euro.format(prezzoUnita)}/${product.unit}`);
+      setText("#pdfYield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfTotalQuantity", formatAmount(quantitaTotale, product.unit));
+      setText("#pdfBoughtQuantity", formatAmount(materialeAcquistato, product.unit));
       downloadPdfBtn.disabled = false;
     }
 
@@ -803,13 +1135,13 @@
         return;
       }
 
-      const resultArea = document.querySelector("#pdfResultArea");
+      const resultArea = document.querySelector("#pdfReportArea");
       html2pdf()
         .set({
-          margin: 10,
+          margin: 8,
           filename: "Calcolo_Materiale_Tover.pdf",
           image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
+          html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
         })
         .from(resultArea)
