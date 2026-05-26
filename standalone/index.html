@@ -390,6 +390,18 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
+    .pdf-render-copy {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 9999;
+      width: 760px;
+      opacity: 1;
+      pointer-events: none;
+      background: #fff;
+      box-shadow: none;
+    }
+
     .pdf-card {
       border: 1px solid #d9dde1;
       border-radius: 8px;
@@ -1135,7 +1147,13 @@
         return;
       }
 
-      const resultArea = document.querySelector("#pdfReportArea");
+      const sourceArea = document.querySelector("#pdfReportArea");
+      const resultArea = sourceArea.cloneNode(true);
+      resultArea.id = "pdfReportAreaRender";
+      resultArea.removeAttribute("aria-hidden");
+      resultArea.classList.add("pdf-render-copy");
+      document.body.appendChild(resultArea);
+
       html2pdf()
         .set({
           margin: 8,
@@ -1145,7 +1163,14 @@
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
         })
         .from(resultArea)
-        .save();
+        .save()
+        .then(() => {
+          resultArea.remove();
+        })
+        .catch(error => {
+          resultArea.remove();
+          throw error;
+        });
     });
 
     populateProducts();
