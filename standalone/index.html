@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calcolatore Costo-Cantiere Tover</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
   <style>
     :root {
       color-scheme: light;
@@ -273,10 +274,13 @@
       display: block;
     }
 
+    .export-area {
+      margin-top: 14px;
+    }
+
     .results {
       display: grid;
       gap: 12px;
-      margin-top: 14px;
     }
 
     .result-box {
@@ -353,6 +357,28 @@
       text-align: center;
     }
 
+    .pdf-actions {
+      margin-top: 14px;
+    }
+
+    .download-pdf {
+      width: 100%;
+      min-height: 58px;
+      border: 0;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--anthracite);
+      cursor: pointer;
+      font-weight: 950;
+      box-shadow: 0 10px 22px rgba(36, 39, 43, .22);
+    }
+
+    .download-pdf:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
     @media (min-width: 920px) {
       body {
         background:
@@ -381,8 +407,8 @@
       }
 
       .panel,
-      .results,
-      .summary,
+      .export-area,
+      .pdf-actions,
       .source {
         grid-column: 2;
       }
@@ -392,9 +418,12 @@
         align-self: start;
       }
 
+      .export-area {
+        margin-top: 0;
+      }
+
       .results {
         grid-template-columns: repeat(3, 1fr);
-        margin-top: 0;
       }
 
       .result-box {
@@ -402,6 +431,7 @@
       }
 
       .summary,
+      .pdf-actions,
       .source {
         margin-top: 0;
       }
@@ -469,36 +499,44 @@
       </form>
     </main>
 
-    <section class="results" aria-live="polite">
-      <article class="result-box primary">
-        <span>Costo al m²</span>
-        <strong id="costPerSqm">-</strong>
-        <p id="costSentence">Il costo del materiale è di 0,00 € al metro quadro.</p>
-      </article>
+    <div class="export-area" id="pdfResultArea" aria-live="polite">
+      <section class="results">
+        <article class="result-box primary">
+          <span>Costo al m²</span>
+          <strong id="costPerSqm">-</strong>
+          <p id="costSentence">Il costo del materiale è di 0,00 € al metro quadro.</p>
+        </article>
 
-      <article class="result-box accent">
-        <span>Confezioni intere</span>
-        <strong id="packs">-</strong>
-        <p id="packsSentence">Per questo cantiere ti servono 0 confezioni intere.</p>
-      </article>
+        <article class="result-box accent">
+          <span>Confezioni intere</span>
+          <strong id="packs">-</strong>
+          <p id="packsSentence">Per questo cantiere ti servono 0 confezioni intere.</p>
+        </article>
 
-      <article class="result-box">
-        <span>Totale materiale</span>
-        <strong id="totalCost">-</strong>
-        <p id="totalSentence">Costo totale del materiale: 0,00 €.</p>
-      </article>
-    </section>
+        <article class="result-box">
+          <span>Totale materiale</span>
+          <strong id="totalCost">-</strong>
+          <p id="totalSentence">Costo totale del materiale: 0,00 €.</p>
+        </article>
+      </section>
 
-    <aside class="summary">
-      <dl>
-        <dt>Quantità necessaria</dt>
-        <dd id="totalQuantity">-</dd>
-        <dt>Materiale acquistato</dt>
-        <dd id="boughtQuantity">-</dd>
-        <dt>Prodotto selezionato</dt>
-        <dd id="selectedProduct">-</dd>
-      </dl>
-    </aside>
+      <aside class="summary">
+        <dl>
+          <dt>Prodotto selezionato</dt>
+          <dd id="selectedProduct">-</dd>
+          <dt>Metri quadri</dt>
+          <dd id="summarySqm">-</dd>
+          <dt>Quantità necessaria</dt>
+          <dd id="totalQuantity">-</dd>
+          <dt>Materiale acquistato</dt>
+          <dd id="boughtQuantity">-</dd>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="pdf-actions">
+      <button class="download-pdf" type="button" id="downloadPdfBtn" disabled>Scarica PDF</button>
+    </div>
 
     <p class="source">Database interno con resa_mq e dim_confezione. Il prezzo della confezione viene inserito manualmente dal posatore.</p>
   </div>
@@ -627,6 +665,7 @@
     const packPriceInput = document.querySelector("#packPrice");
     const form = document.querySelector("#calculator");
     const resetBtn = document.querySelector("#resetBtn");
+    const downloadPdfBtn = document.querySelector("#downloadPdfBtn");
     const notice = document.querySelector("#notice");
     let hasCalculated = false;
 
@@ -685,8 +724,10 @@
       document.querySelector("#costSentence").textContent = "Il costo del materiale è di 0,00 € al metro quadro.";
       document.querySelector("#packsSentence").textContent = "Per questo cantiere ti servono 0 confezioni intere.";
       document.querySelector("#totalSentence").textContent = "Costo totale del materiale: 0,00 €.";
+      document.querySelector("#summarySqm").textContent = "-";
       document.querySelector("#totalQuantity").textContent = "-";
       document.querySelector("#boughtQuantity").textContent = "-";
+      downloadPdfBtn.disabled = true;
     }
 
     function calculate() {
@@ -717,8 +758,10 @@
       document.querySelector("#costSentence").textContent = `Il costo del materiale è di ${euro.format(costoMq)} al metro quadro.`;
       document.querySelector("#packsSentence").textContent = `Per questo cantiere ti servono ${integer.format(confezioni)} confezioni intere.`;
       document.querySelector("#totalSentence").textContent = `Costo totale del materiale: ${euro.format(costoTotale)}.`;
+      document.querySelector("#summarySqm").textContent = `${number.format(sqm)} m²`;
       document.querySelector("#totalQuantity").textContent = formatAmount(quantitaTotale, product.unit);
       document.querySelector("#boughtQuantity").textContent = formatAmount(materialeAcquistato, product.unit);
+      downloadPdfBtn.disabled = false;
     }
 
     form.addEventListener("submit", event => {
@@ -749,6 +792,28 @@
       updateProductDetails();
       setEmptyResults();
       sqmInput.focus();
+    });
+
+    downloadPdfBtn.addEventListener("click", () => {
+      if (downloadPdfBtn.disabled) return;
+
+      if (typeof html2pdf === "undefined") {
+        notice.textContent = "La libreria PDF non è ancora pronta. Ricarica la pagina e riprova.";
+        notice.classList.add("is-visible");
+        return;
+      }
+
+      const resultArea = document.querySelector("#pdfResultArea");
+      html2pdf()
+        .set({
+          margin: 10,
+          filename: "Calcolo_Materiale_Tover.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+        })
+        .from(resultArea)
+        .save();
     });
 
     populateProducts();
