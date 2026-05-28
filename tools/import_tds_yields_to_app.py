@@ -63,6 +63,12 @@ def normalize_tool(candidate: dict) -> str:
     raw_tool = (candidate.get("tool") or "").strip()
     resa = float(candidate.get("suggested_resa_mq") or 0)
 
+    if re.search(r"\b200\s*-\s*300\b", source):
+        return "Spatola TKB A1/A2"
+    if re.search(r"\b300\s*-\s*350\b", source):
+        return "Spatola TKB/B1"
+    if re.search(r"\b350\s*-\s*450\b", source):
+        return "Spatola TKB/B2"
     if "b2" in source and resa >= 0.35:
         return "Spatola TKB/B2"
     if "b1" in source:
@@ -88,6 +94,9 @@ def format_resa(value: float) -> str:
 
 def candidate_to_application(candidate: dict, pdf_name: str) -> dict:
     label = normalize_label(candidate)
+    tool = normalize_tool(candidate)
+    if tool and label == "Applicazione da scheda tecnica":
+        label = "Applicazione a spatola"
     application = {
         "label": label,
         "resa_mq": float(candidate["suggested_resa_mq"]),
@@ -96,7 +105,6 @@ def candidate_to_application(candidate: dict, pdf_name: str) -> dict:
     coats = normalize_coats(label, candidate)
     if coats:
         application["coats"] = coats
-    tool = normalize_tool(candidate)
     if tool:
         application["tool"] = tool
     return application

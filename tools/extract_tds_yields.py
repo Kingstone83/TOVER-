@@ -186,6 +186,15 @@ def coats_from_context(text: str) -> int | None:
 
 
 def tool_from_context(text: str) -> str:
+    lower = text.lower()
+    if re.search(r"tkb\s*a1\s*/\s*a2", lower):
+        return "Spatola TKB A1/A2"
+    if re.search(r"tkb\s*/?\s*b1", lower):
+        return "Spatola TKB/B1"
+    if re.search(r"tkb\s*/?\s*b2", lower):
+        return "Spatola TKB/B2"
+    if re.search(r"tkb\s*/?\s*a2", lower):
+        return "Spatola TKB/A2"
     match = re.search(r"(spatola[^.;,\n)]*(?:a2|b1|10 mm|8 mm|n\.?\s*\d+)?)", text, re.I)
     if match:
         tool = match.group(1)
@@ -230,7 +239,12 @@ def candidates_from_block(block: str, product_unit: str) -> list[dict]:
         if unit == "g":
             suggested = suggested / 1000
             unit = "kg"
-        start = consumption_match.start()
+        prefix_start = max(consumption_match.start() - 45, 0)
+        prefix = clean[prefix_start : consumption_match.start()]
+        lower_prefix = prefix.lower()
+        local_starts = [lower_prefix.rfind("spatola"), lower_prefix.rfind("resa"), lower_prefix.rfind("consumo")]
+        local_start = max(local_starts)
+        start = prefix_start + local_start if local_start >= 0 else consumption_match.start()
         end = min(consumption_match.end() + 160, len(clean))
         source = clean[start:end]
         candidates.append(build_candidate(source, "consumption", suggested, unit, product_unit))

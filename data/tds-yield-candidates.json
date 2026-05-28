@@ -14,7 +14,7 @@
         {
           "label": "Consolidante",
           "coats": 2,
-          "source": "100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in",
+          "source": "Consumo 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in",
           "type": "consumption",
           "suggested_resa_mq": 0.15,
           "source_unit": "kg",
@@ -48,7 +48,7 @@
         {
           "label": "Consolidante",
           "coats": 2,
-          "source": "100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in",
+          "source": "Consumo 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in",
           "type": "consumption",
           "suggested_resa_mq": 0.15,
           "source_unit": "kg",
@@ -116,7 +116,7 @@
         {
           "label": "Applicazione da scheda tecnica",
           "coats": null,
-          "source": "170 - 330 g/m2 Pulizia attrezzi Subito dopo l’uso con Solvente di lavaggio S/23 VOC 0 g/l Conservazione 12 mesi in confezioni originali sigillate Confezioni disponibili Tanic",
+          "source": "Resa 3 - 6 m2/kg corrispondenti a 170 - 330 g/m2 Pulizia attrezzi Subito dopo l’uso con Solvente di lavaggio S/23 VOC 0 g/l Conservazione 12 mesi in confezioni originali sigillate Confezioni disponibili Tanic",
           "type": "consumption",
           "suggested_resa_mq": 0.33,
           "source_unit": "kg",
@@ -196,7 +196,7 @@
         {
           "label": "Applicazione da scheda tecnica",
           "coats": null,
-          "source": "150 - 300 g/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni sigillate a temperatura > 10 °C Contenuto VOC 0 g/l",
+          "source": "Consumo 150 - 300 g/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni sigillate a temperatura > 10 °C Contenuto VOC 0 g/l",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
@@ -230,7 +230,7 @@
         {
           "label": "Applicazione da scheda tecnica",
           "coats": null,
-          "source": "0,4 - 2,0 kg/m2 VOC 0 g/l, cat A/h (BA), limite 50 g/l (2004/42/CE) Temperatura di applicazione Tra +10 e +35 °C Pulizia attrezzi Immediatamente dopo l’uso con acqua",
+          "source": "Resa 0,4 - 2,0 kg/m2 VOC 0 g/l, cat A/h (BA), limite 50 g/l (2004/42/CE) Temperatura di applicazione Tra +10 e +35 °C Pulizia attrezzi Immediatamente dopo l’uso con acqua",
           "type": "consumption",
           "suggested_resa_mq": 2.0,
           "source_unit": "kg",
@@ -459,7 +459,7 @@
         {
           "label": "Applicazione da scheda tecnica",
           "coats": null,
-          "source": "0,8 - 1,0 kg/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a temperatura > 10 °C Pulizia degli attrezzi Subito ",
+          "source": "Consumo 0,8 - 1,0 kg/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a temperatura > 10 °C Pulizia degli attrezzi Subito ",
           "type": "consumption",
           "suggested_resa_mq": 1.0,
           "source_unit": "kg",
@@ -482,7 +482,7 @@
         {
           "label": "Applicazione da scheda tecnica",
           "coats": null,
-          "source": "0,1 - 1,0 kg/m2 Posa della pavimentazione 4 - 5 ore Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni originali sigillate a temperatura > ",
+          "source": "Consumo 0,1 - 1,0 kg/m2 Posa della pavimentazione 4 - 5 ore Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni originali sigillate a temperatura > ",
           "type": "consumption",
           "suggested_resa_mq": 1.0,
           "source_unit": "kg",
@@ -505,7 +505,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
+          "source": "Resa 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
           "type": "consumption",
           "suggested_resa_mq": 1.5,
           "source_unit": "kg",
@@ -528,7 +528,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
+          "source": "Resa 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
           "type": "consumption",
           "suggested_resa_mq": 1.5,
           "source_unit": "kg",
@@ -551,7 +551,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
+          "source": "Resa 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
           "type": "consumption",
           "suggested_resa_mq": 1.3,
           "source_unit": "kg",
@@ -574,7 +574,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
+          "source": "Resa 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig",
           "type": "consumption",
           "suggested_resa_mq": 1.3,
           "source_unit": "kg",
@@ -597,7 +597,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
+          "source": "Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
           "type": "consumption",
           "suggested_resa_mq": 1.2,
           "source_unit": "kg",
@@ -620,7 +620,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
+          "source": "Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
           "type": "consumption",
           "suggested_resa_mq": 1.2,
           "source_unit": "kg",
@@ -643,7 +643,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 1,7 N/mm2 Fattore di allungamento: 2,1 Adesivo elastico Da + 10 °C a + 35 °C",
+          "source": "Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 1,7 N/mm2 Fattore di allungamento: 2,1 Adesivo elastico Da + 10 °C a + 35 °C",
           "type": "consumption",
           "suggested_resa_mq": 1.2,
           "source_unit": "kg",
@@ -666,7 +666,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
+          "source": "Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C",
           "type": "consumption",
           "suggested_resa_mq": 1.2,
           "source_unit": "kg",
@@ -761,18 +761,18 @@
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C",
+          "source": "Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C",
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",
-          "tool": "Spatola TKB / B1",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         }
@@ -802,33 +802,33 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp",
+          "tool": "Spatola TKB A1/A2",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.35,
           "source_unit": "kg",
-          "tool": "Spatola TKB B2: circa 350-450 g/m2 Temp",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
-          "label": "Applicazione da scheda tecnica",
+          "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.45,
           "source_unit": "kg",
-          "tool": "",
+          "tool": "Spatola TKB/B2",
           "needs_unit_review": false,
           "confidence": "review"
         }
@@ -847,33 +847,33 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp",
+          "tool": "Spatola TKB A1/A2",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.35,
           "source_unit": "kg",
-          "tool": "Spatola TKB B2: circa 350-450 g/m2 Temp",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
-          "label": "Applicazione da scheda tecnica",
+          "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
+          "source": "Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo",
           "type": "consumption",
           "suggested_resa_mq": 0.45,
           "source_unit": "kg",
-          "tool": "",
+          "tool": "Spatola TKB/B2",
           "needs_unit_review": false,
           "confidence": "review"
         }
@@ -892,7 +892,7 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "200 - 300 g/m2 Spatola TBK A2 Temp. d’applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo Pulizia Attrezzi Subito dopo l’uso con acqua, quando essiccato con S",
+          "source": "Resa 200 - 300 g/m2 Spatola TBK A2 Temp. d’applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo Pulizia Attrezzi Subito dopo l’uso con acqua, quando essiccato con S",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
@@ -915,11 +915,11 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "100 - 150 g/m2 con rullo in microfibra da 8 mm. 200 - 250 g/m2 con spatola TKB/A2. Temperatura di applicazione Min +10, max +35 °C Conservazione 12 mesi in confezioni origina",
+          "source": "Resa 100 - 150 g/m2 con rullo in microfibra da 8 mm. 200 - 250 g/m2 con spatola TKB/A2. Temperatura di applicazione Min +10, max +35 °C Conservazione 12 mesi in confezioni origina",
           "type": "consumption",
           "suggested_resa_mq": 0.15,
           "source_unit": "kg",
-          "tool": "spatola TKB/A2",
+          "tool": "Spatola TKB/A2",
           "needs_unit_review": false,
           "confidence": "review"
         },
@@ -930,7 +930,7 @@
           "type": "consumption",
           "suggested_resa_mq": 0.25,
           "source_unit": "kg",
-          "tool": "spatola TKB/A2",
+          "tool": "Spatola TKB/A2",
           "needs_unit_review": false,
           "confidence": "review"
         }
@@ -949,33 +949,33 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
+          "source": "Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2",
+          "tool": "Spatola TKB A1/A2",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
+          "source": "Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
           "type": "consumption",
           "suggested_resa_mq": 0.35,
           "source_unit": "kg",
-          "tool": "Spatola TKB B2: circa 350-450 g/m2",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
-          "label": "Applicazione da scheda tecnica",
+          "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
+          "source": "Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C",
           "type": "consumption",
           "suggested_resa_mq": 0.45,
           "source_unit": "kg",
-          "tool": "",
+          "tool": "Spatola TKB/B2",
           "needs_unit_review": false,
           "confidence": "review"
         }
@@ -994,18 +994,18 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. ",
+          "source": "Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. ",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
+          "source": "Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",
@@ -1028,18 +1028,18 @@
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. ",
+          "source": "Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. ",
           "type": "consumption",
           "suggested_resa_mq": 0.3,
           "source_unit": "kg",
-          "tool": "Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1",
+          "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
         },
         {
           "label": "Applicazione a spatola",
           "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
+          "source": "Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",

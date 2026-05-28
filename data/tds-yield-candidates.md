@@ -10,7 +10,7 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 0.15 kg/m2
 - Matched PDF: ita tds/Primer PU 100_it_rev12.pdf
 - Candidate 1: `0.15` kg/m2 | label: Consolidante | type: consumption | tool: - | unit review: no
-  Source: 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in
+  Source: Consumo 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in
 - Candidate 2: `0.4` kg/m2 | label: Impermeabilizzante | type: consumption | tool: - | unit review: no
   Source: 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a
 
@@ -18,7 +18,7 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 0.15 kg/m2
 - Matched PDF: ita tds/Primer PU 100_it_rev12.pdf
 - Candidate 1: `0.15` kg/m2 | label: Consolidante | type: consumption | tool: - | unit review: no
-  Source: 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in
+  Source: Consumo 100 - 150 g/m2 come consolidante superficiale 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in
 - Candidate 2: `0.4` kg/m2 | label: Impermeabilizzante | type: consumption | tool: - | unit review: no
   Source: 250 - 400 g/m2 come impermeabilizzante (in due mani) Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a
 
@@ -34,7 +34,7 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 0.12 L/m2
 - Matched PDF: ita tds/Adeblok T19_it_rev13.pdf
 - Candidate 1: `0.33` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: yes
-  Source: 170 - 330 g/m2 Pulizia attrezzi Subito dopo l’uso con Solvente di lavaggio S/23 VOC 0 g/l Conservazione 12 mesi in confezioni originali sigillate Confezioni disponibili Tanic
+  Source: Resa 3 - 6 m2/kg corrispondenti a 170 - 330 g/m2 Pulizia attrezzi Subito dopo l’uso con Solvente di lavaggio S/23 VOC 0 g/l Conservazione 12 mesi in confezioni originali sigillate Confezioni disponibili Tanic
 
 ## Nano-Fix - 10 L
 - Current app resa_mq: 0.1 L/m2
@@ -57,7 +57,7 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 0.12 L/m2
 - Matched PDF: ita tds/Idroblok 2K_it_rev03.pdf
 - Candidate 1: `0.3` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: yes
-  Source: 150 - 300 g/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni sigillate a temperatura > 10 °C Contenuto VOC 0 g/l
+  Source: Consumo 150 - 300 g/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni sigillate a temperatura > 10 °C Contenuto VOC 0 g/l
 
 ## Idroblok C3 - 5 kg
 - Current app resa_mq: 0.15 kg/m2
@@ -68,7 +68,7 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 0.1 L/m2
 - Matched PDF: ita tds/Primer TS_it_rev06.pdf
 - Candidate 1: `2.0` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: yes
-  Source: 0,4 - 2,0 kg/m2 VOC 0 g/l, cat A/h (BA), limite 50 g/l (2004/42/CE) Temperatura di applicazione Tra +10 e +35 °C Pulizia attrezzi Immediatamente dopo l’uso con acqua
+  Source: Resa 0,4 - 2,0 kg/m2 VOC 0 g/l, cat A/h (BA), limite 50 g/l (2004/42/CE) Temperatura di applicazione Tra +10 e +35 °C Pulizia attrezzi Immediatamente dopo l’uso con acqua
 
 ## Primer C1 - 10 L
 - Current app resa_mq: 0.12 L/m2
@@ -132,61 +132,61 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 - Current app resa_mq: 1.6 kg/m2
 - Matched PDF: ita tds/LVT Leveller_it_rev05.pdf
 - Candidate 1: `1.0` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: no
-  Source: 0,8 - 1,0 kg/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a temperatura > 10 °C Pulizia degli attrezzi Subito 
+  Source: Consumo 0,8 - 1,0 kg/m2 Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezione originale sigillata a temperatura > 10 °C Pulizia degli attrezzi Subito 
 
 ## LVT Leveller Rimovibile - 5 kg
 - Current app resa_mq: 1.6 kg/m2
 - Matched PDF: ita tds/LVT Leveller Rimovibile_it_rev02.pdf
 - Candidate 1: `1.0` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: no
-  Source: 0,1 - 1,0 kg/m2 Posa della pavimentazione 4 - 5 ore Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni originali sigillate a temperatura > 
+  Source: Consumo 0,1 - 1,0 kg/m2 Posa della pavimentazione 4 - 5 ore Temperatura di applicazione > 10 °C - Teme il gelo Conservazione 12 mesi in confezioni originali sigillate a temperatura > 
 
 ## Tovcol TP2C - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol TP2C_it_rev07.pdf
 - Candidate 1: `1.5` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
+  Source: Resa 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
 
 ## Tovcol TA - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol TA_it_rev12.pdf
 - Candidate 1: `1.5` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
+  Source: Resa 1,0 - 1,5 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
 
 ## Tovcol PU2C - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol PU2C_it_rev14.pdf
 - Candidate 1: `1.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
+  Source: Resa 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
 
 ## Tovcol PU2C - Kit 5 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol PU2C_it_rev14.pdf
 - Candidate 1: `1.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
+  Source: Resa 0,8 - 1,3 kg/m2 - Spatola da 10 mm Carico di rottura > 3,5 N/mm2 secondo UNI EN 14293 Temperatura di applicazione da + 10 °C a + 35 °C Conservazione 12 mesi in confezioni orig
 
 ## Tovcol MS - 15 kg
 - Current app resa_mq: 1.0 kg/m2
 - Matched PDF: ita tds/Tovcol MS_it_rev10.pdf
 - Candidate 1: `1.2` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
+  Source: Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
 
 ## Tovcol MS in sacchetti - 15 kg
 - Current app resa_mq: 1.0 kg/m2
 - Matched PDF: ita tds/Tovcol MS_it_rev10.pdf
 - Candidate 1: `1.2` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
+  Source: Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
 
 ## Tovcol MS Start - 15 kg
 - Current app resa_mq: 1.0 kg/m2
 - Matched PDF: ita tds/Tovcol MS Start_it_rev06.pdf
 - Candidate 1: `1.2` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 1,7 N/mm2 Fattore di allungamento: 2,1 Adesivo elastico Da + 10 °C a + 35 °C
+  Source: Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 1,7 N/mm2 Fattore di allungamento: 2,1 Adesivo elastico Da + 10 °C a + 35 °C
 
 ## Tovcol MS Start in sacchetti - 15 kg
 - Current app resa_mq: 1.0 kg/m2
 - Matched PDF: ita tds/Tovcol MS_it_rev10.pdf
 - Candidate 1: `1.2` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola | unit review: no
-  Source: 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
+  Source: Resa 700 - 1200 g/m2 - Spatola da 8 mm Carico di rottura: 2,0 N/mm2 Fattore di allungamento: 2,7 Adesivo elastico Da + 10 °C a + 35 °C
 
 ## Tovcol S/E - 5 kg
 - Current app resa_mq: 1.1 kg/m2
@@ -213,10 +213,10 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 ## Tovcol MS LVT - 5 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol MS LVT_IT- REV04.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 | unit review: no
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
   Source: 250 - 300 g/m2 - Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C
-- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB / B1 | unit review: no
-  Source: 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C
+- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C
 
 ## Tovcol MS LVT Wall - 5 kg
 - Current app resa_mq: 0.35 kg/m2
@@ -226,62 +226,62 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 ## Tovcol RP - 15 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol RP_it_rev09.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp | unit review: no
-  Source: 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
-- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B2: circa 350-450 g/m2 Temp | unit review: no
-  Source: 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
-- Candidate 3: `0.45` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: no
-  Source: 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB A1/A2 | unit review: no
+  Source: Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 3: `0.45` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B2 | unit review: no
+  Source: Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
 
 ## Tovcol RP - 7 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol RP_it_rev09.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp | unit review: no
-  Source: 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
-- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B2: circa 350-450 g/m2 Temp | unit review: no
-  Source: 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
-- Candidate 3: `0.45` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: no
-  Source: 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB A1/A2 | unit review: no
+  Source: Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
+- Candidate 3: `0.45` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B2 | unit review: no
+  Source: Spatola TKB B2: circa 350-450 g/m2 Temp. di applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo
 
 ## Tovcol MPL - 15 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol MPL_it_rev04.pdf
 - Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TBK A2 Temp | unit review: no
-  Source: 200 - 300 g/m2 Spatola TBK A2 Temp. d’applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo Pulizia Attrezzi Subito dopo l’uso con acqua, quando essiccato con S
+  Source: Resa 200 - 300 g/m2 Spatola TBK A2 Temp. d’applicazione Da + 10 a + 35 °C Conservazione 12 mesi - Teme il gelo Pulizia Attrezzi Subito dopo l’uso con acqua, quando essiccato con S
 
 ## Tovcol TST - 6 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol TST_it_rev06.pdf
-- Candidate 1: `0.15` kg/m2 | label: Applicazione a spatola | type: consumption | tool: spatola TKB/A2 | unit review: no
-  Source: 100 - 150 g/m2 con rullo in microfibra da 8 mm. 200 - 250 g/m2 con spatola TKB/A2. Temperatura di applicazione Min +10, max +35 °C Conservazione 12 mesi in confezioni origina
-- Candidate 2: `0.25` kg/m2 | label: Applicazione a spatola | type: consumption | tool: spatola TKB/A2 | unit review: no
+- Candidate 1: `0.15` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
+  Source: Resa 100 - 150 g/m2 con rullo in microfibra da 8 mm. 200 - 250 g/m2 con spatola TKB/A2. Temperatura di applicazione Min +10, max +35 °C Conservazione 12 mesi in confezioni origina
+- Candidate 2: `0.25` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: 200 - 250 g/m2 con spatola TKB/A2. Temperatura di applicazione Min +10, max +35 °C Conservazione 12 mesi in confezioni originali sigillate a temperatura > 10 °C - Teme il gel
 
 ## Tovcol Wet&Dry - 12 kg
 - Current app resa_mq: 0.25 kg/m2
 - Matched PDF: ita tds/Tovcol Wet&Dry_it_rev02.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 | unit review: no
-  Source: 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
-- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB B2: circa 350-450 g/m2 | unit review: no
-  Source: 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
-- Candidate 3: `0.45` kg/m2 | label: Applicazione da scheda tecnica | type: consumption | tool: - | unit review: no
-  Source: 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB A1/A2 | unit review: no
+  Source: Spatola TKB A1 / A2: circa 200-300 g/m2 Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
+- Candidate 2: `0.35` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Spatola TKB B1: circa 300-350 g/m2 Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
+- Candidate 3: `0.45` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B2 | unit review: no
+  Source: Spatola TKB B2: circa 350-450 g/m2 Da + 10 a + 35 °C Da - 20 a + 50 °C
 
 ## Tovcol T91 - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol T91_it_rev07.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 | unit review: no
-  Source: 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
 - Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
-  Source: 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
+  Source: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
 
 ## Tovcol PU2K - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol PU2K_it_rev07.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 | unit review: no
-  Source: 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
 - Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
-  Source: 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
+  Source: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
 
 ## Idrostucco RS/30 - 5 L
 - Current app resa_mq: 0.1 L/m2
