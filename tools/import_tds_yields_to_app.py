@@ -65,16 +65,16 @@ def normalize_tool(candidate: dict) -> str:
 
     if re.search(r"\b200\s*-\s*300\b", source):
         return "Spatola TKB A1/A2"
-    if re.search(r"\b300\s*-\s*350\b", source):
+    if "a2" in source and resa <= 0.3:
+        return "Spatola TKB/A2"
+    if re.search(r"\b300\s*-\s*350\b", source) and resa >= 0.35:
         return "Spatola TKB/B1"
-    if re.search(r"\b350\s*-\s*450\b", source):
+    if re.search(r"\b350\s*-\s*450\b", source) and resa >= 0.45:
         return "Spatola TKB/B2"
     if "b2" in source and resa >= 0.35:
         return "Spatola TKB/B2"
-    if "b1" in source:
+    if "b1" in source and resa >= 0.35:
         return "Spatola TKB/B1"
-    if "a2" in source:
-        return "Spatola TKB/A2"
     if "tbk a2" in source:
         return "Spatola TKB/A2"
 

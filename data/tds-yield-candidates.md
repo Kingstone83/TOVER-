@@ -213,10 +213,12 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 ## Tovcol MS LVT - 5 kg
 - Current app resa_mq: 0.35 kg/m2
 - Matched PDF: ita tds/Tovcol MS LVT_IT- REV04.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: 250 - 300 g/m2 - Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C
-- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: Spatola TKB / A2 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C
+- Candidate 3: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: 350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C Tover srl
 
 ## Tovcol MS LVT Wall - 5 kg
 - Current app resa_mq: 0.35 kg/m2
@@ -270,18 +272,22 @@ Generated from the supplied TDS zip. Suggested `resa_mq` is conservative and mus
 ## Tovcol T91 - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol T91_it_rev07.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
-- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
+- Candidate 3: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
 
 ## Tovcol PU2K - Kit 11 kg
 - Current app resa_mq: 1.1 kg/m2
 - Matched PDF: ita tds/Tovcol PU2K_it_rev07.pdf
-- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 1: `0.3` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: Resa 250 - 300 g/m2 - Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. 
-- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+- Candidate 2: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/A2 | unit review: no
   Source: Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
+- Candidate 3: `0.4` kg/m2 | label: Applicazione a spatola | type: consumption | tool: Spatola TKB/B1 | unit review: no
+  Source: 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi
 
 ## Idrostucco RS/30 - 5 L
 - Current app resa_mq: 0.1 L/m2

@@ -187,14 +187,19 @@ def coats_from_context(text: str) -> int | None:
 
 def tool_from_context(text: str) -> str:
     lower = text.lower()
-    if re.search(r"tkb\s*a1\s*/\s*a2", lower):
-        return "Spatola TKB A1/A2"
-    if re.search(r"tkb\s*/?\s*b1", lower):
-        return "Spatola TKB/B1"
-    if re.search(r"tkb\s*/?\s*b2", lower):
-        return "Spatola TKB/B2"
-    if re.search(r"tkb\s*/?\s*a2", lower):
-        return "Spatola TKB/A2"
+    tool_patterns = [
+        (r"tkb\s*a1\s*/\s*a2", "Spatola TKB A1/A2"),
+        (r"tkb\s*/?\s*a2", "Spatola TKB/A2"),
+        (r"tkb\s*/?\s*b1", "Spatola TKB/B1"),
+        (r"tkb\s*/?\s*b2", "Spatola TKB/B2"),
+    ]
+    matches = []
+    for pattern, label in tool_patterns:
+        match = re.search(pattern, lower)
+        if match:
+            matches.append((match.start(), label))
+    if matches:
+        return sorted(matches)[0][1]
     match = re.search(r"(spatola[^.;,\n)]*(?:a2|b1|10 mm|8 mm|n\.?\s*\d+)?)", text, re.I)
     if match:
         tool = match.group(1)
