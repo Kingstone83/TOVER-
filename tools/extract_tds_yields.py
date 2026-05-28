@@ -227,6 +227,20 @@ def build_candidate(source: str, candidate_type: str, suggested: float, source_u
     }
 
 
+def normalize_candidate_tool(candidate: dict) -> dict:
+    source = (candidate.get("source") or "").lower()
+    resa = float(candidate.get("suggested_resa_mq") or 0)
+    if re.search(r"tkb\s*a1\s*/\s*a2", source) and resa <= 0.3:
+        candidate["tool"] = "Spatola TKB A1/A2"
+    elif re.search(r"tkb\s*/?\s*a2", source) and resa <= 0.3:
+        candidate["tool"] = "Spatola TKB/A2"
+    elif re.search(r"tkb\s*/?\s*b1", source) and resa >= 0.35:
+        candidate["tool"] = "Spatola TKB/B1"
+    elif re.search(r"tkb\s*/?\s*b2", source) and resa >= 0.35:
+        candidate["tool"] = "Spatola TKB/B2"
+    return candidate
+
+
 def candidates_from_block(block: str, product_unit: str) -> list[dict]:
     clean = re.sub(r"\s+", " ", block)
     lower = clean.lower()
@@ -252,7 +266,7 @@ def candidates_from_block(block: str, product_unit: str) -> list[dict]:
         start = prefix_start + local_start if local_start >= 0 else consumption_match.start()
         end = min(consumption_match.end() + 160, len(clean))
         source = clean[start:end]
-        candidates.append(build_candidate(source, "consumption", suggested, unit, product_unit))
+        candidates.append(normalize_candidate_tool(build_candidate(source, "consumption", suggested, unit, product_unit)))
 
     # Examples: 14 - 16 m2/l, 35 - 40 m2/l
     coverage_pattern = re.compile(

@@ -772,17 +772,6 @@
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",
-          "tool": "Spatola TKB/A2",
-          "needs_unit_review": false,
-          "confidence": "review"
-        },
-        {
-          "label": "Applicazione a spatola",
-          "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB / B1 Min +15 °C, max +35 °C 12 mesi in confezioni originali sigillate a temp. > 10 °C Tover srl",
-          "type": "consumption",
-          "suggested_resa_mq": 0.4,
-          "source_unit": "kg",
           "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
@@ -1020,17 +1009,6 @@
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",
-          "tool": "Spatola TKB/A2",
-          "needs_unit_review": false,
-          "confidence": "review"
-        },
-        {
-          "label": "Applicazione a spatola",
-          "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
-          "type": "consumption",
-          "suggested_resa_mq": 0.4,
-          "source_unit": "kg",
           "tool": "Spatola TKB/B1",
           "needs_unit_review": false,
           "confidence": "review"
@@ -1062,17 +1040,6 @@
           "label": "Applicazione a spatola",
           "coats": null,
           "source": "Spatola TKB/A2 350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
-          "type": "consumption",
-          "suggested_resa_mq": 0.4,
-          "source_unit": "kg",
-          "tool": "Spatola TKB/A2",
-          "needs_unit_review": false,
-          "confidence": "review"
-        },
-        {
-          "label": "Applicazione a spatola",
-          "coats": null,
-          "source": "350 - 400 g/m2 - Spatola TKB/B1 Temperatura di applicazione Da + 15 a +35 °C Pulizia Attrezzi Subito dopo l’uso con Solvente di lavaggio S23. Conservazione 12 mesi in confezi",
           "type": "consumption",
           "suggested_resa_mq": 0.4,
           "source_unit": "kg",
