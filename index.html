@@ -189,7 +189,7 @@
 
     .details {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
     }
 
@@ -653,6 +653,10 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
+      .details {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
       .result-box {
         min-height: 178px;
       }
@@ -692,6 +696,11 @@
           <select id="product" name="product"></select>
         </label>
 
+        <label for="application">
+          Applicazione e resa
+          <select id="application" name="application"></select>
+        </label>
+
         <label for="packPrice">
           Prezzo della singola confezione in Euro
           <input id="packPrice" name="packPrice" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Es. 145,00" autocomplete="off">
@@ -701,6 +710,10 @@
           <div class="detail">
             <span>Resa</span>
             <strong id="yield">-</strong>
+          </div>
+          <div class="detail">
+            <span>Applicazione</span>
+            <strong id="applicationInfo">-</strong>
           </div>
           <div class="detail">
             <span>Formato</span>
@@ -751,6 +764,8 @@
         <dl>
           <dt>Prodotto selezionato</dt>
           <dd id="selectedProduct">-</dd>
+          <dt>Applicazione</dt>
+          <dd id="selectedApplication">-</dd>
           <dt>Metri quadri</dt>
           <dd id="summarySqm">-</dd>
           <dt>Quantità necessaria</dt>
@@ -765,7 +780,7 @@
       <button class="download-pdf" type="button" id="downloadPdfBtn" disabled>Scarica PDF</button>
     </div>
 
-    <p class="source">Database interno con resa_mq e dim_confezione. Il prezzo della confezione viene inserito manualmente dal posatore.</p>
+    <p class="source">Database interno predisposto per rese specifiche per prodotto, mani e spatola. Il prezzo della confezione viene inserito manualmente dal posatore.</p>
   </div>
 
   <div class="pdf-report" id="pdfReportArea" aria-hidden="true">
@@ -825,6 +840,18 @@
               <td id="pdfUnitPrice">-</td>
             </tr>
             <tr>
+              <th>Applicazione</th>
+              <td id="pdfApplication">-</td>
+            </tr>
+            <tr>
+              <th>Mani</th>
+              <td id="pdfCoats">-</td>
+            </tr>
+            <tr>
+              <th>Attrezzo/spatola</th>
+              <td id="pdfTool">-</td>
+            </tr>
+            <tr>
               <th>Resa usata nel calcolo</th>
               <td id="pdfYield">-</td>
             </tr>
@@ -845,6 +872,9 @@
   </div>
 
   <script>
+    // Ogni prodotto può definire applicazioni specifiche:
+    // applications: [{ label, coats, tool, resa_mq, note }]
+    // Se applications non è presente, l'app usa la resa_mq attuale come variante standard.
     const PRODUCTS = [
       { category: "Primer e sottofondi", name: "Primer PU100", format: "12 kg", unit: "kg", resa_mq: 0.15, dim_confezione: 12 },
       { category: "Primer e sottofondi", name: "Primer PU100", format: "6 kg", unit: "kg", resa_mq: 0.15, dim_confezione: 6 },
@@ -964,6 +994,7 @@
     });
 
     const productSelect = document.querySelector("#product");
+    const applicationSelect = document.querySelector("#application");
     const sqmInput = document.querySelector("#sqm");
     const packPriceInput = document.querySelector("#packPrice");
     const form = document.querySelector("#calculator");
@@ -979,6 +1010,57 @@
 
     function productId(product, index) {
       return `${product.name}-${product.format}-${index}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    }
+
+    function applicationId(application, index) {
+      return `${index}-${application.label || "applicazione"}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    }
+
+    function getApplicationOptions(product) {
+      if (Array.isArray(product.applications) && product.applications.length) {
+        return product.applications.map((application, index) => ({
+          id: application.id || applicationId(application, index),
+          label: application.label || "Applicazione",
+          coats: application.coats || null,
+          tool: application.tool || "",
+          note: application.note || "",
+          resa_mq: Number(application.resa_mq || product.resa_mq)
+        }));
+      }
+
+      return [{
+        id: "standard",
+        label: "Applicazione standard",
+        coats: null,
+        tool: "Da scheda tecnica",
+        note: "Resa provvisoria da sostituire con il dato della scheda tecnica.",
+        resa_mq: Number(product.resa_mq)
+      }];
+    }
+
+    function formatCoats(application) {
+      if (!application.coats) return "Da scheda tecnica";
+      return `${integer.format(application.coats)} ${application.coats === 1 ? "mano" : "mani"}`;
+    }
+
+    function formatTool(application) {
+      return application.tool || "Da scheda tecnica";
+    }
+
+    function formatApplicationSelectLabel(application, product) {
+      const parts = [application.label];
+      if (application.coats) parts.push(formatCoats(application));
+      if (application.tool) parts.push(application.tool);
+      return `${parts.join(" - ")} (${number.format(application.resa_mq)} ${product.unit}/m²)`;
+    }
+
+    function formatApplicationSummary(application) {
+      const parts = [application.label];
+      const coats = formatCoats(application);
+      const tool = formatTool(application);
+      if (coats !== "Da scheda tecnica") parts.push(coats);
+      if (tool !== "Da scheda tecnica") parts.push(tool);
+      return parts.join(" · ");
     }
 
     function formatAmount(value, unit) {
@@ -1107,7 +1189,7 @@
 
       text("PRODOTTO SELEZIONATO", 22, 76, 8, "#65707a", true);
       multiline(`${data.product.name} ${data.product.format}`, 22, 84, 38, 12, "#24272b", true, 5.5);
-      multiline(`${data.product.category} - Formato ${formatAmount(data.product.dim_confezione, data.product.unit)}`, 22, 99, 45, 9, "#65707a", false, 4.5);
+      multiline(`${data.product.category} - ${formatApplicationSummary(data.application)}`, 22, 99, 45, 9, "#65707a", false, 4.5);
       text("COSTO TOTALE DEL MATERIALE", 138, 76, 8, "#c8ced4", true);
       text(euro.format(data.costoTotale), 138, 92, 22, "#ffffff", true);
 
@@ -1129,26 +1211,32 @@
       });
 
       text("DETTAGLIO CALCOLO", 16, 178, 9, "#65707a", true);
-      line(16, 184, 194, 184);
-      line(16, 258, 194, 258);
-      line(16, 184, 16, 258);
-      line(194, 184, 194, 258);
-
-      [
+      const detailRows = [
         ["Prezzo singola confezione", euro.format(data.packPrice)],
         ["Dimensione confezione", formatAmount(data.product.dim_confezione, data.product.unit)],
         ["Prezzo per singola unità", `${euro.format(data.prezzoUnita)}/${data.product.unit}`],
-        ["Resa usata nel calcolo", `${number.format(data.product.resa_mq)} ${data.product.unit}/m²`],
+        ["Applicazione", data.application.label],
+        ["Mani", formatCoats(data.application)],
+        ["Attrezzo/spatola", formatTool(data.application)],
+        ["Resa usata nel calcolo", `${number.format(data.application.resa_mq)} ${data.product.unit}/m²`],
         ["Quantità totale necessaria", formatAmount(data.quantitaTotale, data.product.unit)],
         ["Materiale acquistato", formatAmount(data.materialeAcquistato, data.product.unit)]
-      ].forEach((row, index) => {
+      ];
+      const tableBottom = 184 + 14 + (detailRows.length * 10);
+
+      line(16, 184, 194, 184);
+      line(16, tableBottom, 194, tableBottom);
+      line(16, 184, 16, tableBottom);
+      line(194, 184, 194, tableBottom);
+
+      detailRows.forEach((row, index) => {
         tableRow(row[0], row[1], 194 + (index * 10), index % 2 === 0);
       });
 
       multiline(
         "Calcolo generato dal prezzo della singola confezione inserito manualmente. Le confezioni sono arrotondate sempre all'intero superiore.",
         16,
-        272,
+        tableBottom + 14,
         110,
         8,
         "#697179",
@@ -1220,24 +1308,47 @@
       });
     }
 
+    function populateApplications() {
+      const product = getSelectedProduct();
+      const applications = getApplicationOptions(product);
+      applicationSelect.innerHTML = "";
+
+      applications.forEach((application, index) => {
+        const option = document.createElement("option");
+        option.value = application.id || applicationId(application, index);
+        option.textContent = formatApplicationSelectLabel(application, product);
+        applicationSelect.appendChild(option);
+      });
+    }
+
     function getSelectedProduct() {
       const selectedId = productSelect.value;
       return PRODUCTS.find((product, index) => productId(product, index) === selectedId) || PRODUCTS[0];
     }
 
+    function getSelectedApplication(product = getSelectedProduct()) {
+      const applications = getApplicationOptions(product);
+      const selectedId = applicationSelect.value;
+      return applications.find(application => application.id === selectedId) || applications[0];
+    }
+
     function updateProductDetails() {
       const product = getSelectedProduct();
+      const application = getSelectedApplication(product);
       const packPrice = parseUserNumber(packPriceInput.value);
       const unitPrice = packPrice > 0 ? packPrice / product.dim_confezione : 0;
 
-      setText("#yield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#yield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
+      setText("#applicationInfo", formatApplicationSummary(application));
       setText("#packSize", formatAmount(product.dim_confezione, product.unit));
       setText("#unitPrice", unitPrice > 0 ? `${euro.format(unitPrice)}/${product.unit}` : "-");
       setText("#selectedProduct", `${product.name} ${product.format}`);
+      setText("#selectedApplication", formatApplicationSummary(application));
     }
 
     function setEmptyResults() {
       const product = getSelectedProduct();
+      const application = getSelectedApplication(product);
       setText("#costPerSqm", "-");
       setText("#packs", "-");
       setText("#totalCost", "-");
@@ -1249,7 +1360,7 @@
       setText("#boughtQuantity", "-");
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
-      setText("#pdfProductMeta", `${product.category} · Formato ${formatAmount(product.dim_confezione, product.unit)}`);
+      setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
       setText("#pdfTotalCost", "-");
       setText("#pdfTotalSentence", "-");
       setText("#pdfSqm", "-");
@@ -1258,7 +1369,10 @@
       setText("#pdfPackPrice", "-");
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
       setText("#pdfUnitPrice", "-");
-      setText("#pdfYield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfApplication", application.label);
+      setText("#pdfCoats", formatCoats(application));
+      setText("#pdfTool", formatTool(application));
+      setText("#pdfYield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
       setText("#pdfTotalQuantity", "-");
       setText("#pdfBoughtQuantity", "-");
       latestCalculation = null;
@@ -1267,6 +1381,7 @@
 
     function calculate() {
       const product = getSelectedProduct();
+      const application = getSelectedApplication(product);
       const sqm = parseUserNumber(sqmInput.value);
       const packPrice = parseUserNumber(packPriceInput.value);
 
@@ -1281,13 +1396,14 @@
       notice.classList.remove("is-visible");
 
       const prezzoUnita = packPrice / product.dim_confezione;
-      const costoMq = prezzoUnita * product.resa_mq;
-      const quantitaTotale = product.resa_mq * sqm;
+      const costoMq = prezzoUnita * application.resa_mq;
+      const quantitaTotale = application.resa_mq * sqm;
       const confezioni = Math.ceil(quantitaTotale / product.dim_confezione);
       const materialeAcquistato = confezioni * product.dim_confezione;
       const costoTotale = confezioni * packPrice;
       latestCalculation = {
         product,
+        application,
         sqm,
         packPrice,
         prezzoUnita,
@@ -1309,7 +1425,7 @@
       setText("#boughtQuantity", formatAmount(materialeAcquistato, product.unit));
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
-      setText("#pdfProductMeta", `${product.category} · Formato ${formatAmount(product.dim_confezione, product.unit)}`);
+      setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
       setText("#pdfTotalCost", euro.format(costoTotale));
       setText("#pdfTotalSentence", `Costo totale del materiale: ${euro.format(costoTotale)}.`);
       setText("#pdfSqm", `${number.format(sqm)} m²`);
@@ -1318,7 +1434,10 @@
       setText("#pdfPackPrice", euro.format(packPrice));
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
       setText("#pdfUnitPrice", `${euro.format(prezzoUnita)}/${product.unit}`);
-      setText("#pdfYield", `${number.format(product.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfApplication", application.label);
+      setText("#pdfCoats", formatCoats(application));
+      setText("#pdfTool", formatTool(application));
+      setText("#pdfYield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
       setText("#pdfTotalQuantity", formatAmount(quantitaTotale, product.unit));
       setText("#pdfBoughtQuantity", formatAmount(materialeAcquistato, product.unit));
       downloadPdfBtn.disabled = false;
@@ -1331,6 +1450,12 @@
     });
 
     productSelect.addEventListener("change", () => {
+      populateApplications();
+      updateProductDetails();
+      if (hasCalculated) calculate();
+    });
+
+    applicationSelect.addEventListener("change", () => {
       updateProductDetails();
       if (hasCalculated) calculate();
     });
@@ -1348,6 +1473,7 @@
       hasCalculated = false;
       form.reset();
       productSelect.selectedIndex = 0;
+      populateApplications();
       notice.classList.remove("is-visible");
       updateProductDetails();
       setEmptyResults();
@@ -1360,6 +1486,7 @@
     });
 
     populateProducts();
+    populateApplications();
     updateProductDetails();
     setEmptyResults();
   </script>
