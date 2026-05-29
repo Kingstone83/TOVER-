@@ -35,7 +35,7 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(180deg, var(--anthracite) 0 390px, var(--paper) 390px 100%);
+        linear-gradient(180deg, var(--anthracite) 0 320px, var(--paper) 320px 100%);
     }
 
     button,
@@ -47,7 +47,7 @@
     .app {
       width: min(100%, 760px);
       margin: 0 auto;
-      padding: 18px 14px 28px;
+      padding: 22px 16px 34px;
     }
 
     .topbar {
@@ -62,17 +62,25 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 6px;
+      gap: 12px;
       min-width: 0;
+    }
+
+    .brand-title {
+      display: block;
+      color: var(--orange);
+      font-size: clamp(4.1rem, 21vw, 6.3rem);
+      font-weight: 300;
+      line-height: .84;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
 
     .logo {
       display: block;
-      width: min(158px, 48vw);
+      width: min(270px, 68vw);
       height: auto;
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, .16);
+      filter: drop-shadow(0 12px 20px rgba(0, 0, 0, .2));
     }
 
     .brand-caption {
@@ -103,7 +111,7 @@
     }
 
     .hero {
-      padding: 22px 0 18px;
+      padding: 16px 0 22px;
       color: #fff;
     }
 
@@ -116,7 +124,7 @@
     }
 
     .hero p {
-      margin: 12px 0 0;
+      margin: 0;
       max-width: 34rem;
       line-height: 1.45;
       font-size: 1rem;
@@ -137,8 +145,8 @@
 
     .form {
       display: grid;
-      gap: 15px;
-      padding: 16px;
+      gap: 18px;
+      padding: 18px;
     }
 
     label {
@@ -152,7 +160,7 @@
     input,
     select {
       width: 100%;
-      min-height: 58px;
+      min-height: 62px;
       border: 2px solid #cfd5da;
       border-radius: 8px;
       background: #fff;
@@ -187,10 +195,16 @@
       background-repeat: no-repeat;
     }
 
+    .readonly-price {
+      color: var(--ink);
+      background: #f7f8fa;
+      cursor: default;
+    }
+
     .details {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      gap: 10px;
     }
 
     .detail {
@@ -220,8 +234,8 @@
 
     .button-row {
       display: grid;
-      grid-template-columns: 1fr 56px;
-      gap: 10px;
+      grid-template-columns: 1fr 62px;
+      gap: 12px;
     }
 
     .calculate,
@@ -275,12 +289,12 @@
     }
 
     .export-area {
-      margin-top: 14px;
+      margin-top: 22px;
     }
 
     .results {
       display: grid;
-      gap: 12px;
+      gap: 14px;
     }
 
     .result-box {
@@ -325,8 +339,8 @@
     }
 
     .summary {
-      margin-top: 14px;
-      padding: 14px;
+      margin-top: 18px;
+      padding: 18px;
       color: #fff;
       background: var(--anthracite-2);
     }
@@ -358,7 +372,7 @@
     }
 
     .pdf-actions {
-      margin-top: 14px;
+      margin-top: 22px;
     }
 
     .download-pdf {
@@ -609,17 +623,17 @@
     @media (min-width: 920px) {
       body {
         background:
-          linear-gradient(90deg, var(--anthracite) 0 38%, var(--paper) 38% 100%);
+          linear-gradient(90deg, var(--anthracite) 0 34%, var(--paper) 34% 100%);
       }
 
       .app {
-        width: min(100%, 1120px);
+        width: min(100%, 1180px);
         min-height: 100vh;
         display: grid;
-        grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
-        gap: 22px;
+        grid-template-columns: minmax(330px, 380px) minmax(0, 1fr);
+        gap: 36px;
         align-content: start;
-        padding: 26px;
+        padding: 28px 28px 42px;
       }
 
       .topbar,
@@ -631,6 +645,16 @@
         align-items: flex-start;
         flex-direction: column;
         justify-content: flex-start;
+        min-height: 240px;
+        padding: 8px 24px 0 10px;
+      }
+
+      .hero {
+        padding: 0 24px 0 10px;
+      }
+
+      .hero p {
+        max-width: 18rem;
       }
 
       .panel,
@@ -673,14 +697,13 @@
   <div class="app">
     <header class="topbar">
       <div class="brand">
-        <img class="logo" src="assets/tover-logo.png" alt="Tover">
-        <span class="brand-caption">Calcolo per posatori</span>
+        <span class="brand-title">Calcola</span>
+        <img class="logo" src="assets/tover-logo-white.png" alt="Tover">
       </div>
       <div class="badge">Listino 2026</div>
     </header>
 
     <section class="hero">
-      <h1>Calcolo costo materiale</h1>
       <p>Inserisci superficie, prodotto, mani e tipo di base: il calcolo usa rese tecniche e prezzi del listino Tover 2026.</p>
     </section>
 
@@ -709,6 +732,11 @@
           </select>
         </label>
 
+        <label for="listinoPrice">
+          Prezzo listino
+          <input class="readonly-price" id="listinoPrice" name="listinoPrice" type="text" value="-" readonly tabindex="-1">
+        </label>
+
         <label for="substrate">
           Tipo di base
           <select id="substrate" name="substrate">
@@ -733,10 +761,6 @@
           <div class="detail">
             <span>Prezzo listino</span>
             <strong id="unitPrice">-</strong>
-          </div>
-          <div class="detail">
-            <span>Costo confezione</span>
-            <strong id="packPriceDetail">-</strong>
           </div>
         </div>
 
@@ -787,8 +811,6 @@
           <dd id="selectedCoats">-</dd>
           <dt>Prezzo listino</dt>
           <dd id="selectedListinoPrice">-</dd>
-          <dt>Costo confezione</dt>
-          <dd id="selectedPackPrice">-</dd>
           <dt>Metri quadri</dt>
           <dd id="summarySqm">-</dd>
           <dt>Quantità necessaria</dt>
@@ -861,10 +883,6 @@
             <tr>
               <th>Dimensione confezione</th>
               <td id="pdfPackSize">-</td>
-            </tr>
-            <tr>
-              <th>Costo confezione calcolato</th>
-              <td id="pdfCalculatedPackPrice">-</td>
             </tr>
             <tr>
               <th>Prezzo medio per unità</th>
@@ -1128,6 +1146,7 @@
     const applicationSelect = document.querySelector("#application");
     const coatsSelect = document.querySelector("#coats");
     const substrateSelect = document.querySelector("#substrate");
+    const listinoPriceInput = document.querySelector("#listinoPrice");
     const sqmInput = document.querySelector("#sqm");
     const form = document.querySelector("#calculator");
     const resetBtn = document.querySelector("#resetBtn");
@@ -1409,7 +1428,6 @@
         ["Prezzo listino", formatListinoPrice(data.price)],
         ["Formato vendita listino", data.price.saleFormat],
         ["Dimensione confezione", formatAmount(data.product.dim_confezione, data.product.unit)],
-        ["Prezzo confezione calcolato", euro.format(data.packPrice)],
         ["Prezzo medio per unità", `${euro.format(data.prezzoUnita)}/${data.product.unit}`],
         ["Applicazione", data.application.label],
         ["Mani", `${integer.format(data.coats)} ${data.coats === 1 ? "mano" : "mani"}`],
@@ -1538,22 +1556,19 @@
       const price = getListinoPrice(product);
       const substrate = getSelectedSubstrate();
       const effectiveYield = getEffectiveYield(application, substrate);
-      const unitPrice = getUnitPrice(product, price);
-      const packPrice = getPackPrice(product, price);
       const coats = getSelectedCoats(application);
 
       syncCoatsControl(application);
+      listinoPriceInput.value = price ? formatListinoPrice(price) : "-";
       setText("#yield", `${number.format(effectiveYield)} ${product.unit}/m²`);
       setText("#applicationInfo", formatApplicationSummary(application));
       setText("#packSize", formatAmount(product.dim_confezione, product.unit));
       setText("#unitPrice", price ? formatListinoPrice(price) : "-");
-      setText("#packPriceDetail", packPrice > 0 ? euro.format(packPrice) : "-");
       setText("#selectedProduct", `${product.name} ${product.format}`);
       setText("#selectedApplication", formatApplicationSummary(application));
       setText("#selectedSubstrate", formatSubstrate(substrate));
       setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
       setText("#selectedListinoPrice", price ? formatListinoPrice(price) : "-");
-      setText("#selectedPackPrice", packPrice > 0 ? euro.format(packPrice) : "-");
     }
 
     function setEmptyResults() {
@@ -1571,7 +1586,6 @@
       setText("#selectedSubstrate", formatSubstrate(getSelectedSubstrate()));
       setText("#selectedCoats", formatCoats(application));
       setText("#selectedListinoPrice", formatListinoPrice(getListinoPrice(product)));
-      setText("#selectedPackPrice", getPackPrice(product, getListinoPrice(product)) > 0 ? euro.format(getPackPrice(product, getListinoPrice(product))) : "-");
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1583,7 +1597,6 @@
       setText("#pdfPackPrice", formatListinoPrice(getListinoPrice(product)));
       setText("#pdfSaleFormat", getListinoPrice(product)?.saleFormat || "-");
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
-      setText("#pdfCalculatedPackPrice", getPackPrice(product, getListinoPrice(product)) > 0 ? euro.format(getPackPrice(product, getListinoPrice(product))) : "-");
       setText("#pdfUnitPrice", "-");
       setText("#pdfApplication", application.label);
       setText("#pdfCoats", formatCoats(application));
@@ -1651,7 +1664,6 @@
       setText("#selectedSubstrate", formatSubstrate(substrate));
       setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
       setText("#selectedListinoPrice", formatListinoPrice(price));
-      setText("#selectedPackPrice", euro.format(packPrice));
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1663,7 +1675,6 @@
       setText("#pdfPackPrice", formatListinoPrice(price));
       setText("#pdfSaleFormat", price.saleFormat);
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
-      setText("#pdfCalculatedPackPrice", euro.format(packPrice));
       setText("#pdfUnitPrice", `${euro.format(prezzoUnita)}/${product.unit}`);
       setText("#pdfApplication", application.label);
       setText("#pdfCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
