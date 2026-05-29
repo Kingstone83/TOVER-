@@ -676,12 +676,12 @@
         <img class="logo" src="assets/tover-logo.png" alt="Tover">
         <span class="brand-caption">Calcolo per posatori</span>
       </div>
-      <div class="badge">Prezzo libero</div>
+      <div class="badge">Listino 2026</div>
     </header>
 
     <section class="hero">
       <h1>Calcolo costo materiale</h1>
-      <p>Inserisci superficie, prodotto e prezzo della confezione: il calcolo usa resa e formato del database interno.</p>
+      <p>Inserisci superficie, prodotto, mani e tipo di base: il calcolo usa rese tecniche e prezzi del listino Tover 2026.</p>
     </section>
 
     <main class="panel">
@@ -701,14 +701,25 @@
           <select id="application" name="application"></select>
         </label>
 
-        <label for="packPrice">
-          Prezzo della singola confezione in Euro
-          <input id="packPrice" name="packPrice" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Es. 145,00" autocomplete="off">
+        <label for="coats">
+          Numero mani
+          <select id="coats" name="coats">
+            <option value="1">1 mano</option>
+            <option value="2">2 mani</option>
+          </select>
+        </label>
+
+        <label for="substrate">
+          Tipo di base
+          <select id="substrate" name="substrate">
+            <option value="assorbente">Base assorbente</option>
+            <option value="non_assorbente">Base non assorbente</option>
+          </select>
         </label>
 
         <div class="details" aria-live="polite">
           <div class="detail">
-            <span>Resa</span>
+            <span>Resa effettiva</span>
             <strong id="yield">-</strong>
           </div>
           <div class="detail">
@@ -720,12 +731,12 @@
             <strong id="packSize">-</strong>
           </div>
           <div class="detail">
-            <span>Prezzo unità</span>
+            <span>Prezzo listino</span>
             <strong id="unitPrice">-</strong>
           </div>
         </div>
 
-        <p class="notice" id="notice">Inserisci metri quadri e prezzo confezione maggiori di zero.</p>
+        <p class="notice" id="notice">Inserisci metri quadri maggiori di zero. Se manca il prezzo listino, il prodotto va completato nel database.</p>
 
         <div class="button-row">
           <button class="calculate" type="submit">Calcola</button>
@@ -766,6 +777,10 @@
           <dd id="selectedProduct">-</dd>
           <dt>Applicazione</dt>
           <dd id="selectedApplication">-</dd>
+          <dt>Base</dt>
+          <dd id="selectedSubstrate">-</dd>
+          <dt>Mani calcolate</dt>
+          <dd id="selectedCoats">-</dd>
           <dt>Metri quadri</dt>
           <dd id="summarySqm">-</dd>
           <dt>Quantità necessaria</dt>
@@ -780,7 +795,7 @@
       <button class="download-pdf" type="button" id="downloadPdfBtn" disabled>Scarica PDF</button>
     </div>
 
-    <p class="source">Database interno predisposto per rese specifiche per prodotto, mani e spatola. Il prezzo della confezione viene inserito manualmente dal posatore.</p>
+    <p class="source">Database interno con rese da schede tecniche e prezzi del listino Tover 2026. Prezzi IVA esclusa.</p>
   </div>
 
   <div class="pdf-report" id="pdfReportArea" aria-hidden="true">
@@ -828,15 +843,19 @@
         <table class="pdf-detail-table">
           <tbody>
             <tr>
-              <th>Prezzo singola confezione</th>
+              <th>Prezzo listino</th>
               <td id="pdfPackPrice">-</td>
+            </tr>
+            <tr>
+              <th>Formato vendita listino</th>
+              <td id="pdfSaleFormat">-</td>
             </tr>
             <tr>
               <th>Dimensione confezione</th>
               <td id="pdfPackSize">-</td>
             </tr>
             <tr>
-              <th>Prezzo per singola unità</th>
+              <th>Prezzo medio per unità</th>
               <td id="pdfUnitPrice">-</td>
             </tr>
             <tr>
@@ -846,6 +865,10 @@
             <tr>
               <th>Mani</th>
               <td id="pdfCoats">-</td>
+            </tr>
+            <tr>
+              <th>Tipo di base</th>
+              <td id="pdfSubstrate">-</td>
             </tr>
             <tr>
               <th>Attrezzo/spatola</th>
@@ -866,7 +889,7 @@
           </tbody>
         </table>
 
-        <p class="pdf-note">Calcolo generato dal valore inserito come prezzo della singola confezione. Le confezioni sono arrotondate sempre all'intero superiore.</p>
+        <p class="pdf-note">Calcolo generato con prezzi del listino Tover 2026, IVA esclusa. Le confezioni sono arrotondate sempre all'intero superiore.</p>
       </div>
     </div>
   </div>
@@ -977,6 +1000,102 @@
       { category: "Legno in esterno", name: "WPC Cover", format: "5 L", unit: "L", resa_mq: 0.08, dim_confezione: 5, applications: [{ label: "Applicazione da scheda tecnica", resa_mq: 0.0667, note: "Da scheda tecnica: WPC Cover_it_rev04.pdf" }] }
     ];
 
+    const LISTINO_PRICES = {
+      "Primer PU100|12 kg": { amount: 20.46, unit: "kg", saleFormat: "2x12 kg" },
+      "Primer PU100|6 kg": { amount: 21.09, unit: "kg", saleFormat: "3x6 kg" },
+      "Primer MS|5 kg": { amount: 31.39, unit: "kg", saleFormat: "3x5 kg" },
+      "Adeblok T19|Kit 7,5 L": { amount: 27.89, unit: "L", saleFormat: "2x(5+2,5) L" },
+      "Nano-Fix|10 L": { amount: 10.53, unit: "L", saleFormat: "2x10 L" },
+      "Nano-Fix|5 L": { amount: 11.18, unit: "L", saleFormat: "3x5 L" },
+      "Idroblok Mono|5 L": { amount: 14.70, unit: "L", saleFormat: "3x5 L" },
+      "Idroblok 2K|Kit 10 L": { amount: 20.82, unit: "L", saleFormat: "2x(5+5) L" },
+      "Idroblok C3|5 kg": { amount: 18.69, unit: "kg", saleFormat: "2x5 kg" },
+      "Primer TS|12 L": { amount: 5.30, unit: "L", saleFormat: "2x12 L" },
+      "Primer C1|10 L": { amount: 8.39, unit: "L", saleFormat: "2x10 L" },
+      "Primer C1|5 L": { amount: 9.08, unit: "L", saleFormat: "3x5 L" },
+      "Toverfix|10 L": { amount: 18.36, unit: "L", saleFormat: "2x10 L" },
+      "Toverfix|5 L": { amount: 18.99, unit: "L", saleFormat: "3x5 L" },
+      "Primer PU-Fix 60|5 L": { amount: 23.09, unit: "L", saleFormat: "3x5 L" },
+      "P.EP.P.|5 L": { amount: 10.84, unit: "L", saleFormat: "3x5 L" },
+      "P.EP.P.|1 L": { amount: 13.40, unit: "L", saleFormat: "12x1 L" },
+      "Primer C4|5 L": { amount: 11.23, unit: "L", saleFormat: "3x5 L" },
+      "Rockfloor F10|25 kg": { amount: 2.68, unit: "kg", saleFormat: "25 kg" },
+      "Quarzo Puro|25 kg": { amount: 1.51, unit: "kg", saleFormat: "25 kg" },
+      "LVT Leveller|5 kg": { amount: 5.10, unit: "kg", saleFormat: "90x5 kg" },
+      "LVT Leveller Rimovibile|5 kg": { amount: 5.10, unit: "kg", saleFormat: "90x5 kg" },
+      "Tovcol TP2C|Kit 11 kg": { amount: 6.22, unit: "kg", saleFormat: "55x(9,9+1,1) kg" },
+      "Tovcol TA|Kit 11 kg": { amount: 5.85, unit: "kg", saleFormat: "55x(9,9+1,1) kg" },
+      "Tovcol PU2C|Kit 11 kg": { amount: 7.08, unit: "kg", saleFormat: "55x(9,9+1,1) kg" },
+      "Tovcol PU2C|Kit 5 kg": { amount: 7.59, unit: "kg", saleFormat: "90x(4,5+0,5) kg" },
+      "Tovcol MS|15 kg": { amount: 9.85, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol MS in sacchetti|15 kg": { amount: 10.34, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol MS Start|15 kg": { amount: 9.34, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol MS Start in sacchetti|15 kg": { amount: 9.82, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol S/E|5 kg": { amount: 11.25, unit: "kg", saleFormat: "9x5 kg" },
+      "Restauro|3 kg": { amount: 34.74, unit: "kg", saleFormat: "3x3 kg" },
+      "Tovcol LVT Fibre+|12 kg": { amount: 8.81, unit: "kg", saleFormat: "44x12 kg" },
+      "Tovcol LVT Fibre+|5 kg": { amount: 9.30, unit: "kg", saleFormat: "90x5 kg" },
+      "Tovcol MS LVT|5 kg": { amount: 19.39, unit: "kg", saleFormat: "90x5 kg" },
+      "Tovcol MS LVT Wall|5 kg": { amount: 21.43, unit: "kg", saleFormat: "90x5 kg" },
+      "Tovcol RP|15 kg": { amount: 7.62, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol RP|7 kg": { amount: 9.20, unit: "kg", saleFormat: "90x7 kg" },
+      "Tovcol MPL|15 kg": { amount: 8.21, unit: "kg", saleFormat: "44x15 kg" },
+      "Tovcol TST|6 kg": { amount: 11.86, unit: "kg", saleFormat: "90x6 kg" },
+      "Tovcol Wet&Dry|12 kg": { amount: 9.24, unit: "kg", saleFormat: "44x12 kg" },
+      "Tovcol T91|Kit 11 kg": { amount: 10.16, unit: "kg", saleFormat: "55x(9,9+1,1) kg" },
+      "Tovcol PU2K|Kit 11 kg": { amount: 6.80, unit: "kg", saleFormat: "55x(9,9+1,1) kg" },
+      "Idrostucco RS/30|5 L": { amount: 12.37, unit: "L", saleFormat: "3x5 L" },
+      "Prontostucco RS/40|5 kg": { amount: 6.27, unit: "kg", saleFormat: "5 kg" },
+      "Prontostucco RS/40|1 kg": { amount: 7.79, unit: "kg", saleFormat: "1 kg" },
+      "Idrofondo H20|5 L": { amount: 14.68, unit: "L", saleFormat: "3x5 L" },
+      "Fast&Full|5 L": { amount: 21.65, unit: "L", saleFormat: "3x5 L" },
+      "Bravo|5 L": { amount: 19.11, unit: "L", saleFormat: "3x5 L" },
+      "Idrofondo Mito|Kit 5,5 L": { amount: 21.53, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Super Gold|Kit 6 L": { amount: 25.41, unit: "L", saleFormat: "2x(5+1) L" },
+      "Base Gold|Kit 6 L": { amount: 23.52, unit: "L", saleFormat: "2x(5+1) L" },
+      "Tone Up|5 L": { amount: 18.57, unit: "L", saleFormat: "3x5 L" },
+      "Fondo Antitannino|5 L": { amount: 21.57, unit: "L", saleFormat: "3x5 L" },
+      "Fondo Antitannino|1 L": { amount: 24.23, unit: "L", saleFormat: "12x1 L" },
+      "Maxima|Kit 5,5 L": { amount: 32.34, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Maxima Extra-matt|Kit 5,5 L": { amount: 34.23, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Essenza|Kit 5,5 L": { amount: 42.17, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Lympha|Kit 5,5 L": { amount: 41.05, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Idrolak DR97|Kit 5,5 L": { amount: 29.93, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Idrolak DR97 Extra-matt|Kit 5,5 L": { amount: 32.03, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Bella|Kit 5,5 L": { amount: 34.23, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Bella Extra-matt|Kit 5,5 L": { amount: 35.96, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Bella Natur|Kit 5,5 L": { amount: 42.57, unit: "L", saleFormat: "2x(5+0,5) L" },
+      "Uniqua SQ|5 L": { amount: 30.05, unit: "L", saleFormat: "3x5 L" },
+      "Uniqua SQ Extra-matt|5 L": { amount: 31.08, unit: "L", saleFormat: "3x5 L" },
+      "Uniqua Natur|5 L": { amount: 37.79, unit: "L", saleFormat: "3x5 L" },
+      "Uniqua Antislip|5 L": { amount: 37.79, unit: "L", saleFormat: "3x5 L" },
+      "Home Maxi|5 L": { amount: 22.84, unit: "L", saleFormat: "3x5 L" },
+      "Home Maxi Extra-matt|5 L": { amount: 26.06, unit: "L", saleFormat: "3x5 L" },
+      "Smart|5 L": { amount: 20.98, unit: "L", saleFormat: "3x5 L" },
+      "Natural Wood|2,5 L": { amount: 37.89, unit: "L", saleFormat: "4x2,5 L" },
+      "Natural Wood|1 L": { amount: 40.44, unit: "L", saleFormat: "12x1 L" },
+      "L'Olio 100% Neutro|2,5 L": { amount: 50.72, unit: "L", saleFormat: "4x2,5 L" },
+      "L'Olio 100% Neutro|1 L": { amount: 53.37, unit: "L", saleFormat: "12x1 L" },
+      "L'Olio 100% Colorato|1 L": { amount: 74.57, unit: "L", saleFormat: "12x1 L", note: "Colori standard" },
+      "Crema d'Olio|2,5 L": { amount: 43.81, unit: "L", saleFormat: "4x2,5 L" },
+      "Tintoretto Design Neutro|1 L": { amount: 33.37, unit: "L", saleFormat: "12x1 L" },
+      "Tintoretto Design Colorato|1 L": { amount: 50.52, unit: "L", saleFormat: "12x1 L", note: "Colori standard/Exclusive in formato 12x1 L" },
+      "Oil Pro|2,5 L": { amount: 36.46, unit: "L", saleFormat: "4x2,5 L" },
+      "Oil Pro|1 L": { amount: 39.10, unit: "L", saleFormat: "12x1 L" },
+      "Maxi Oil|2,5 L": { amount: 20.48, unit: "L", saleFormat: "4x2,5 L" },
+      "Maxi Oil|1 L": { amount: 23.00, unit: "L", saleFormat: "12x1 L" },
+      "Pro-Deck Neutro|10 L": { amount: 22.50, unit: "L", saleFormat: "10 L" },
+      "Pro-Deck Neutro|2,5 L": { amount: 24.53, unit: "L", saleFormat: "4x2,5 L" },
+      "Pro-Deck Neutro|1 L": { amount: 27.30, unit: "L", saleFormat: "12x1 L" },
+      "Pro-Deck Colorato|10 L": { amount: 28.90, unit: "L", saleFormat: "10 L" },
+      "Pro-Deck Colorato|2,5 L": { amount: 30.98, unit: "L", saleFormat: "4x2,5 L" },
+      "Pro-Deck Colorato|1 L": { amount: 32.98, unit: "L", saleFormat: "12x1 L" },
+      "Oil4Sun Neutro|2,5 L": { amount: 25.09, unit: "L", saleFormat: "4x2,5 L" },
+      "Oil4Sun Colorato|2,5 L": { amount: 30.98, unit: "L", saleFormat: "4x2,5 L" },
+      "Grey Free|5 L": { amount: 27.90, unit: "L", saleFormat: "3x5 L" },
+      "WPC Cover|5 L": { amount: 32.74, unit: "L", saleFormat: "3x5 L" }
+    };
+
     const euro = new Intl.NumberFormat("it-IT", {
       style: "currency",
       currency: "EUR",
@@ -995,8 +1114,9 @@
 
     const productSelect = document.querySelector("#product");
     const applicationSelect = document.querySelector("#application");
+    const coatsSelect = document.querySelector("#coats");
+    const substrateSelect = document.querySelector("#substrate");
     const sqmInput = document.querySelector("#sqm");
-    const packPriceInput = document.querySelector("#packPrice");
     const form = document.querySelector("#calculator");
     const resetBtn = document.querySelector("#resetBtn");
     const downloadPdfBtn = document.querySelector("#downloadPdfBtn");
@@ -1024,6 +1144,7 @@
           coats: application.coats || null,
           tool: application.tool || "",
           note: application.note || "",
+          substrates: application.substrates || null,
           resa_mq: Number(application.resa_mq || product.resa_mq)
         }));
       }
@@ -1034,8 +1155,69 @@
         coats: null,
         tool: "Da scheda tecnica",
         note: "Resa provvisoria da sostituire con il dato della scheda tecnica.",
+        substrates: product.substrates || null,
         resa_mq: Number(product.resa_mq)
       }];
+    }
+
+    function priceKey(product) {
+      return `${product.name}|${product.format}`;
+    }
+
+    function getListinoPrice(product) {
+      return LISTINO_PRICES[priceKey(product)] || null;
+    }
+
+    function getPackPrice(product, price) {
+      if (!price) return 0;
+      if (price.unit === product.unit) return price.amount * product.dim_confezione;
+      return price.amount;
+    }
+
+    function getUnitPrice(product, price) {
+      if (!price) return 0;
+      if (price.unit === product.unit) return price.amount;
+      return getPackPrice(product, price) / product.dim_confezione;
+    }
+
+    function formatListinoPrice(price) {
+      if (!price) return "-";
+      const suffix = price.note ? ` · ${price.note}` : "";
+      return `${euro.format(price.amount)}/${price.unit}${suffix}`;
+    }
+
+    function formatSubstrate(value) {
+      return value === "non_assorbente" ? "Base non assorbente" : "Base assorbente";
+    }
+
+    function getSelectedSubstrate() {
+      return substrateSelect.value || "assorbente";
+    }
+
+    function getSelectedCoats(application) {
+      return Number(application.coats || coatsSelect.value || 1);
+    }
+
+    function getBaseYield(application, substrate) {
+      if (application.substrates && application.substrates[substrate]) {
+        return Number(application.substrates[substrate]);
+      }
+      return Number(application.resa_mq);
+    }
+
+    function getEffectiveYield(application, substrate) {
+      const baseYield = getBaseYield(application, substrate);
+      if (application.coats) return baseYield;
+      return baseYield * getSelectedCoats(application);
+    }
+
+    function syncCoatsControl(application) {
+      if (application.coats) {
+        coatsSelect.value = String(application.coats);
+        coatsSelect.disabled = true;
+        return;
+      }
+      coatsSelect.disabled = false;
     }
 
     function formatCoats(application) {
@@ -1212,13 +1394,16 @@
 
       text("DETTAGLIO CALCOLO", 16, 178, 9, "#65707a", true);
       const detailRows = [
-        ["Prezzo singola confezione", euro.format(data.packPrice)],
+        ["Prezzo listino", formatListinoPrice(data.price)],
+        ["Formato vendita listino", data.price.saleFormat],
         ["Dimensione confezione", formatAmount(data.product.dim_confezione, data.product.unit)],
-        ["Prezzo per singola unità", `${euro.format(data.prezzoUnita)}/${data.product.unit}`],
+        ["Prezzo confezione calcolato", euro.format(data.packPrice)],
+        ["Prezzo medio per unità", `${euro.format(data.prezzoUnita)}/${data.product.unit}`],
         ["Applicazione", data.application.label],
-        ["Mani", formatCoats(data.application)],
+        ["Mani", `${integer.format(data.coats)} ${data.coats === 1 ? "mano" : "mani"}`],
+        ["Tipo di base", formatSubstrate(data.substrate)],
         ["Attrezzo/spatola", formatTool(data.application)],
-        ["Resa usata nel calcolo", `${number.format(data.application.resa_mq)} ${data.product.unit}/m²`],
+        ["Resa usata nel calcolo", `${number.format(data.effectiveYield)} ${data.product.unit}/m²`],
         ["Quantità totale necessaria", formatAmount(data.quantitaTotale, data.product.unit)],
         ["Materiale acquistato", formatAmount(data.materialeAcquistato, data.product.unit)]
       ];
@@ -1234,7 +1419,7 @@
       });
 
       multiline(
-        "Calcolo generato dal prezzo della singola confezione inserito manualmente. Le confezioni sono arrotondate sempre all'intero superiore.",
+        "Calcolo generato con prezzi del listino Tover 2026, IVA esclusa. Le confezioni sono arrotondate sempre all'intero superiore.",
         16,
         tableBottom + 14,
         110,
@@ -1319,6 +1504,8 @@
         option.textContent = formatApplicationSelectLabel(application, product);
         applicationSelect.appendChild(option);
       });
+
+      syncCoatsControl(getSelectedApplication(product));
     }
 
     function getSelectedProduct() {
@@ -1335,15 +1522,21 @@
     function updateProductDetails() {
       const product = getSelectedProduct();
       const application = getSelectedApplication(product);
-      const packPrice = parseUserNumber(packPriceInput.value);
-      const unitPrice = packPrice > 0 ? packPrice / product.dim_confezione : 0;
+      const price = getListinoPrice(product);
+      const substrate = getSelectedSubstrate();
+      const effectiveYield = getEffectiveYield(application, substrate);
+      const unitPrice = getUnitPrice(product, price);
+      const coats = getSelectedCoats(application);
 
-      setText("#yield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
+      syncCoatsControl(application);
+      setText("#yield", `${number.format(effectiveYield)} ${product.unit}/m²`);
       setText("#applicationInfo", formatApplicationSummary(application));
       setText("#packSize", formatAmount(product.dim_confezione, product.unit));
       setText("#unitPrice", unitPrice > 0 ? `${euro.format(unitPrice)}/${product.unit}` : "-");
       setText("#selectedProduct", `${product.name} ${product.format}`);
       setText("#selectedApplication", formatApplicationSummary(application));
+      setText("#selectedSubstrate", formatSubstrate(substrate));
+      setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
     }
 
     function setEmptyResults() {
@@ -1358,6 +1551,8 @@
       setText("#summarySqm", "-");
       setText("#totalQuantity", "-");
       setText("#boughtQuantity", "-");
+      setText("#selectedSubstrate", formatSubstrate(getSelectedSubstrate()));
+      setText("#selectedCoats", formatCoats(application));
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1366,13 +1561,15 @@
       setText("#pdfSqm", "-");
       setText("#pdfPacks", "-");
       setText("#pdfCostPerSqm", "-");
-      setText("#pdfPackPrice", "-");
+      setText("#pdfPackPrice", formatListinoPrice(getListinoPrice(product)));
+      setText("#pdfSaleFormat", getListinoPrice(product)?.saleFormat || "-");
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
       setText("#pdfUnitPrice", "-");
       setText("#pdfApplication", application.label);
       setText("#pdfCoats", formatCoats(application));
+      setText("#pdfSubstrate", formatSubstrate(getSelectedSubstrate()));
       setText("#pdfTool", formatTool(application));
-      setText("#pdfYield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfYield", `${number.format(getEffectiveYield(application, getSelectedSubstrate()))} ${product.unit}/m²`);
       setText("#pdfTotalQuantity", "-");
       setText("#pdfBoughtQuantity", "-");
       latestCalculation = null;
@@ -1383,11 +1580,14 @@
       const product = getSelectedProduct();
       const application = getSelectedApplication(product);
       const sqm = parseUserNumber(sqmInput.value);
-      const packPrice = parseUserNumber(packPriceInput.value);
+      const price = getListinoPrice(product);
+      const substrate = getSelectedSubstrate();
+      const coats = getSelectedCoats(application);
+      const effectiveYield = getEffectiveYield(application, substrate);
 
       updateProductDetails();
 
-      if (!sqm || sqm <= 0 || !packPrice || packPrice <= 0) {
+      if (!sqm || sqm <= 0 || !price) {
         notice.classList.add("is-visible");
         setEmptyResults();
         return;
@@ -1395,15 +1595,20 @@
 
       notice.classList.remove("is-visible");
 
-      const prezzoUnita = packPrice / product.dim_confezione;
-      const costoMq = prezzoUnita * application.resa_mq;
-      const quantitaTotale = application.resa_mq * sqm;
+      const packPrice = getPackPrice(product, price);
+      const prezzoUnita = getUnitPrice(product, price);
+      const costoMq = prezzoUnita * effectiveYield;
+      const quantitaTotale = effectiveYield * sqm;
       const confezioni = Math.ceil(quantitaTotale / product.dim_confezione);
       const materialeAcquistato = confezioni * product.dim_confezione;
       const costoTotale = confezioni * packPrice;
       latestCalculation = {
         product,
         application,
+        price,
+        substrate,
+        coats,
+        effectiveYield,
         sqm,
         packPrice,
         prezzoUnita,
@@ -1423,6 +1628,8 @@
       setText("#summarySqm", `${number.format(sqm)} m²`);
       setText("#totalQuantity", formatAmount(quantitaTotale, product.unit));
       setText("#boughtQuantity", formatAmount(materialeAcquistato, product.unit));
+      setText("#selectedSubstrate", formatSubstrate(substrate));
+      setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1431,13 +1638,15 @@
       setText("#pdfSqm", `${number.format(sqm)} m²`);
       setText("#pdfPacks", integer.format(confezioni));
       setText("#pdfCostPerSqm", `${euro.format(costoMq)}/m²`);
-      setText("#pdfPackPrice", euro.format(packPrice));
+      setText("#pdfPackPrice", formatListinoPrice(price));
+      setText("#pdfSaleFormat", price.saleFormat);
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
       setText("#pdfUnitPrice", `${euro.format(prezzoUnita)}/${product.unit}`);
       setText("#pdfApplication", application.label);
-      setText("#pdfCoats", formatCoats(application));
+      setText("#pdfCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
+      setText("#pdfSubstrate", formatSubstrate(substrate));
       setText("#pdfTool", formatTool(application));
-      setText("#pdfYield", `${number.format(application.resa_mq)} ${product.unit}/m²`);
+      setText("#pdfYield", `${number.format(effectiveYield)} ${product.unit}/m²`);
       setText("#pdfTotalQuantity", formatAmount(quantitaTotale, product.unit));
       setText("#pdfBoughtQuantity", formatAmount(materialeAcquistato, product.unit));
       downloadPdfBtn.disabled = false;
@@ -1456,6 +1665,7 @@
     });
 
     applicationSelect.addEventListener("change", () => {
+      syncCoatsControl(getSelectedApplication());
       updateProductDetails();
       if (hasCalculated) calculate();
     });
@@ -1464,7 +1674,12 @@
       if (hasCalculated) calculate();
     });
 
-    packPriceInput.addEventListener("input", () => {
+    coatsSelect.addEventListener("change", () => {
+      updateProductDetails();
+      if (hasCalculated) calculate();
+    });
+
+    substrateSelect.addEventListener("change", () => {
       updateProductDetails();
       if (hasCalculated) calculate();
     });
