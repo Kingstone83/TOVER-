@@ -734,6 +734,10 @@
             <span>Prezzo listino</span>
             <strong id="unitPrice">-</strong>
           </div>
+          <div class="detail">
+            <span>Costo confezione</span>
+            <strong id="packPriceDetail">-</strong>
+          </div>
         </div>
 
         <p class="notice" id="notice">Inserisci metri quadri maggiori di zero. Se manca il prezzo listino, il prodotto va completato nel database.</p>
@@ -781,6 +785,10 @@
           <dd id="selectedSubstrate">-</dd>
           <dt>Mani calcolate</dt>
           <dd id="selectedCoats">-</dd>
+          <dt>Prezzo listino</dt>
+          <dd id="selectedListinoPrice">-</dd>
+          <dt>Costo confezione</dt>
+          <dd id="selectedPackPrice">-</dd>
           <dt>Metri quadri</dt>
           <dd id="summarySqm">-</dd>
           <dt>Quantità necessaria</dt>
@@ -853,6 +861,10 @@
             <tr>
               <th>Dimensione confezione</th>
               <td id="pdfPackSize">-</td>
+            </tr>
+            <tr>
+              <th>Costo confezione calcolato</th>
+              <td id="pdfCalculatedPackPrice">-</td>
             </tr>
             <tr>
               <th>Prezzo medio per unità</th>
@@ -1484,8 +1496,9 @@
         PRODUCTS.forEach((product, index) => {
           if (product.category !== category) return;
           const option = document.createElement("option");
+          const price = getListinoPrice(product);
           option.value = productId(product, index);
-          option.textContent = `${product.name} - ${product.format}`;
+          option.textContent = `${product.name} - ${product.format}${price ? ` - ${formatListinoPrice(price)}` : ""}`;
           group.appendChild(option);
         });
 
@@ -1526,17 +1539,21 @@
       const substrate = getSelectedSubstrate();
       const effectiveYield = getEffectiveYield(application, substrate);
       const unitPrice = getUnitPrice(product, price);
+      const packPrice = getPackPrice(product, price);
       const coats = getSelectedCoats(application);
 
       syncCoatsControl(application);
       setText("#yield", `${number.format(effectiveYield)} ${product.unit}/m²`);
       setText("#applicationInfo", formatApplicationSummary(application));
       setText("#packSize", formatAmount(product.dim_confezione, product.unit));
-      setText("#unitPrice", unitPrice > 0 ? `${euro.format(unitPrice)}/${product.unit}` : "-");
+      setText("#unitPrice", price ? formatListinoPrice(price) : "-");
+      setText("#packPriceDetail", packPrice > 0 ? euro.format(packPrice) : "-");
       setText("#selectedProduct", `${product.name} ${product.format}`);
       setText("#selectedApplication", formatApplicationSummary(application));
       setText("#selectedSubstrate", formatSubstrate(substrate));
       setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
+      setText("#selectedListinoPrice", price ? formatListinoPrice(price) : "-");
+      setText("#selectedPackPrice", packPrice > 0 ? euro.format(packPrice) : "-");
     }
 
     function setEmptyResults() {
@@ -1553,6 +1570,8 @@
       setText("#boughtQuantity", "-");
       setText("#selectedSubstrate", formatSubstrate(getSelectedSubstrate()));
       setText("#selectedCoats", formatCoats(application));
+      setText("#selectedListinoPrice", formatListinoPrice(getListinoPrice(product)));
+      setText("#selectedPackPrice", getPackPrice(product, getListinoPrice(product)) > 0 ? euro.format(getPackPrice(product, getListinoPrice(product))) : "-");
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1564,6 +1583,7 @@
       setText("#pdfPackPrice", formatListinoPrice(getListinoPrice(product)));
       setText("#pdfSaleFormat", getListinoPrice(product)?.saleFormat || "-");
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
+      setText("#pdfCalculatedPackPrice", getPackPrice(product, getListinoPrice(product)) > 0 ? euro.format(getPackPrice(product, getListinoPrice(product))) : "-");
       setText("#pdfUnitPrice", "-");
       setText("#pdfApplication", application.label);
       setText("#pdfCoats", formatCoats(application));
@@ -1630,6 +1650,8 @@
       setText("#boughtQuantity", formatAmount(materialeAcquistato, product.unit));
       setText("#selectedSubstrate", formatSubstrate(substrate));
       setText("#selectedCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
+      setText("#selectedListinoPrice", formatListinoPrice(price));
+      setText("#selectedPackPrice", euro.format(packPrice));
       setText("#pdfDate", `Data calcolo: ${formattedDate()}`);
       setText("#pdfProduct", `${product.name} ${product.format}`);
       setText("#pdfProductMeta", `${product.category} · ${formatApplicationSummary(application)}`);
@@ -1641,6 +1663,7 @@
       setText("#pdfPackPrice", formatListinoPrice(price));
       setText("#pdfSaleFormat", price.saleFormat);
       setText("#pdfPackSize", formatAmount(product.dim_confezione, product.unit));
+      setText("#pdfCalculatedPackPrice", euro.format(packPrice));
       setText("#pdfUnitPrice", `${euro.format(prezzoUnita)}/${product.unit}`);
       setText("#pdfApplication", application.label);
       setText("#pdfCoats", `${integer.format(coats)} ${coats === 1 ? "mano" : "mani"}`);
