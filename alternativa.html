@@ -65,16 +65,20 @@
       align-items: flex-start;
       gap: 12px;
       min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .brand-title {
       display: block;
       color: var(--orange);
-      font-size: clamp(2.7rem, 13vw, 4.2rem);
+      max-width: 100%;
+      font-size: clamp(2.1rem, 7vw, 2.8rem);
       font-weight: 300;
       line-height: .9;
       letter-spacing: 0;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .logo {
@@ -669,6 +673,7 @@
         justify-content: flex-start;
         min-height: 205px;
         padding: 8px 24px 0 10px;
+        max-width: 360px;
       }
 
       .hero {
