@@ -76,12 +76,10 @@
       min-width: 0;
     }
 
-    .brand strong {
-      color: var(--accent);
-      font-size: clamp(2rem, 8vw, 3.6rem);
-      line-height: .9;
-      letter-spacing: 0;
-      text-transform: uppercase;
+    .brand-logo {
+      display: block;
+      width: min(271px, 56vw);
+      height: auto;
     }
 
     .brand span {
@@ -470,7 +468,7 @@
       <div class="top-inner">
         <div class="brand-row">
           <div class="brand">
-            <strong>Tover</strong>
+            <img class="brand-logo" src="assets/logo-tover-plus.png" alt="TOVER+">
             <span>Floor Navigator e preventivo da schede tecniche STD</span>
           </div>
           <div class="source-pill" id="sourceCount">Caricamento dati</div>
