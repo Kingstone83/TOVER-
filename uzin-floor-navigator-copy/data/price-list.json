@@ -1,0 +1,3534 @@
+{
+  "source": "/Users/michele/Library/CloudStorage/Dropbox/TOVER/2026/LISTINO 26/TOVER listino prezzi 2026-rev MAG 26.pdf",
+  "matchedProducts": 122,
+  "products": [
+    {
+      "name": "Acqua UV LED",
+      "pdfName": "Acqua UV LED_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "25 L",
+          "amount": 32.12,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "10 L",
+          "amount": 34.12,
+          "unit": "kg",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2,5 L",
+          "amount": 36.12,
+          "unit": "pz",
+          "packageSize": 2.5
+        },
+        {
+          "format": "1 L",
+          "amount": 38.12,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 kg",
+          "amount": 70.0,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 78.74,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 33.75,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 32.49,
+          "unit": "L",
+          "packageSize": 12.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 11.65,
+          "unit": "L",
+          "packageSize": 12.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 17.94,
+          "unit": "pz",
+          "packageSize": 12.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 22.93,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "20 pz",
+          "amount": 36.8,
+          "unit": "pz",
+          "packageSize": 20.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 25.45,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "20 pz",
+          "amount": 22.44,
+          "unit": "L",
+          "packageSize": 20.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 41.23,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 7.65,
+          "unit": "pz",
+          "packageSize": 12.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 43.36,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 31.69,
+          "unit": "pz",
+          "packageSize": 12.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 33.25,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 36.16,
+          "unit": "L",
+          "packageSize": 12.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 13.93,
+          "unit": "pz",
+          "packageSize": 12.0
+        },
+        {
+          "format": "20 pz",
+          "amount": 8.26,
+          "unit": "pz",
+          "packageSize": 20.0
+        },
+        {
+          "format": "20 pz",
+          "amount": 21.37,
+          "unit": "L",
+          "packageSize": 20.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 20.36,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 9.37,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 21.42,
+          "unit": "pz",
+          "packageSize": 5.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 5.75,
+          "unit": "pz",
+          "packageSize": 25.0
+        }
+      ]
+    },
+    {
+      "name": "Adeblok T19",
+      "pdfName": "Adeblok T19_it_rev13.pdf",
+      "prices": [
+        {
+          "format": "2x(5+2,5) L",
+          "amount": 27.89,
+          "unit": "L",
+          "packageSize": 7.5
+        }
+      ]
+    },
+    {
+      "name": "Adesol 100",
+      "pdfName": "Adesol 100_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 19.69,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "20x500 ml",
+          "amount": 17.9,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Adesol Green",
+      "pdfName": "Adesol Green_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 19.69,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "20x500 ml",
+          "amount": 17.9,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Antique",
+      "pdfName": "Antique_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 8.18,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Art Deco",
+      "pdfName": "Art Deco_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 33.37,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 37.7,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 50.53,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 50.53,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 68.53,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 9.5,
+          "unit": "L",
+          "packageSize": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Base Gold",
+      "pdfName": "Base Gold_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "2x(5+1) L",
+          "amount": 23.52,
+          "unit": "L",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Bella",
+      "pdfName": "Bella_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 34.23,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 35.96,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 42.57,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "1 L",
+          "amount": 67.77,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "500 ml",
+          "amount": 36.14,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "250 ml",
+          "amount": 20.46,
+          "unit": "pz",
+          "packageSize": 0.25
+        },
+        {
+          "format": "100 ml",
+          "amount": 11.57,
+          "unit": "pz",
+          "packageSize": 0.1
+        },
+        {
+          "format": "500 ml",
+          "amount": 55.16,
+          "unit": "L",
+          "packageSize": 0.5
+        },
+        {
+          "format": "250 ml",
+          "amount": 30.28,
+          "unit": "pz",
+          "packageSize": 0.25
+        },
+        {
+          "format": "100 ml",
+          "amount": 17.3,
+          "unit": "pz",
+          "packageSize": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Belle Epoque",
+      "pdfName": "Belle Epoque_it_rev10.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 30.79,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 5.33,
+          "unit": "L",
+          "packageSize": 0.1
+        },
+        {
+          "format": "12x1 L",
+          "amount": 14.73,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "500 ml",
+          "amount": 10.49,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "1 pz",
+          "amount": 260.02,
+          "unit": "pz",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Bosch Ciair",
+      "pdfName": "Bosch Ciair_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.15,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.88,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Bosch Vej",
+      "pdfName": "Bosch Vej_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 10.56,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.22,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Bravo",
+      "pdfName": "Bravo_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 19.11,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "C61 Plus",
+      "pdfName": "C61 Plus_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 18.18,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 20.9,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Clean&Go",
+      "pdfName": "Clean&Go_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 10.6,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 11.68,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Contrasto",
+      "pdfName": "Contrasto_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 28.22,
+          "unit": "L",
+          "packageSize": 2.5
+        }
+      ]
+    },
+    {
+      "name": "Crema d'Olio",
+      "pdfName": "Crema d'Olio_it_rev14.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 43.81,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Deck-Soap",
+      "pdfName": "Deck-Soap_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 13.24,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 14.57,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Deteroil",
+      "pdfName": "Deteroil_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 13.24,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 14.58,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.83,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 15.22,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Diluente P100",
+      "pdfName": "Diluente P100_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 8.32,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 9.68,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "2x10 L",
+          "amount": 15.77,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 17.83,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 7.02,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 8.36,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "2x10 L",
+          "amount": 10.29,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 10.99,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 12.44,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Essenza",
+      "pdfName": "Essenza_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 42.17,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Fast&Full",
+      "pdfName": "Fast&Full_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 21.65,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Firestop Pro",
+      "pdfName": "Firestop Pro_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "2x(5+1) L",
+          "amount": 40.72,
+          "unit": "L",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Flex Color",
+      "pdfName": "Flex Color_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "4x(2,5+0,25) L",
+          "amount": 64.4,
+          "unit": "L",
+          "packageSize": 2.75
+        },
+        {
+          "format": "10x(1+0,1) L",
+          "amount": 66.4,
+          "unit": "L",
+          "packageSize": 1.1
+        }
+      ]
+    },
+    {
+      "name": "Flex Protect",
+      "pdfName": "Flex Protect_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 40.72,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "10x(1+0,1) L",
+          "amount": 42.72,
+          "unit": "L",
+          "packageSize": 1.1
+        }
+      ]
+    },
+    {
+      "name": "Fondo Antitannino",
+      "pdfName": "Fondo Antitannino_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 21.57,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 24.23,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Fondo isolante AL",
+      "pdfName": "Fondo isolante AL_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 13.23,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "10+10 L",
+          "amount": 20.48,
+          "unit": "L",
+          "packageSize": 20.0
+        },
+        {
+          "format": "2x(5+5) L",
+          "amount": 21.95,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2x(5+5) L",
+          "amount": 25.7,
+          "unit": "L",
+          "packageSize": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Fossil",
+      "pdfName": "Fossil_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 10.56,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.22,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Fullgap",
+      "pdfName": "Fullgap_it_rev09.pdf",
+      "prices": [
+        {
+          "format": "310 ml",
+          "amount": 8.23,
+          "unit": "L",
+          "packageSize": 0.31
+        },
+        {
+          "format": "12x310 ml",
+          "amount": 6.84,
+          "unit": "pz",
+          "packageSize": 0.31
+        }
+      ]
+    },
+    {
+      "name": "Gekol H2O",
+      "pdfName": "Gekol H2O_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "310 ml",
+          "amount": 8.43,
+          "unit": "pz",
+          "packageSize": 0.31
+        },
+        {
+          "format": "24x310 ml",
+          "amount": 7.73,
+          "unit": "pz",
+          "packageSize": 0.31
+        }
+      ]
+    },
+    {
+      "name": "Giardino Pulito",
+      "pdfName": "Giardino Pulito_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.79,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 14.92,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 13.41,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Grey Free",
+      "pdfName": "Grey Free_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 27.9,
+          "unit": "pz",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 28.78,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "13x500 ml",
+          "amount": 17.36,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Grip&Go",
+      "pdfName": "Grip&Go_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "2x(4+1) L",
+          "amount": 25.74,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Home Maxi",
+      "pdfName": "Home Maxi_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 22.84,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Idroblok 2K",
+      "pdfName": "Idroblok 2K_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x(5+5) L",
+          "amount": 20.82,
+          "unit": "L",
+          "packageSize": 10.0
+        }
+      ]
+    },
+    {
+      "name": "Idroblok C3",
+      "pdfName": "Idroblok C3_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "2x5 kg",
+          "amount": 18.69,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Idroblok Mono",
+      "pdfName": "Idroblok Mono_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 14.7,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Idrofondo H20",
+      "pdfName": "Idrofondo H20_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 14.68,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Idrofondo Industry",
+      "pdfName": "Idrofondo Industry_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 42.68,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 44.68,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Idrofondo Mito",
+      "pdfName": "Idrofondo Mito_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 21.53,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Idrolak DR97",
+      "pdfName": "Idrolak DR97_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 29.93,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 32.03,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Idrostucco RS30",
+      "pdfName": "Idrostucco RS30_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 12.37,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "L'Olio 100",
+      "pdfName": "L'Olio 100_it_rev08.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 50.72,
+          "unit": "pz",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 53.37,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 14.4,
+          "unit": "L",
+          "packageSize": 0.1
+        },
+        {
+          "format": "12x1 L",
+          "amount": 74.57,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 16.8,
+          "unit": "pz",
+          "packageSize": 0.1
+        },
+        {
+          "format": "12x1 L",
+          "amount": 74.57,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 95.57,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 16.8,
+          "unit": "L",
+          "packageSize": 0.1
+        }
+      ]
+    },
+    {
+      "name": "LVT Leveller Rimovibile",
+      "pdfName": "LVT Leveller Rimovibile_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "90x5 kg",
+          "amount": 5.1,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "LVT Leveller",
+      "pdfName": "LVT Leveller_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "90x5 kg",
+          "amount": 5.1,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Lega stucco RS20",
+      "pdfName": "Lega stucco RS20_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x10 L",
+          "amount": 14.6,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 15.23,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Lega stucco RSA",
+      "pdfName": "Lega stucco RSA_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.24,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Line maker",
+      "pdfName": "Line maker_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "72x7,5 kg",
+          "amount": 7.14,
+          "unit": "kg",
+          "packageSize": 7.5
+        }
+      ]
+    },
+    {
+      "name": "Lux Matt",
+      "pdfName": "Lux Matt_it_rev08.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 13.77,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 15.14,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 17.58,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 19.34,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Lympha",
+      "pdfName": "Lympha_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 41.05,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Make-Up",
+      "pdfName": "Make-Up_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 19.5,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 21.41,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.31,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 14.64,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Maxi Oil Color",
+      "pdfName": "Maxi Oil Color_it_rev02-corretta.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 20.48,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 23.0,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 23.52,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 26.04,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Maxima Flex",
+      "pdfName": "Maxima Flex_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 32.34,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "10x(1+0,1) L",
+          "amount": 34.34,
+          "unit": "L",
+          "packageSize": 1.1
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 34.24,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "10x(1+0,1) L",
+          "amount": 36.24,
+          "unit": "L",
+          "packageSize": 1.1
+        }
+      ]
+    },
+    {
+      "name": "Maxima",
+      "pdfName": "Maxima_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 32.34,
+          "unit": "L",
+          "packageSize": 5.5
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 34.23,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "MyFloor Cleaner",
+      "pdfName": "MyFloor Cleaner_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 9.95,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 10.92,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nano-fix",
+      "pdfName": "Nano-fix_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x10 L",
+          "amount": 10.53,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 11.18,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Natural Wood",
+      "pdfName": "Natural Wood_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 37.89,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 40.44,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Nettardue",
+      "pdfName": "Nettardue_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 10.51,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 11.56,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Oil Pro",
+      "pdfName": "Oil Pro_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 36.46,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 39.1,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Oil-Linker",
+      "pdfName": "Oil-Linker_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "250 ml",
+          "amount": 46.32,
+          "unit": "pz",
+          "packageSize": 0.25
+        },
+        {
+          "format": "100 ml",
+          "amount": 19.78,
+          "unit": "pz",
+          "packageSize": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Oil4Sun",
+      "pdfName": "Oil4Sun_it_rev12.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 25.09,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 27.59,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 30.98,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 32.98,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Pasta Color CO",
+      "pdfName": "Pasta Color CO_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "1 kg",
+          "amount": 50.55,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "2x10 L",
+          "amount": 9.71,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 11.72,
+          "unit": "kg",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Primer C1",
+      "pdfName": "Primer C1_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x10 L",
+          "amount": 8.39,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 9.08,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Primer C4",
+      "pdfName": "Primer C4_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.23,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Primer MS",
+      "pdfName": "Primer MS_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "3x5 kg",
+          "amount": 31.39,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Primer PU 100",
+      "pdfName": "Primer PU 100_it_rev12.pdf",
+      "prices": [
+        {
+          "format": "2x12 kg",
+          "amount": 20.46,
+          "unit": "kg",
+          "packageSize": 12.0
+        },
+        {
+          "format": "3x6 kg",
+          "amount": 21.09,
+          "unit": "kg",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Primer PU-FIX 60",
+      "pdfName": "Primer PU-FIX 60_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 23.09,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 10.84,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.4,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Primer TS",
+      "pdfName": "Primer TS_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "2x12L",
+          "amount": 5.3,
+          "unit": "L",
+          "packageSize": 12.0
+        }
+      ]
+    },
+    {
+      "name": "Pro-Deck",
+      "pdfName": "Pro-Deck_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "10 L",
+          "amount": 22.5,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 24.53,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 27.3,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "10 L",
+          "amount": 28.9,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 30.98,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 32.98,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Prontostucco RS 40",
+      "pdfName": "Prontostucco RS 40_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "1 kg",
+          "amount": 6.27,
+          "unit": "kg",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x500 ml",
+          "amount": 7.79,
+          "unit": "kg",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Protect LED",
+      "pdfName": "Protect LED_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "25 L",
+          "amount": 62.0,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "10 L",
+          "amount": 65.0,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2,5 L",
+          "amount": 68.0,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "1 L",
+          "amount": 70.0,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "25 L",
+          "amount": 78.0,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "10 L",
+          "amount": 81.0,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2,5 L",
+          "amount": 84.0,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "1 L",
+          "amount": 86.0,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Protect UV",
+      "pdfName": "Protect UV_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "25 L",
+          "amount": 64.0,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "10 L",
+          "amount": 67.0,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2,5 L",
+          "amount": 70.0,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "1 L",
+          "amount": 72.0,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "25 L",
+          "amount": 80.3,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "10 L",
+          "amount": 83.3,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "2,5 L",
+          "amount": 86.3,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "1 L",
+          "amount": 88.3,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Pulito Parquet",
+      "pdfName": "Pulito Parquet_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 9.95,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 10.92,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 5.89,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 6.49,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Rallenty",
+      "pdfName": "Rallenty_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 12.87,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "2x10 L",
+          "amount": 12.15,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 12.86,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Re-Wood",
+      "pdfName": "Re-Wood_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 13.71,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 15.08,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.71,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 15.08,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Ready-Pro",
+      "pdfName": "Ready-Pro_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "12x750 ml",
+          "amount": 9.04,
+          "unit": "pz",
+          "packageSize": 0.75
+        },
+        {
+          "format": "750 ml",
+          "amount": 9.95,
+          "unit": "pz",
+          "packageSize": 0.75
+        }
+      ]
+    },
+    {
+      "name": "Resinal Wax",
+      "pdfName": "Resinal Wax_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 16.2,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 17.82,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Restauro",
+      "pdfName": "Restauro_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x3 kg",
+          "amount": 34.74,
+          "unit": "kg",
+          "packageSize": 3.0
+        }
+      ]
+    },
+    {
+      "name": "Rinovoil",
+      "pdfName": "Rinovoil_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 25.48,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 28.03,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 27.5,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 30.24,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 37.25,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 40.97,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 23.29,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "10x500 ml",
+          "amount": 15.48,
+          "unit": "L",
+          "packageSize": 0.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 28.75,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "10x500 ml",
+          "amount": 18.25,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "10 pz",
+          "amount": 2566.4,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 209.09,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 209.09,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 3129.86,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 246.64,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 246.64,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 1285.41,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 17.51,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.57,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.15,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 14.35,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 13.68,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 13.24,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 12.35,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 12.35,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 30.62,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 26.4,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 38.34,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 33.03,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.91,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.75,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.06,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.06,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.06,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.06,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 15.06,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 15.06,
+          "unit": "pz",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 15.06,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 15.06,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 15.06,
+          "unit": "pz",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 19.9,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 19.9,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 19.9,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 16.37,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "15 pz",
+          "amount": 16.37,
+          "unit": "L",
+          "packageSize": 15.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 17.1,
+          "unit": "pz",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 17.88,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "5 pz",
+          "amount": 19.76,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 19.76,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 8.4,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 8.9,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 16.0,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 47.19,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 86.56,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 86.56,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 30.16,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 23.84,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 19.65,
+          "unit": "pz",
+          "packageSize": 25.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 18.0,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 15.21,
+          "unit": "L",
+          "packageSize": 25.0
+        },
+        {
+          "format": "25 pz",
+          "amount": 14.09,
+          "unit": "pz",
+          "packageSize": 25.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 13.99,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 13.99,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 20.15,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 17.3,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 16.35,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 15.59,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 15.59,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.72,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.33,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.17,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.99,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.92,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.78,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.66,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.43,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.24,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.18,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.14,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.09,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.0,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 1.85,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.72,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.33,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.17,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.99,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.92,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.78,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.66,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.66,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.09,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.67,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.48,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.28,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.21,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.05,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.92,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 2.92,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.96,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.43,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.2,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.99,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.9,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.7,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.53,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.53,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.5,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 4.04,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.81,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.63,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.53,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.35,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.21,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.21,
+          "unit": "pz",
+          "packageSize": 50.0
+        },
+        {
+          "format": "50 pz",
+          "amount": 3.5,
+          "unit": "L",
+          "packageSize": 50.0
+        },
+        {
+          "format": "30 pz",
+          "amount": 3.36,
+          "unit": "pz",
+          "packageSize": 30.0
+        },
+        {
+          "format": "30 pz",
+          "amount": 3.14,
+          "unit": "L",
+          "packageSize": 30.0
+        },
+        {
+          "format": "60 pz",
+          "amount": 2.78,
+          "unit": "pz",
+          "packageSize": 60.0
+        },
+        {
+          "format": "60 pz",
+          "amount": 2.48,
+          "unit": "L",
+          "packageSize": 60.0
+        },
+        {
+          "format": "60 pz",
+          "amount": 2.18,
+          "unit": "pz",
+          "packageSize": 60.0
+        },
+        {
+          "format": "60 pz",
+          "amount": 2.15,
+          "unit": "L",
+          "packageSize": 60.0
+        },
+        {
+          "format": "60 pz",
+          "amount": 2.15,
+          "unit": "pz",
+          "packageSize": 60.0
+        },
+        {
+          "format": "36 L",
+          "amount": 3.87,
+          "unit": "L",
+          "packageSize": 36.0
+        },
+        {
+          "format": "50 L",
+          "amount": 3.87,
+          "unit": "pz",
+          "packageSize": 50.0
+        }
+      ]
+    },
+    {
+      "name": "Rockfloor F10",
+      "pdfName": "Rockfloor F10_it_rev08.pdf",
+      "prices": [
+        {
+          "format": "25 kg",
+          "amount": 2.68,
+          "unit": "kg",
+          "packageSize": 25.0
+        },
+        {
+          "format": "1050 kg",
+          "amount": 2.08,
+          "unit": "kg",
+          "packageSize": 1050.0
+        },
+        {
+          "format": "25 kg",
+          "amount": 1.51,
+          "unit": "kg",
+          "packageSize": 25.0
+        },
+        {
+          "format": "1050 kg",
+          "amount": 0.95,
+          "unit": "kg",
+          "packageSize": 1050.0
+        }
+      ]
+    },
+    {
+      "name": "SaniPro",
+      "pdfName": "SaniPro_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 25.26,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 27.79,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 14.93,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 16.42,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sanifloor",
+      "pdfName": "Sanifloor_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 10.45,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 11.49,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Saniparquet",
+      "pdfName": "Saniparquet_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 10.45,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 11.49,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sigil Clack",
+      "pdfName": "Sigil Clack_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 10.57,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "20x500 ml",
+          "amount": 9.96,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Sigil MS Nero",
+      "pdfName": "Sigil MS Nero_it_rev10.pdf",
+      "prices": [
+        {
+          "format": "290 ml",
+          "amount": 8.92,
+          "unit": "pz",
+          "packageSize": 0.29
+        },
+        {
+          "format": "12x290 ml",
+          "amount": 8.27,
+          "unit": "pz",
+          "packageSize": 0.29
+        }
+      ]
+    },
+    {
+      "name": "Sigil MS",
+      "pdfName": "Sigil MS_it_rev10.pdf",
+      "prices": [
+        {
+          "format": "600 ml",
+          "amount": 13.41,
+          "unit": "pz",
+          "packageSize": 0.6
+        },
+        {
+          "format": "20x600 ml",
+          "amount": 12.72,
+          "unit": "pz",
+          "packageSize": 0.6
+        }
+      ]
+    },
+    {
+      "name": "Smart",
+      "pdfName": "Smart_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 20.98,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Solver AD",
+      "pdfName": "Solver AD_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 11.45,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Base 1K",
+      "pdfName": "Sportfloor Base 1K_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 17.06,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Cleaner N2",
+      "pdfName": "Sportfloor Cleaner N2_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 9.64,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 11.01,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 11.31,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Cleaner",
+      "pdfName": "Sportfloor Cleaner_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.14,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 12.6,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 14.26,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Color",
+      "pdfName": "Sportfloor Color_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "4x(2,5+0,25) L",
+          "amount": 50.72,
+          "unit": "L",
+          "packageSize": 2.75
+        },
+        {
+          "format": "4x(2,5+0,25) L",
+          "amount": 61.92,
+          "unit": "L",
+          "packageSize": 2.75
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Grip&Play",
+      "pdfName": "Sportfloor Grip&Play_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 11.96,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 13.37,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 13.77,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Grip",
+      "pdfName": "Sportfloor Grip_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 32.54,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Refresh",
+      "pdfName": "Sportfloor Refresh_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "1 L",
+          "amount": 19.47,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Remover",
+      "pdfName": "Sportfloor Remover_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "1 L",
+          "amount": 20.43,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Sportfloor Skate",
+      "pdfName": "Sportfloor Skate_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "2x(5+1) L",
+          "amount": 38.6,
+          "unit": "L",
+          "packageSize": 6.0
+        },
+        {
+          "format": "2x(5+1) L",
+          "amount": 38.6,
+          "unit": "L",
+          "packageSize": 6.0
+        },
+        {
+          "format": "2x(5+0,5) L",
+          "amount": 33.5,
+          "unit": "L",
+          "packageSize": 5.5
+        }
+      ]
+    },
+    {
+      "name": "Stripcoll",
+      "pdfName": "Stripcoll_it_rev 03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 13.7,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "6x70 pz",
+          "amount": 38.21,
+          "unit": "L",
+          "packageSize": 70.0
+        },
+        {
+          "format": "12x1000 ml",
+          "amount": 29.5,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12 pz",
+          "amount": 5.87,
+          "unit": "pz",
+          "packageSize": 12.0
+        },
+        {
+          "format": "10 pz",
+          "amount": 7.3,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "1 pz",
+          "amount": 78.74,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 7.05,
+          "unit": "L",
+          "packageSize": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Super Gold",
+      "pdfName": "Super Gold_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "2x(5+1) L",
+          "amount": 25.41,
+          "unit": "L",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Tingo universale",
+      "pdfName": "Tingo universale_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 26.66,
+          "unit": "L",
+          "packageSize": 0.5
+        },
+        {
+          "format": "500 ml",
+          "amount": 30.89,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Tintoretto Design",
+      "pdfName": "Tintoretto Design_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 33.37,
+          "unit": "pz",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 9.5,
+          "unit": "L",
+          "packageSize": 0.1
+        },
+        {
+          "format": "12x1 L",
+          "amount": 50.52,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 50.52,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1L",
+          "amount": 68.12,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "100 ml",
+          "amount": 10.5,
+          "unit": "L",
+          "packageSize": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Tone-Up",
+      "pdfName": "Tone-Up_it_rev10.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 18.57,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol LVT Fibre Plus",
+      "pdfName": "Tovcol LVT Fibre Plus_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "44x12 kg",
+          "amount": 8.81,
+          "unit": "kg",
+          "packageSize": 12.0
+        },
+        {
+          "format": "90x5 kg",
+          "amount": 9.3,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol MPL",
+      "pdfName": "Tovcol MPL_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "44x15 kg",
+          "amount": 8.21,
+          "unit": "kg",
+          "packageSize": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol MS Green",
+      "pdfName": "Tovcol MS Green_it_rev01.pdf",
+      "prices": [
+        {
+          "format": "90x5 kg",
+          "amount": 13.77,
+          "unit": "kg",
+          "packageSize": 5.0
+        },
+        {
+          "format": "290 ml",
+          "amount": 10.68,
+          "unit": "pz",
+          "packageSize": 0.29
+        },
+        {
+          "format": "12x290 ml",
+          "amount": 9.8,
+          "unit": "pz",
+          "packageSize": 0.29
+        }
+      ]
+    },
+    {
+      "name": "Tovcol MS Start",
+      "pdfName": "Tovcol MS Start_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "44x15 kg",
+          "amount": 9.34,
+          "unit": "kg",
+          "packageSize": 15.0
+        },
+        {
+          "format": "44x15 kg",
+          "amount": 9.82,
+          "unit": "L",
+          "packageSize": 15.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol MS",
+      "pdfName": "Tovcol MS_it_rev10.pdf",
+      "prices": [
+        {
+          "format": "44x15 kg",
+          "amount": 9.85,
+          "unit": "kg",
+          "packageSize": 15.0
+        },
+        {
+          "format": "44x15 kg",
+          "amount": 10.34,
+          "unit": "L",
+          "packageSize": 15.0
+        },
+        {
+          "format": "90x5 kg",
+          "amount": 19.39,
+          "unit": "kg",
+          "packageSize": 5.0
+        },
+        {
+          "format": "90x5 kg",
+          "amount": 21.43,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "290 ml",
+          "amount": 14.07,
+          "unit": "kg",
+          "packageSize": 0.29
+        },
+        {
+          "format": "12x290 ml",
+          "amount": 13.02,
+          "unit": "L",
+          "packageSize": 0.29
+        }
+      ]
+    },
+    {
+      "name": "Tovcol PU2C",
+      "pdfName": "Tovcol PU2C_it_rev14.pdf",
+      "prices": [
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 7.08,
+          "unit": "kg",
+          "packageSize": 11.0
+        },
+        {
+          "format": "90x(4,5+0,5) kg",
+          "amount": 7.59,
+          "unit": "kg",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol PU2K",
+      "pdfName": "Tovcol PU2K_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 6.8,
+          "unit": "kg",
+          "packageSize": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol RP",
+      "pdfName": "Tovcol RP_it_rev09.pdf",
+      "prices": [
+        {
+          "format": "44x15 kg",
+          "amount": 7.62,
+          "unit": "kg",
+          "packageSize": 15.0
+        },
+        {
+          "format": "90x7 kg",
+          "amount": 9.2,
+          "unit": "kg",
+          "packageSize": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol SR",
+      "pdfName": "Tovcol SR_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "10x(0,9+0,1) kg",
+          "amount": 12.76,
+          "unit": "kg",
+          "packageSize": 1.0
+        },
+        {
+          "format": "0,9+0,1 kg",
+          "amount": 13.44,
+          "unit": "kg",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol T91",
+      "pdfName": "Tovcol T91_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 10.16,
+          "unit": "kg",
+          "packageSize": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol TA",
+      "pdfName": "Tovcol TA_it_rev12.pdf",
+      "prices": [
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 5.85,
+          "unit": "kg",
+          "packageSize": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol TP2C",
+      "pdfName": "Tovcol TP2C_it_rev07.pdf",
+      "prices": [
+        {
+          "format": "55x(9,9+1,1) kg",
+          "amount": 6.22,
+          "unit": "kg",
+          "packageSize": 11.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol TP5",
+      "pdfName": "Tovcol TP5_it_rev05.pdf",
+      "prices": [
+        {
+          "format": "500 ml",
+          "amount": 9.04,
+          "unit": "pz",
+          "packageSize": 0.5
+        },
+        {
+          "format": "20x500 ml",
+          "amount": 8.22,
+          "unit": "pz",
+          "packageSize": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Tovcol TST",
+      "pdfName": "Tovcol TST_it_rev06.pdf",
+      "prices": [
+        {
+          "format": "90x6 kg",
+          "amount": 11.86,
+          "unit": "kg",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Tovcol Wet&Dry",
+      "pdfName": "Tovcol Wet&Dry_it_rev02.pdf",
+      "prices": [
+        {
+          "format": "44x12 kg",
+          "amount": 9.24,
+          "unit": "kg",
+          "packageSize": 12.0
+        },
+        {
+          "format": "90x6 kg",
+          "amount": 9.77,
+          "unit": "kg",
+          "packageSize": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Toverfix",
+      "pdfName": "Toverfix_it_rev09.pdf",
+      "prices": [
+        {
+          "format": "2x10 L",
+          "amount": 18.36,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 18.99,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Uniqua Antislip",
+      "pdfName": "Uniqua Antislip_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 37.79,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "Uniqua Paint",
+      "pdfName": "Uniqua Paint_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "4x2,5 L",
+          "amount": 49.08,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 51.73,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 62.34,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 65.0,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "Uniqua SQ",
+      "pdfName": "Uniqua SQ_it_rev15.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 30.05,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 31.08,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "3x5 L",
+          "amount": 37.79,
+          "unit": "L",
+          "packageSize": 5.0
+        }
+      ]
+    },
+    {
+      "name": "WPC Cleaner",
+      "pdfName": "WPC Cleaner_it_rev03.pdf",
+      "prices": [
+        {
+          "format": "12x1 L",
+          "amount": 14.75,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "1 L",
+          "amount": 16.22,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    },
+    {
+      "name": "WPC Cover",
+      "pdfName": "WPC Cover_it_rev04.pdf",
+      "prices": [
+        {
+          "format": "3x5 L",
+          "amount": 32.74,
+          "unit": "L",
+          "packageSize": 5.0
+        },
+        {
+          "format": "12x1 L",
+          "amount": 33.98,
+          "unit": "L",
+          "packageSize": 1.0
+        },
+        {
+          "format": "10 L",
+          "amount": 16.33,
+          "unit": "pz",
+          "packageSize": 10.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 18.25,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x750 ml",
+          "amount": 20.8,
+          "unit": "L",
+          "packageSize": 0.75
+        },
+        {
+          "format": "10 L",
+          "amount": 18.25,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 20.16,
+          "unit": "pz",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x750 ml",
+          "amount": 22.71,
+          "unit": "L",
+          "packageSize": 0.75
+        },
+        {
+          "format": "10 L",
+          "amount": 26.93,
+          "unit": "L",
+          "packageSize": 10.0
+        },
+        {
+          "format": "4x2,5 L",
+          "amount": 27.56,
+          "unit": "L",
+          "packageSize": 2.5
+        },
+        {
+          "format": "12x1 L",
+          "amount": 30.11,
+          "unit": "L",
+          "packageSize": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1221 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tover Floor Navigator</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202326;
+      --muted: #667078;
+      --line: #d9dee2;
+      --paper: #f3f5f6;
+      --panel: #ffffff;
+      --dark: #25292d;
+      --dark-2: #343a40;
+      --accent: #f37021;
+      --ok: #1f7a5a;
+      --warn: #a75f00;
+      --shadow: 0 18px 34px rgba(20, 24, 28, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .top {
+      color: #fff;
+      background: var(--dark);
+      border-bottom: 6px solid var(--accent);
+    }
+
+    .top-inner {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+      padding: 24px 16px 26px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand strong {
+      color: var(--accent);
+      font-size: clamp(2rem, 8vw, 3.6rem);
+      line-height: .9;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: rgba(255, 255, 255, .78);
+      font-size: .9rem;
+      font-weight: 850;
+    }
+
+    .source-pill {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, .86);
+      font-size: .78rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .workspace {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .card,
+    .product-card,
+    .metric,
+    .notice {
+      border-radius: 8px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 58px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fafbfc;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--dark);
+      font-size: 1rem;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section-head span {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .body {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--dark);
+      font-size: .86rem;
+      font-weight: 900;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 2px solid #cfd5da;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 12px;
+      font-size: 1rem;
+      font-weight: 750;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 86px;
+      padding: 12px;
+      line-height: 1.4;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(243, 112, 33, .16);
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .flow-steps {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid #dde3e7;
+      border-radius: 8px;
+      background: #f8fafb;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 8px;
+      align-items: start;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .flow-step b {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--dark);
+      font-size: .78rem;
+    }
+
+    .method-panel {
+      padding: 12px;
+      border: 1px solid #dde3e7;
+      border-radius: 8px;
+      background: #f8fafb;
+    }
+
+    .segmented button,
+    .primary,
+    .ghost,
+    .small-action {
+      min-height: 50px;
+      border: 0;
+      border-radius: 8px;
+      font-weight: 950;
+    }
+
+    .segmented button {
+      color: var(--dark);
+      background: #edf0f2;
+    }
+
+    .segmented button.is-active {
+      color: #fff;
+      background: var(--dark);
+    }
+
+    .primary {
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 10px 22px rgba(243, 112, 33, .25);
+    }
+
+    .ghost {
+      color: var(--dark);
+      background: #edf0f2;
+    }
+
+    .small-action {
+      min-height: 38px;
+      padding: 0 10px;
+      color: #fff;
+      background: var(--dark);
+      font-size: .78rem;
+      white-space: nowrap;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .product-card.is-selected {
+      border-color: var(--accent);
+      box-shadow: inset 4px 0 0 var(--accent);
+    }
+
+    .product-card strong,
+    .product-card small {
+      display: block;
+    }
+
+    .product-card strong {
+      color: var(--dark);
+      line-height: 1.15;
+    }
+
+    .product-card small {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 10px;
+    }
+
+    .metric {
+      min-height: 104px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .metric.primary-metric {
+      color: #fff;
+      border-color: var(--dark);
+      background: var(--dark);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .metric.primary-metric span {
+      color: rgba(255, 255, 255, .68);
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.25rem, 6vw, 2rem);
+      line-height: 1;
+    }
+
+    .summary {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+
+    .summary th,
+    .summary td {
+      padding: 10px 0;
+      border-bottom: 1px solid #e6eaee;
+      vertical-align: top;
+    }
+
+    .summary th {
+      color: var(--muted);
+      font-weight: 850;
+      text-align: left;
+    }
+
+    .summary td {
+      color: var(--dark);
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .notice {
+      display: none;
+      padding: 12px;
+      border: 1px solid rgba(167, 95, 0, .22);
+      color: var(--warn);
+      background: rgba(167, 95, 0, .08);
+      font-weight: 820;
+      line-height: 1.35;
+    }
+
+    .notice.is-visible {
+      display: block;
+    }
+
+    .source-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.4;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 900px) {
+      .workspace {
+        grid-template-columns: minmax(310px, 390px) minmax(0, 1fr);
+        align-items: start;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid.three,
+      .metrics {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      #estimate,
+      .results-card {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .top,
+      .navigator-card,
+      .source-card,
+      .actions,
+      .notice {
+        display: none !important;
+      }
+
+      .workspace {
+        width: 100%;
+        display: block;
+        padding: 0;
+      }
+
+      .card {
+        border: 0;
+        box-shadow: none;
+      }
+
+      .section-head {
+        padding-left: 0;
+        padding-right: 0;
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="top-inner">
+        <div class="brand-row">
+          <div class="brand">
+            <strong>Tover</strong>
+            <span>Floor Navigator e preventivo da schede tecniche STD</span>
+          </div>
+          <div class="source-pill" id="sourceCount">Caricamento dati</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="card navigator-card">
+        <div class="section-head">
+          <h2>Navigator</h2>
+          <span>Flow tecnico</span>
+        </div>
+        <div class="body">
+          <div class="segmented" aria-label="Fasi">
+            <button class="is-active" type="button" data-jump="guide">Guida</button>
+            <button type="button" data-jump="estimate">Preventivo</button>
+            <button type="button" data-jump="summary">PDF</button>
+          </div>
+
+          <label for="workType">Tipo di lavoro
+            <select id="workType">
+              <option value="adhesive_parquet">Incollaggio parquet</option>
+              <option value="adhesive_resilient">Posa LVT, PVC o resilienti</option>
+              <option value="primer">Primer, consolidamento o barriera umidità</option>
+              <option value="leveller">Rasatura o livellamento</option>
+              <option value="finish">Verniciatura parquet</option>
+              <option value="oil">Oliatura, cera o colorazione</option>
+              <option value="outdoor">Legno in esterno</option>
+              <option value="maintenance">Pulizia o manutenzione</option>
+            </select>
+          </label>
+
+          <label for="subfloor">Sottofondo
+            <select id="subfloor">
+              <option value="cemento">Massetto cementizio</option>
+              <option value="anidrite">Anidrite o gesso</option>
+              <option value="assorbente">Supporto assorbente</option>
+              <option value="non_assorbente">Supporto non assorbente</option>
+              <option value="umido">Umidità o consolidamento</option>
+              <option value="legno">Legno o parquet esistente</option>
+            </select>
+          </label>
+
+          <label for="covering">Materiale o finitura finale
+            <select id="covering">
+              <option value="parquet">Parquet</option>
+              <option value="lvt">LVT, PVC o resiliente</option>
+              <option value="vernice">Verniciatura parquet</option>
+              <option value="olio">Olio, cera o colorazione</option>
+              <option value="esterno">Decking o legno esterno</option>
+              <option value="sottofondo">Solo preparazione sottofondo</option>
+              <option value="manutenzione">Pulizia o manutenzione</option>
+            </select>
+          </label>
+
+          <label for="goal">Condizione tecnica
+            <select id="goal">
+              <option value="standard">Sottofondo asciutto e regolare</option>
+              <option value="critico">Sottofondo critico o da consolidare</option>
+              <option value="radiante">Riscaldamento a pavimento</option>
+              <option value="umidita">Barriera umidità</option>
+              <option value="rapido">Cantiere rapido</option>
+              <option value="antiscivolo">Antiscivolo</option>
+              <option value="naturale">Effetto naturale/opaco</option>
+            </select>
+          </label>
+
+          <div class="flow-steps" aria-live="polite">
+            <div class="flow-step"><b>1</b><span id="flowWork">Definisci il lavoro</span></div>
+            <div class="flow-step"><b>2</b><span id="flowSubfloor">Leggi il sottofondo</span></div>
+            <div class="flow-step"><b>3</b><span id="flowSystem">Scegli il sistema tecnico</span></div>
+          </div>
+
+          <label for="search">Cerca prodotto o scheda
+            <input id="search" type="search" placeholder="Es. Tovcol, Primer, Uniqua">
+          </label>
+
+          <button class="primary" type="button" id="calculateGuide">Calcola raccomandazioni</button>
+        </div>
+      </section>
+
+      <section class="card source-card" id="guide">
+        <div class="section-head">
+          <h2>Prodotti consigliati</h2>
+          <span id="matchCount">-</span>
+        </div>
+        <div class="body">
+          <div class="product-list" id="productList"></div>
+          <p class="source-note" id="selectedSource">Le raccomandazioni sono generate dai tag estratti dalle schede tecniche STD e vanno verificate sulla scheda tecnica del prodotto.</p>
+        </div>
+      </section>
+
+      <section class="card" id="estimate">
+        <div class="section-head">
+          <h2>Preventivo</h2>
+          <span id="selectedProductLabel">-</span>
+        </div>
+        <div class="body">
+          <div class="grid three">
+            <label for="sqm">Metri quadri
+              <input id="sqm" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Es. 85">
+            </label>
+
+            <label for="yieldSelect">Parametro tecnico
+              <select id="yieldSelect"></select>
+            </label>
+
+            <label for="manualYield">Consumo base
+              <input id="manualYield" type="number" inputmode="decimal" min="0" step="0.0001">
+            </label>
+          </div>
+
+          <div class="method-panel">
+            <div class="grid three">
+              <label for="methodSelect" id="methodSelectLabel">Scelta tecnica
+                <select id="methodSelect"></select>
+              </label>
+
+              <label for="coats" id="coatsLabel">Numero mani
+                <input id="coats" type="number" inputmode="numeric" min="1" step="1" value="2">
+              </label>
+
+              <label for="thickness" id="thicknessLabel">Spessore mm
+                <input id="thickness" type="number" inputmode="decimal" min="0" step="0.1" value="1">
+              </label>
+            </div>
+          </div>
+
+          <div class="grid three">
+            <label for="priceSelect">Listino 2026
+              <select id="priceSelect"></select>
+            </label>
+
+            <label for="packageSelect">Formato confezione
+              <select id="packageSelect"></select>
+            </label>
+
+            <label for="manualPack">Confezione manuale
+              <input id="manualPack" type="number" inputmode="decimal" min="0" step="0.01">
+            </label>
+
+            <label for="unitPrice">Prezzo
+              <input id="unitPrice" type="number" inputmode="decimal" min="0" step="0.01" placeholder="€/kg, €/L o €/pz">
+            </label>
+          </div>
+
+          <div class="grid three">
+            <label for="discount">Sconto materiale %
+              <input id="discount" type="number" inputmode="decimal" min="0" max="100" step="0.01" value="0">
+            </label>
+
+            <label for="labor">Posa €/m²
+              <input id="labor" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+            </label>
+
+            <label for="extra">Extra cantiere €
+              <input id="extra" type="number" inputmode="decimal" min="0" step="0.01" value="0">
+            </label>
+          </div>
+
+          <label for="notes">Note cliente/cantiere
+            <textarea id="notes" placeholder="Es. sottofondo da consolidare, posa in ambiente commerciale, supporto non assorbente"></textarea>
+          </label>
+
+          <p class="notice" id="notice">Inserisci metri quadri, consumo, confezione e prezzo unità per calcolare il preventivo.</p>
+          <button class="primary" type="button" id="calculateEstimate">Calcola preventivo</button>
+        </div>
+      </section>
+
+      <section class="card results-card" id="summary">
+        <div class="section-head">
+          <h2>Riepilogo stampabile</h2>
+          <span id="today">-</span>
+        </div>
+        <div class="body" id="printArea">
+          <div class="metrics">
+            <div class="metric primary-metric">
+              <span>Totale preventivo</span>
+              <strong id="quoteTotal">-</strong>
+            </div>
+            <div class="metric">
+              <span>Preventivo al m²</span>
+              <strong id="quoteSqm">-</strong>
+            </div>
+            <div class="metric">
+              <span>Confezioni intere</span>
+              <strong id="packs">-</strong>
+            </div>
+          </div>
+
+          <table class="summary">
+            <tbody>
+              <tr><th>Prodotto</th><td id="sumProduct">-</td></tr>
+              <tr><th>Scheda tecnica</th><td id="sumPdf">-</td></tr>
+              <tr><th>Percorso navigator</th><td id="sumPath">-</td></tr>
+              <tr><th>Metri quadri</th><td id="sumSqm">-</td></tr>
+              <tr><th>Consumo usato</th><td id="sumYield">-</td></tr>
+              <tr><th>Quantità necessaria</th><td id="sumQty">-</td></tr>
+              <tr><th>Materiale acquistato</th><td id="sumBought">-</td></tr>
+              <tr><th>Materiale netto</th><td id="sumMaterial">-</td></tr>
+              <tr><th>Posa</th><td id="sumLabor">-</td></tr>
+              <tr><th>Extra</th><td id="sumExtra">-</td></tr>
+              <tr><th>Note</th><td id="sumNotes">-</td></tr>
+            </tbody>
+          </table>
+
+          <p class="source-note" id="sumSource">Fonte consumo: -</p>
+
+          <div class="actions">
+            <button class="ghost" type="button" id="printBtn">Stampa / salva PDF</button>
+            <button class="ghost" type="button" id="emailBtn">Prepara email</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const els = {
+      sourceCount: document.querySelector("#sourceCount"),
+      workType: document.querySelector("#workType"),
+      subfloor: document.querySelector("#subfloor"),
+      covering: document.querySelector("#covering"),
+      goal: document.querySelector("#goal"),
+      flowWork: document.querySelector("#flowWork"),
+      flowSubfloor: document.querySelector("#flowSubfloor"),
+      flowSystem: document.querySelector("#flowSystem"),
+      search: document.querySelector("#search"),
+      productList: document.querySelector("#productList"),
+      matchCount: document.querySelector("#matchCount"),
+      selectedSource: document.querySelector("#selectedSource"),
+      selectedProductLabel: document.querySelector("#selectedProductLabel"),
+      sqm: document.querySelector("#sqm"),
+      yieldSelect: document.querySelector("#yieldSelect"),
+      manualYield: document.querySelector("#manualYield"),
+      methodSelect: document.querySelector("#methodSelect"),
+      methodSelectLabel: document.querySelector("#methodSelectLabel"),
+      coats: document.querySelector("#coats"),
+      coatsLabel: document.querySelector("#coatsLabel"),
+      thickness: document.querySelector("#thickness"),
+      thicknessLabel: document.querySelector("#thicknessLabel"),
+      priceSelect: document.querySelector("#priceSelect"),
+      packageSelect: document.querySelector("#packageSelect"),
+      manualPack: document.querySelector("#manualPack"),
+      unitPrice: document.querySelector("#unitPrice"),
+      discount: document.querySelector("#discount"),
+      labor: document.querySelector("#labor"),
+      extra: document.querySelector("#extra"),
+      notes: document.querySelector("#notes"),
+      notice: document.querySelector("#notice"),
+      today: document.querySelector("#today"),
+      quoteTotal: document.querySelector("#quoteTotal"),
+      quoteSqm: document.querySelector("#quoteSqm"),
+      packs: document.querySelector("#packs"),
+    };
+
+    const euro = new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR" });
+    const number = new Intl.NumberFormat("it-IT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const integer = new Intl.NumberFormat("it-IT", { maximumFractionDigits: 0 });
+
+    let products = [];
+    let selectedProduct = null;
+    let latest = null;
+
+    const WORKFLOWS = {
+      adhesive_parquet: {
+        label: "Incollaggio parquet",
+        covering: "parquet",
+        methodLabel: "Dentatura/spatola",
+        methods: ["Da scheda tecnica", "TKB/A2", "TKB/B1", "TKB/B2", "Spatola per parquet"],
+        flow: ["Incollaggio parquet", "Valuta tipo e condizione del sottofondo", "Scegli colla e dentatura coerenti con parquet e supporto"]
+      },
+      adhesive_resilient: {
+        label: "Posa LVT, PVC o resilienti",
+        covering: "lvt",
+        methodLabel: "Dentatura/spatola",
+        methods: ["Da scheda tecnica", "TKB/A1", "TKB/A2", "TKB/B1", "Rullo/adesivo a contatto"],
+        flow: ["Posa pavimento resiliente", "Verifica assorbenza e planarita del sottofondo", "Scegli adesivo e dentatura per il rivestimento"]
+      },
+      primer: {
+        label: "Primer, consolidamento o barriera",
+        covering: "sottofondo",
+        methodLabel: "Funzione tecnica",
+        methods: ["Aggrappante", "Consolidante", "Barriera umidita", "Primer per non assorbente"],
+        flow: ["Preparazione del sottofondo", "Individua assorbenza, coesione e umidita", "Scegli primer, consolidante o barriera"]
+      },
+      leveller: {
+        label: "Rasatura o livellamento",
+        covering: "sottofondo",
+        methodLabel: "Tipo rasatura",
+        methods: ["Rasatura fine", "Livellamento", "Ripristino localizzato"],
+        showThickness: true,
+        flow: ["Rasatura/livellamento", "Misura irregolarita e compatibilita del sottofondo", "Calcola il consumo in base allo spessore"]
+      },
+      finish: {
+        label: "Verniciatura parquet",
+        covering: "vernice",
+        methodLabel: "Tipo finitura",
+        methods: ["Finitura standard", "Extra matt/opaca", "Antiscivolo", "Sportiva"],
+        showCoats: true,
+        defaultCoats: 2,
+        flow: ["Verniciatura", "Verifica legno, fondo e carteggiatura", "Calcola il ciclo in base alle mani previste"]
+      },
+      oil: {
+        label: "Oliatura, cera o colorazione",
+        covering: "olio",
+        methodLabel: "Tipo applicazione",
+        methods: ["Olio neutro", "Olio colorato", "Cera/manutenzione", "Colorazione"],
+        showCoats: true,
+        defaultCoats: 1,
+        flow: ["Oliatura/colorazione", "Valuta essenza e assorbimento del legno", "Calcola consumo in base alle mani previste"]
+      },
+      outdoor: {
+        label: "Legno in esterno",
+        covering: "esterno",
+        methodLabel: "Intervento esterno",
+        methods: ["Protezione decking", "Pulizia decking", "Rinnovo legno esterno"],
+        showCoats: true,
+        defaultCoats: 1,
+        flow: ["Legno in esterno", "Valuta esposizione e stato del legno", "Scegli detergenza, protezione o rinnovo"]
+      },
+      maintenance: {
+        label: "Pulizia o manutenzione",
+        covering: "manutenzione",
+        methodLabel: "Intervento",
+        methods: ["Pulizia ordinaria", "Pulizia straordinaria", "Rinnovo", "Rimozione residui"],
+        flow: ["Manutenzione", "Individua superficie e tipo sporco", "Scegli detergente o prodotto di rinnovo"]
+      }
+    };
+
+    function parseValue(value) {
+      return Number(String(value || "").replace(",", "."));
+    }
+
+    function money(value) {
+      return euro.format(Number.isFinite(value) ? value : 0);
+    }
+
+    function amount(value, unit) {
+      return `${number.format(value)} ${unit || ""}`.trim();
+    }
+
+    function selectedText(select) {
+      return select.options[select.selectedIndex]?.textContent || "-";
+    }
+
+    function navigatorPath() {
+      return `${selectedText(els.workType)} · ${selectedText(els.subfloor)} · ${selectedText(els.covering)} · ${selectedText(els.goal)}`;
+    }
+
+    function activeWorkflow() {
+      return WORKFLOWS[els.workType.value] || WORKFLOWS.adhesive_parquet;
+    }
+
+    function productWorkflow(product) {
+      const category = product.category.toLowerCase();
+      const name = product.name.toLowerCase();
+      const text = `${name} ${category}`;
+      if (/leveller|rockfloor|rasant|livell/.test(text)) return "leveller";
+      if (category.includes("primer") || /primer|idroblok|adeblok|nano-fix|toverfix|pepp/.test(text)) return "primer";
+      if (category.includes("adesivi") && /lvt|rp|mpl|wet|tst|resilient|pvc/.test(text)) return "adhesive_resilient";
+      if (category.includes("adesivi")) return "adhesive_parquet";
+      if (category.includes("vernici") || category.includes("sportivi")) return "finish";
+      if (category.includes("oli") || /olio|oil|cera|color/.test(text)) return "oil";
+      if (category.includes("esterno")) return "outdoor";
+      if (category.includes("pulizia") || /cleaner|pulito|lavaggio|remover|sani/.test(text)) return "maintenance";
+      return "primer";
+    }
+
+    function estimateWorkflow() {
+      const key = selectedProduct ? productWorkflow(selectedProduct) : els.workType.value;
+      return WORKFLOWS[key] || activeWorkflow();
+    }
+
+    function updateWorkflowUi() {
+      const workflow = activeWorkflow();
+      els.covering.value = workflow.covering;
+      configureMethodControls(els.workType.value);
+      els.flowWork.textContent = workflow.flow[0];
+      els.flowSubfloor.textContent = workflow.flow[1];
+      els.flowSystem.textContent = workflow.flow[2];
+    }
+
+    function configureMethodControls(workflowKey) {
+      const workflow = WORKFLOWS[workflowKey] || activeWorkflow();
+      els.methodSelectLabel.firstChild.textContent = `${workflow.methodLabel} `;
+      els.methodSelect.innerHTML = "";
+      workflow.methods.forEach((method, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = method;
+        els.methodSelect.appendChild(option);
+      });
+      els.coatsLabel.style.display = workflow.showCoats ? "grid" : "none";
+      els.thicknessLabel.style.display = workflow.showThickness ? "grid" : "none";
+      els.coats.value = workflow.defaultCoats || 1;
+      els.thickness.value = workflow.showThickness ? "1" : "1";
+    }
+
+    function scoreProduct(product) {
+      const tags = product.tags || {};
+      const haystack = `${product.name} ${product.category} ${product.pdfName}`.toLowerCase();
+      const category = product.category.toLowerCase();
+      const workflow = els.workType.value;
+      const productFamily = productWorkflow(product);
+      const query = els.search.value.trim().toLowerCase();
+      const needsPreparation = workflow.startsWith("adhesive")
+        && (["umido", "non_assorbente", "anidrite"].includes(els.subfloor.value) || ["umidita", "critico", "radiante"].includes(els.goal.value));
+      let score = 0;
+      if (query && !haystack.includes(query)) return -1;
+      if (productFamily === workflow) score += 40;
+      if (needsPreparation && productFamily === "primer") score += 64;
+      if (productFamily !== workflow && !(needsPreparation && productFamily === "primer") && !query) score -= 24;
+      if ((tags.subfloors || []).includes(els.subfloor.value)) score += 8;
+      if ((tags.coverings || []).includes(els.covering.value)) score += 12;
+      if ((tags.goals || []).includes(els.goal.value)) score += 7;
+      if (category.includes("adesivi") && els.covering.value === "parquet") score += 18;
+      if (category.includes("adesivi") && els.covering.value === "lvt") score += 18;
+      if (category.includes("primer") && els.covering.value === "sottofondo") score += 18;
+      if (category.includes("vernici") && els.covering.value === "vernice") score += 18;
+      if (category.includes("oli") && els.covering.value === "olio") score += 18;
+      if (category.includes("esterno") && els.covering.value === "esterno") score += 18;
+      if (category.includes("pulizia") && els.covering.value === "manutenzione") score += 18;
+      if (category.includes("primer") && ["parquet", "lvt"].includes(els.covering.value) && !["umido", "non_assorbente"].includes(els.subfloor.value)) score -= 7;
+      if (product.yields?.length) score += 4;
+      if (product.packages?.length) score += 2;
+      if (query && haystack.includes(query)) score += 20;
+      return score;
+    }
+
+    function rankedProducts() {
+      return products
+        .map(product => ({ product, score: scoreProduct(product) }))
+        .filter(entry => entry.score >= 0)
+        .sort((a, b) => b.score - a.score || a.product.name.localeCompare(b.product.name));
+    }
+
+    function renderProducts() {
+      const ranked = rankedProducts();
+      const visible = ranked.slice(0, 8);
+      els.productList.innerHTML = "";
+      els.matchCount.textContent = `${ranked.length} schede`;
+
+      visible.forEach(({ product, score }) => {
+        const card = document.createElement("article");
+        const content = document.createElement("div");
+        const button = document.createElement("button");
+        const yieldText = product.yields?.[0]
+          ? `${amount(product.yields[0].amount, product.yields[0].unit)}/m²`
+          : "consumo da inserire";
+        const priceText = product.prices?.[0] ? ` · ${priceLabel(product.prices[0])}` : " · prezzo manuale";
+
+        card.className = `product-card${selectedProduct?.id === product.id ? " is-selected" : ""}`;
+        content.innerHTML = `<strong>${product.name}</strong><small>${product.category} · ${yieldText}${priceText} · ${product.pdfName}</small>`;
+        button.className = "small-action";
+        button.type = "button";
+        button.textContent = "Usa";
+        button.addEventListener("click", () => selectProduct(product));
+        card.appendChild(content);
+        card.appendChild(button);
+        els.productList.appendChild(card);
+      });
+
+      if (!visible.length) {
+        els.productList.innerHTML = '<p class="source-note">Nessun prodotto trovato per questa combinazione.</p>';
+      }
+
+      const selectedIsVisible = visible.some(({ product }) => product.id === selectedProduct?.id);
+      if (visible.length && (!selectedProduct || !selectedIsVisible)) selectProduct(visible[0].product);
+    }
+
+    function selectProduct(product) {
+      selectedProduct = product;
+      els.selectedProductLabel.textContent = product.name;
+      els.selectedSource.textContent = `Scheda selezionata: ${product.pdfName}. Percorso PDF: ${product.pdfPath}`;
+      configureMethodControls(productWorkflow(product));
+      populateYieldOptions(product);
+      populatePriceOptions(product);
+      populatePackageOptions(product);
+      renderProducts();
+      updateSummaryShell();
+    }
+
+    function populateYieldOptions(product) {
+      els.yieldSelect.innerHTML = "";
+      const workflow = estimateWorkflow();
+      (product.yields || []).forEach((item, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = `${technicalYieldLabel(item, workflow)} - ${amount(item.amount, item.unit)}/m²`;
+        els.yieldSelect.appendChild(option);
+      });
+      const custom = document.createElement("option");
+      custom.value = "manual";
+      custom.textContent = "Inserisci consumo manuale";
+      els.yieldSelect.appendChild(custom);
+      const first = product.yields?.[0];
+      els.manualYield.value = first ? first.amount : "";
+    }
+
+    function technicalYieldLabel(item, workflow) {
+      if (workflow.showThickness) return "Consumo per mm";
+      if (workflow.showCoats) return "Consumo per mano/ciclo";
+      if (workflow === WORKFLOWS.primer) return item.label || "Funzione tecnica";
+      if (workflow === WORKFLOWS.adhesive_parquet || workflow === WORKFLOWS.adhesive_resilient) return "Consumo colla da scheda";
+      return item.label || "Consumo da scheda";
+    }
+
+    function priceLabel(price) {
+      if (!price) return "Prezzo manuale";
+      const unit = price.unit === "pz" ? "pz" : price.unit;
+      return `${price.format} - ${money(price.amount)}/${unit}`;
+    }
+
+    function populatePriceOptions(product) {
+      els.priceSelect.innerHTML = "";
+      (product.prices || []).forEach((price, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = priceLabel(price);
+        els.priceSelect.appendChild(option);
+      });
+      const custom = document.createElement("option");
+      custom.value = "manual";
+      custom.textContent = "Inserisci prezzo manuale";
+      els.priceSelect.appendChild(custom);
+    }
+
+    function populatePackageOptions(product) {
+      els.packageSelect.innerHTML = "";
+      const sourcePackages = product.prices?.length
+        ? product.prices.map(price => ({ amount: price.packageSize, unit: price.unit === "pz" ? product.yields?.[0]?.unit || "pz" : price.unit, label: priceLabel(price) })).filter(item => item.amount)
+        : product.packages || [];
+
+      sourcePackages.forEach((item, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = item.label || amount(item.amount, item.unit);
+        els.packageSelect.appendChild(option);
+      });
+      const custom = document.createElement("option");
+      custom.value = "manual";
+      custom.textContent = "Inserisci confezione manuale";
+      els.packageSelect.appendChild(custom);
+      const firstPackage = sourcePackages[0];
+      const firstYield = product.yields?.[0];
+      els.manualPack.value = firstPackage ? firstPackage.amount : "";
+      applySelectedPrice();
+      els.unitPrice.placeholder = firstPackage?.unit ? `€/${firstPackage.unit}` : firstYield?.unit ? `€/${firstYield.unit}` : "€/unità";
+    }
+
+    function getSelectedYield() {
+      if (!selectedProduct) return null;
+      if (els.yieldSelect.value === "manual") {
+        const fallbackUnit = selectedProduct.yields?.[0]?.unit || selectedProduct.packages?.[0]?.unit || "";
+        return { label: "Consumo manuale", amount: parseValue(els.manualYield.value), unit: fallbackUnit, source: "Inserito manualmente" };
+      }
+      const item = selectedProduct.yields?.[Number(els.yieldSelect.value)] || selectedProduct.yields?.[0];
+      return item ? { ...item } : { label: "Consumo manuale", amount: parseValue(els.manualYield.value), unit: selectedProduct.packages?.[0]?.unit || "", source: "Inserito manualmente" };
+    }
+
+    function getSelectedPackage() {
+      if (!selectedProduct) return null;
+      if (els.packageSelect.value === "manual") {
+        const fallbackUnit = selectedProduct.packages?.[0]?.unit || selectedProduct.yields?.[0]?.unit || "";
+        return { amount: parseValue(els.manualPack.value), unit: fallbackUnit };
+      }
+      if (selectedProduct.prices?.length) {
+        const price = selectedProduct.prices[Number(els.packageSelect.value)] || selectedProduct.prices[0];
+        if (price) {
+          return { amount: price.packageSize, unit: price.unit === "pz" ? selectedProduct.yields?.[0]?.unit || "pz" : price.unit };
+        }
+      }
+      const item = selectedProduct.packages?.[Number(els.packageSelect.value)] || selectedProduct.packages?.[0];
+      return item ? { ...item } : { amount: parseValue(els.manualPack.value), unit: selectedProduct.yields?.[0]?.unit || "" };
+    }
+
+    function getSelectedPrice() {
+      if (!selectedProduct || els.priceSelect.value === "manual") return null;
+      return selectedProduct.prices?.[Number(els.priceSelect.value)] || selectedProduct.prices?.[0] || null;
+    }
+
+    function applySelectedPrice() {
+      const price = getSelectedPrice();
+      if (!price) return;
+      els.unitPrice.value = price.amount;
+      els.unitPrice.placeholder = price.unit === "pz" ? "€/pz" : `€/${price.unit}`;
+      if (price.packageSize) {
+        els.manualPack.value = price.packageSize;
+      }
+      if (selectedProduct?.prices?.length && els.packageSelect.value !== els.priceSelect.value) {
+        els.packageSelect.value = els.priceSelect.value;
+      }
+    }
+
+    function consumptionMultiplier() {
+      const workflow = estimateWorkflow();
+      if (workflow.showThickness) return Math.max(parseValue(els.thickness.value) || 1, 0);
+      if (workflow.showCoats) return Math.max(parseValue(els.coats.value) || workflow.defaultCoats || 1, 1);
+      return 1;
+    }
+
+    function methodSummary() {
+      const workflow = estimateWorkflow();
+      const method = selectedText(els.methodSelect);
+      if (workflow.showThickness) return `${method} · ${number.format(consumptionMultiplier())} mm`;
+      if (workflow.showCoats) return `${method} · ${integer.format(consumptionMultiplier())} ${consumptionMultiplier() === 1 ? "mano" : "mani"}`;
+      return method;
+    }
+
+    function updateSummaryShell() {
+      if (!selectedProduct) return;
+      setText("#sumProduct", selectedProduct.name);
+      setText("#sumPdf", selectedProduct.pdfName);
+      setText("#sumPath", navigatorPath());
+      setText("#sumSource", `Parametro tecnico: ${methodSummary()}. Fonte consumo: ${getSelectedYield()?.source || "-"}`);
+    }
+
+    function setText(selector, value) {
+      document.querySelector(selector).textContent = value;
+    }
+
+    function calculate() {
+      if (!selectedProduct) return;
+      const yieldItem = getSelectedYield();
+      const pack = getSelectedPackage();
+      const price = getSelectedPrice();
+      const sqm = parseValue(els.sqm.value);
+      const unitPrice = parseValue(els.unitPrice.value);
+      const discount = Math.min(Math.max(parseValue(els.discount.value) || 0, 0), 100);
+      const laborRate = Math.max(parseValue(els.labor.value) || 0, 0);
+      const extra = Math.max(parseValue(els.extra.value) || 0, 0);
+      const multiplier = consumptionMultiplier();
+      const effectiveYield = yieldItem ? yieldItem.amount * multiplier : 0;
+
+      if (!sqm || sqm <= 0 || !effectiveYield || effectiveYield <= 0 || !pack?.amount || pack.amount <= 0 || !unitPrice || unitPrice <= 0) {
+        els.notice.classList.add("is-visible");
+        return;
+      }
+
+      els.notice.classList.remove("is-visible");
+      const needed = sqm * effectiveYield;
+      const packs = Math.ceil(needed / pack.amount);
+      const bought = packs * pack.amount;
+      const grossMaterial = price?.unit === "pz" ? packs * unitPrice : bought * unitPrice;
+      const discountAmount = grossMaterial * (discount / 100);
+      const netMaterial = grossMaterial - discountAmount;
+      const laborTotal = sqm * laborRate;
+      const total = netMaterial + laborTotal + extra;
+      const unit = pack.unit || yieldItem.unit;
+
+      latest = { yieldItem, pack, price, sqm, unitPrice, discount, multiplier, effectiveYield, needed, packs, bought, grossMaterial, discountAmount, netMaterial, laborRate, laborTotal, extra, total, unit };
+
+      els.quoteTotal.textContent = money(total);
+      els.quoteSqm.textContent = `${money(total / sqm)}/m²`;
+      els.packs.textContent = integer.format(packs);
+      setText("#sumProduct", selectedProduct.name);
+      setText("#sumPdf", selectedProduct.pdfName);
+      setText("#sumPath", navigatorPath());
+      setText("#sumSqm", `${number.format(sqm)} m²`);
+      setText("#sumYield", `${amount(effectiveYield, yieldItem.unit || unit)}/m² · ${methodSummary()} · ${price ? priceLabel(price) : "prezzo manuale"}`);
+      setText("#sumQty", amount(needed, unit));
+      setText("#sumBought", `${integer.format(packs)} confezioni · ${amount(bought, unit)}`);
+      setText("#sumMaterial", `${money(netMaterial)} (${discount ? `${number.format(discount)}% sconto` : "senza sconto"})`);
+      setText("#sumLabor", `${money(laborRate)}/m² · ${money(laborTotal)}`);
+      setText("#sumExtra", money(extra));
+      setText("#sumNotes", els.notes.value.trim() || "-");
+      setText("#sumSource", `Parametro tecnico: ${methodSummary()}. Fonte consumo: ${yieldItem.source || "-"}`);
+    }
+
+    function emailSummary() {
+      if (!latest || !selectedProduct) calculate();
+      if (!latest) return;
+      const body = [
+        "Preventivo Tover Floor Navigator",
+        "",
+        `Prodotto: ${selectedProduct.name}`,
+        `Scheda tecnica: ${selectedProduct.pdfName}`,
+        `Percorso: ${navigatorPath()}`,
+        `Metri quadri: ${number.format(latest.sqm)} m²`,
+        `Confezioni: ${integer.format(latest.packs)}`,
+        `Totale: ${money(latest.total)}`,
+        "",
+        `Note: ${els.notes.value.trim() || "-"}`
+      ].join("\n");
+      window.location.href = `mailto:?subject=${encodeURIComponent("Preventivo Tover")}&body=${encodeURIComponent(body)}`;
+    }
+
+    async function init() {
+      els.today.textContent = new Intl.DateTimeFormat("it-IT", { dateStyle: "medium" }).format(new Date());
+      updateWorkflowUi();
+      try {
+        const response = await fetch("data/products.json");
+        const data = await response.json();
+        products = data.products || [];
+        const priced = data.priceList?.matchedProducts || products.filter(product => product.prices?.length).length;
+        els.sourceCount.textContent = `${data.productCount || products.length} schede · ${priced} prezzi`;
+        renderProducts();
+      } catch (error) {
+        els.sourceCount.textContent = "Dati non caricati";
+        els.productList.innerHTML = '<p class="source-note">Avvia un server locale nella cartella dell’app per caricare data/products.json.</p>';
+      }
+    }
+
+    document.querySelector("#calculateGuide").addEventListener("click", renderProducts);
+    document.querySelector("#calculateEstimate").addEventListener("click", calculate);
+    document.querySelector("#printBtn").addEventListener("click", () => {
+      if (!latest) calculate();
+      window.print();
+    });
+    document.querySelector("#emailBtn").addEventListener("click", emailSummary);
+    document.querySelectorAll("[data-jump]").forEach(button => {
+      button.addEventListener("click", () => document.querySelector(`#${button.dataset.jump}`).scrollIntoView({ behavior: "smooth", block: "start" }));
+    });
+    els.workType.addEventListener("change", () => {
+      updateWorkflowUi();
+      selectedProduct = null;
+      renderProducts();
+      updateSummaryShell();
+    });
+    [els.subfloor, els.covering, els.goal].forEach(control => control.addEventListener("change", renderProducts));
+    els.search.addEventListener("input", renderProducts);
+    [els.methodSelect, els.coats, els.thickness].forEach(control => control.addEventListener("input", () => {
+      updateSummaryShell();
+      if (latest) calculate();
+    }));
+    els.priceSelect.addEventListener("change", () => {
+      applySelectedPrice();
+      updateSummaryShell();
+    });
+
+    [els.yieldSelect, els.packageSelect].forEach(control => control.addEventListener("change", () => {
+      if (control === els.packageSelect && selectedProduct?.prices?.length && els.packageSelect.value !== "manual") {
+        els.priceSelect.value = els.packageSelect.value;
+        applySelectedPrice();
+      }
+      const yieldItem = getSelectedYield();
+      const pack = getSelectedPackage();
+      if (yieldItem?.amount) els.manualYield.value = yieldItem.amount;
+      if (pack?.amount) els.manualPack.value = pack.amount;
+      updateSummaryShell();
+    }));
+
+    init();
+  </script>
+</body>
+</html>
