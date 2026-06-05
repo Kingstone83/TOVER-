@@ -682,7 +682,6 @@
 
           <div class="actions">
             <button class="ghost" type="button" id="printBtn">Stampa / salva PDF</button>
-            <button class="ghost" type="button" id="emailBtn">Prepara email</button>
           </div>
         </div>
       </section>
@@ -1142,24 +1141,6 @@
       setText("#sumSource", `Parametro tecnico: ${methodSummary()}. Fonte consumo: ${yieldItem.source || "-"}`);
     }
 
-    function emailSummary() {
-      if (!latest || !selectedProduct) calculate();
-      if (!latest) return;
-      const body = [
-        "Preventivo Tover Floor Navigator",
-        "",
-        `Prodotto: ${selectedProduct.name}`,
-        `Scheda tecnica: ${selectedProduct.pdfName}`,
-        `Percorso: ${navigatorPath()}`,
-        `Metri quadri: ${number.format(latest.sqm)} m²`,
-        `Confezioni: ${integer.format(latest.packs)}`,
-        `Totale: ${money(latest.total)}`,
-        "",
-        `Note: ${els.notes.value.trim() || "-"}`
-      ].join("\n");
-      window.location.href = `mailto:?subject=${encodeURIComponent("Preventivo Tover")}&body=${encodeURIComponent(body)}`;
-    }
-
     async function init() {
       els.today.textContent = new Intl.DateTimeFormat("it-IT", { dateStyle: "medium" }).format(new Date());
       updateWorkflowUi();
@@ -1182,7 +1163,6 @@
       if (!latest) calculate();
       window.print();
     });
-    document.querySelector("#emailBtn").addEventListener("click", emailSummary);
     document.querySelectorAll("[data-jump]").forEach(button => {
       button.addEventListener("click", () => document.querySelector(`#${button.dataset.jump}`).scrollIntoView({ behavior: "smooth", block: "start" }));
     });
